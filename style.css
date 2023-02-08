@@ -1,0 +1,286 @@
+/*Brings Headers to the very top of Screen: */
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+/*Gets Rid of Line and Color from Links: */
+a:link, a:visited
+{
+  color:white;
+  text-decoration: none;
+}
+
+/*Page Body BackGround Colour: */
+body 
+{
+    background-color: rgb(90, 90, 90);
+}
+
+/*Hamburger Menu Table/Row: */
+#Top_Row
+{
+    height: 3%;
+    width: 100%;
+    background-color: rgb(48, 48, 48);
+}
+/*Hamburger Menu Image: */
+#Burger
+{
+    height: 60px;
+    border-radius: 50%;
+}
+
+.navbar 
+{
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .navbar a 
+  {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn 
+  {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn 
+  {
+    background-color: white;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content 
+  {
+    display: block;
+  }
+
+/*Image of MySelf: */
+#Nick
+{
+    width: 33.3%;
+    margin-top: 1%;
+    margin-left: 33.3%;
+    margin-right: 33.3%;
+    border-radius: 50%;
+    border: solid 5px black;
+}
+#Nick:hover
+{
+  border: 5px solid white;
+}
+
+/*My Name: */
+#Name
+{
+    padding-left: 40%;
+    padding-right: 0%;
+    font-family: Arial;
+    font-size: 165%;
+    color: black;
+}
+
+/*My Job: */
+#Occupation
+{
+    padding-left: 38%;
+    font-family:Arial;
+    font-size: 165%;
+    color: black;
+}
+
+/*Change Color of Name and Occupation on Hover: */
+#Name:hover,#Occupation:hover,th:hover, h1:hover
+{
+    color: white;
+}
+
+/*Change Font of Headers: */
+h1
+{
+    font-family: Arial;
+}
+
+/*Change the Font, Size, and Position of Bio Items: */
+#My_Bio
+{
+    font-family: Ariel;
+    font-size: 125%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    border: black solid 5px;
+}
+
+/*Change the Size of the Bio Box Width: */
+#My_Bio
+{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+}
+
+/*Change the Project Description Sentence: */
+#project_Descript
+{
+    font-family: Ariel;
+    font-size: 125%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: black solid 5px;
+}
+
+/*Slideshow Container: */
+.Slideshow_container
+{
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/*Hide the Images by Default: */
+.theSlides 
+{
+  display: none;
+}
+
+/*The Navigation Buttons: */
+/* Position the image container (needed to position the left and right arrows) */
+.container 
+{
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides 
+{
+  display: none;
+  width: 70%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor 
+{
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,.next 
+{
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next 
+{
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover,
+#git:hover,
+#email:hover
+{
+  background-color: white;
+}
+
+/* Number text (1/# etc) */
+.numbertext 
+{
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.row:after 
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*Contact Me Icons: */
+#icons
+{
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 80%;
+  border: black solid 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+  
+}
+#git
+{
+  padding-top: 5%;
+  width: 40%;
+}
+#email
+{
+  padding-top: 10%;
+  width: 90%;
+}
