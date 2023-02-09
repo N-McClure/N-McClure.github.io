@@ -30,20 +30,6 @@ function credentialMatch()
         return false;
     }
 
-    //Check E-Mail Domain:
-    let FunnyDomain = "@GiggleSearch.ca";
-
-    if (z.include(FunnyDomain))
-    {
-        //E-Mail Valid as a Giggle Account:
-        return true;
-    }
-    else
-    {
-        alert("Not an @GiggleSearch E-Mail address");
-        return false;
-    }
-
 }
 
 //Function to Read and Search Based on the User's Search Query:
