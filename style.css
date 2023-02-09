@@ -115,7 +115,12 @@ body
 /*My Name: */
 #Name
 {
-    
+    font-family: Ariel;
+    font-size: 125%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    border: black solid 5px;
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
@@ -140,12 +145,6 @@ body
 /*Change Color of Name and Occupation on Hover: */
 #Name:hover,#Occupation:hover,th:hover, h1:hover
 {
-    font-family: Ariel;
-    font-size: 125%;
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 80%;
-    border: black solid 5px;
     color: white;
 }
 
