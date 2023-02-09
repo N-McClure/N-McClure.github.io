@@ -144,7 +144,7 @@ h1
 }
 
 /*Change the Font, Size, and Position of Bio Items: */
-#My_Bio
+#My_Bio,#NameAndJob
 {
     font-family: Ariel;
     font-size: 125%;
