@@ -115,28 +115,37 @@ body
 /*My Name: */
 #Name
 {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    font-family: Arial;
-    font-size: 165%;
-    color: black;
+    
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
 }
 
 /*My Job: */
 #Occupation
 {
+    font-family: Ariel;
+    font-size: 125%;
+    padding-left: 10%;
+    padding-right: 10%;
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-family:Arial;
-    font-size: 165%;
-    color: black;
+    border: black solid 5px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
 }
 
 /*Change Color of Name and Occupation on Hover: */
 #Name:hover,#Occupation:hover,th:hover, h1:hover
 {
+    font-family: Ariel;
+    font-size: 125%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    border: black solid 5px;
     color: white;
 }
 
