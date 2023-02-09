@@ -116,8 +116,8 @@ body
 #Name
 {
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     font-family: Arial;
     font-size: 165%;
     color: black;
