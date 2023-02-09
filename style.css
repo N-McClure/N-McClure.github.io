@@ -115,6 +115,9 @@ body
 /*My Name: */
 #Name
 {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-family: Arial;
     font-size: 165%;
     color: black;
@@ -123,6 +126,9 @@ body
 /*My Job: */
 #Occupation
 {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-family:Arial;
     font-size: 165%;
     color: black;
