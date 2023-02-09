@@ -112,15 +112,6 @@ body
   border: 5px solid white;
 }
 
-#NameAndJob
-{
-    font-family: Ariel;
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 80%;
-    border: black solid 5px;
-}
-
 /*My Name: */
 #Name
 {
