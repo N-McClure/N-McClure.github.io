@@ -112,11 +112,19 @@ body
   border: 5px solid white;
 }
 
+#NameAndJob
+{
+    font-family: Ariel;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    border: black solid 5px;
+}
+}
+
 /*My Name: */
 #Name
 {
-    padding-left: 40%;
-    padding-right: 0%;
     font-family: Arial;
     font-size: 165%;
     color: black;
@@ -125,7 +133,6 @@ body
 /*My Job: */
 #Occupation
 {
-    padding-left: 38%;
     font-family:Arial;
     font-size: 165%;
     color: black;
@@ -144,7 +151,7 @@ h1
 }
 
 /*Change the Font, Size, and Position of Bio Items: */
-#My_Bio,#NameAndJob
+#My_Bio
 {
     font-family: Ariel;
     font-size: 125%;
