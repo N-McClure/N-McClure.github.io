@@ -116,10 +116,10 @@ body
 #Name
 {
     font-family: Ariel;
-    font-size: 125%;
+    font-size: 135;
     padding-left: 33.3%;
     padding-right: 33.3%;
-    width: 33.3%;
+    width: 40%;
     border: black solid 5px;
     margin-left: 15%;
     margin-right: 15%;
@@ -130,10 +130,10 @@ body
 #Occupation
 {
     font-family: Ariel;
-    font-size: 125%;
+    font-size: 135%;
     padding-left: 33.3%;
     padding-right: 33.3%;
-    width: 33.3%;
+    width: 40%;
     border: black solid 5px;
     margin-left: 15%;
     margin-right: 15%;
