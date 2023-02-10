@@ -116,7 +116,7 @@ body
 #Name
 {
     font-family: Ariel;
-    font-size: 135;
+    font-size: 200%;
     padding-left: 33.3%;
     padding-right: 33.3%;
     width: 40%;
@@ -130,7 +130,7 @@ body
 #Occupation
 {
     font-family: Ariel;
-    font-size: 135%;
+    font-size: 200%;
     padding-left: 33.3%;
     padding-right: 33.3%;
     width: 40%;
