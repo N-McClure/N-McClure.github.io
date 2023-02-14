@@ -6,7 +6,7 @@ let Images = [
     "MultiMedia/FPVA1887.JPG",
     "MultiMedia/FRLT7945.JPG",
     "MultiMedia/FSOL8248.JPG",
-    "Multimedia/GDCV3995.JPG",
+    "MultiMedia/GDCV3995.JPG",
     "MultiMedia/HBQI9266.JPG",
     "MultiMedia/HMAI0261.JPG",
     "MultiMedia/ISIO1683.JPG",
