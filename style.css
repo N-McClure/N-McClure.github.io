@@ -176,13 +176,14 @@ h1
 #project_Descript
 {
     font-family: Ariel;
-    font-size: 125%;
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    font-size: 200%;
+    padding-left: 35%;
+    padding-right: 35%;
+    width: 40%;
     border: black solid 5px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
 }
 
 /*Slideshow Container: */
