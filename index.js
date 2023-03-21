@@ -1,6 +1,12 @@
 //Show that JS File is Connected:
 console.log("RUNNING...");
 
+//For the Visit Counter:
+function websiteVisits(response)
+{
+    document.querySelector("#visits").textContent = response.value;
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
