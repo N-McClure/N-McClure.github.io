@@ -1,0 +1,225 @@
+/*Gets Rid of Line and Color from Links: */
+a:link, a:visited
+{
+  color:white;
+  text-decoration: none;
+}
+
+/*Smooth Scrolling in the HTML: */
+html
+{
+  scroll-behavior: smooth;
+}
+
+/*****************************************************/
+
+/*Div 1 on Index.html */
+
+.mainTop,.mainBottom
+{
+  background-color: rgb(165, 165, 165);
+}
+
+/*Top Nav-Bar Table/Row: */
+#Top_Row
+{
+    height: 3%;
+    width: 90%;
+    margin-top: none;;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: rgb(255, 48, 48);
+    border-radius: 25px;
+
+}
+/*Closing Tag Logo Image: */
+#Tag_Logo, #Tag_Logo2,#Tag_Logo3
+{
+    height: 60px;
+    border-radius: 50%;
+}
+
+.navbar 
+{
+    overflow: hidden;
+ 
+  }
+  
+  .navbar a 
+  {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  .dropbtn, .dropbtn2, .dropbtn3
+  { 
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+  }
+  
+  .navbar a:hover, .dropbtn:hover, .dropbtn3:hover
+  {
+    background-color: white;
+  }
+
+/*Nav-Bar Font: */
+h2,h1
+{
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2:hover
+{
+  color: rgb(165, 165, 165);
+}
+  
+/*Table with Image and Hello in Top Div on Index: */
+#Div1_Content
+{  
+  width: 90%;
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
+#WaveNick
+{
+  background-color: white;
+  width: 45%;
+  border-radius: 15%;
+}
+#HelloThere
+{
+  background-color: rgb(255, 48, 48);
+  width: 45%;
+  border-radius: 15%;
+  padding-left: 2%;
+}
+
+/************************************************/
+
+/*Div 2 on Index.html: */
+
+.main2
+{
+  background-color: white;
+}
+
+.dropbtn2:hover
+{
+  background-color: rgb(255, 48, 48);
+}
+
+/*Table with Image and Description in Second Div on Index: */
+#Div2_Content
+{  
+  width: 90%;
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
+#NickImage
+{
+  background-color: white;
+  width: 100%;
+  border-radius: 15%;
+}
+#AboutMe
+{
+  background-color: rgb(255, 48, 48);
+  width: 45%;
+  border-radius: 15%;
+  padding-left: 2%;
+}
+
+/*********************************************/
+
+/* Div 3 on Index.html: */
+
+.main3
+{
+  background-color:rgb(255, 48, 48);
+}
+
+#Div3_Content
+{
+  width: 90%;
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
+#project1
+{
+  width: 20%;
+}
+
+
+
+/*********************************************/
+
+/* Div 4 on Index.html: */
+
+#Div4_Content
+{  
+  width: 90%;
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
+
+#Resume
+{
+  background-color: white;
+  width: 30%;
+  border-radius: 15%;
+  padding-left: 2%;
+}
+#ResumeText
+{
+  color:rgb(255, 48, 48);
+}
+
+#resumeDoc
+{
+  background-color:rgb(255, 48, 48);
+  width: 50%;
+  font-size: 125%;
+  border-radius: 15%;
+  padding: 2%;
+}
+#resumeDoc:hover
+{
+  background-color:rgb(165, 165, 165);
+}
+
+#links
+{
+  background-color:rgb(255, 48, 48);
+  width: 65%;
+  border-radius: 15%;
+  padding: 13%;
+}
+#GitHub_Icon
+{
+  width: 40%;
+  border-radius: 50%;
+}
+#E-Mail_Icon
+{
+  width: 40%;
+  border-radius: 50%;
+  padding-left: 6.5%;
+}
+

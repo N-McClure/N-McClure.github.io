@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Link to CSS File: -->
+    <link rel = "stylesheet" href = "Giggle_WindowSize_Control.css">
+
+    <!-- Link to JavaScript File: -->
+    <script src = "Giggle_JavaScript.js"></script>
+
+    <head> 
+        <!-- Title in the Page Tab: Giggle -->
+        <title> Giggle </title>
+
+    </head>
+
+    <body>
+        <div class = "main">
+
+            <!-- HyperLink to Log-In / Sign-Up: -->
+            <a href = "LogIn_SignUp.html">Log-In/Sign-Up</a><br>
+
+            <!-- HyperLink to About Us: -->
+            <a href = "Our_Team.html">About our Team</a><br>
+
+            <!-- The Giggle Logo: -->
+            <img id = "GiggleLogo" src = "media/Giggle_Logo.png" height = "275">
+            
+            <!-- Horizontal Line to Seperate: -->
+            <hr>
+
+            <!-- Text Box for the User Search Input: -->
+            <form name = "SearchSomething" onsubmit = "return FindJokes()" method = "get">
+            <table>
+                <tr>
+                    <td><input type = "text" id = "Joke_Search" autofocus required placeholder = "  Enter a Joke Type or Comedian:"></td>
+                    <!-- Button to submit the User's Search: -->
+                    <td><input type = "submit" value = "Search" id = "searchButton"></td>
+                </tr>
+            </table>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
