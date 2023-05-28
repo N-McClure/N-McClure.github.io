@@ -1,0 +1,56 @@
+/*Brings Headers to the very top of Screen: */
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+/*Gets Rid of Line and Color from Links: */
+a:link, a:visited
+{
+  color:white;
+  text-decoration: none;
+}
+
+/*Page Body BackGround Colour: */
+body 
+{
+    background-image: url('MultiMedia/VotingPoll.jpg');
+    background-size: 20%;
+    background-color: transparent;
+}
+
+/*The App Name Header: */
+#AppName
+{
+    background-image: linear-gradient(rgb(234,52,52), rgb(160,0,0));
+    width: 100%;
+    padding-left: 38%;
+    padding-right: 38%;
+    border: solid 5px black;
+}
+h1
+{
+    font-family: "Arial";
+    font-size: 190%;
+    text-shadow: 2px 1px white;
+}
+
+/*The App Rules: */
+#rules
+{
+    background-image: linear-gradient(rgb(234,52,52), rgb(160,0,0));
+    width: 100%;
+    padding-left: 33.3%;
+    padding-right: 33.3%;
+    border: solid 5px black;
+}
+
+img
+{
+    background-image: linear-gradient(rgb(234,52,52), rgb(160,0,0));
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
+    border: solid 5px black;
+}
