@@ -160,9 +160,13 @@ h2:hover
   margin-bottom: 1%;
 }
 
-#project1, #project2, #project3
+#project1, #project2
 {
   width: 20%;
+}
+#project3
+{
+  width: 50%;
 }
 
 
