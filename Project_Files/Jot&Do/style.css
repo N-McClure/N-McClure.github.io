@@ -1,0 +1,57 @@
+/*Brings Headers to the very top of Screen: */
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+/*Background Color of the Body of the Page: */
+body
+{
+    background-color: rgb(255, 223, 143);
+}
+
+/*Background color of the Top Div: */
+.main_Top
+{
+    background-color: rgb(164, 82, 0);
+}
+
+/* Middle Div Background Image: */
+.main_Mid
+{
+    background-image: url("MultiMedia/paper_BG.jpg");
+    width: 70%;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+/*Headers of Size 3 font and size: */
+h3, #taskLabel
+{
+    font-size: x-large;
+    font-family:'Courier New', Courier, monospace;
+}
+
+/*Headers of Size 1 font and size: */
+h1
+{
+    font-size: xx-large;
+    font-family:'Courier New', Courier, monospace;
+}
+
+/*Top Row / App Title: */
+#appTitle
+{
+    height: 5%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+#taskItem
+{
+    font-family:'Courier New', Courier, monospace;
+}
+
+

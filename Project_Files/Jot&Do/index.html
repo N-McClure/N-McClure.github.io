@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    
+    <!-- Tab Content = Note It! -->
+    <link rel ="icon" href = "MultiMedia/Note_Icon.png">
+    <title>Jot&Do!</title>
+</head>
+<body>
+
+    <!-- Connecting to the External CSS file, style.css: -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Connecting to the External JavaScript file, jsStuff.js: -->
+    <script src="jsStuff.js"></script>
+<!-------------------------------------------------------------------------->
+
+    <!-- Top part of the Page: -->
+    <div class="main_Top">
+        <table id="appTitle">
+            <tr>
+                <td><img id="notesPic" src="MultiMedia/Note_Icon.png"></td>
+                <td><h1>Jot&Do!</h1></td>
+            </tr>
+            <tr>
+                <td><h3>Welcome to Jot&Do! This app is a way to easily make To-Do Lists and check it's Items off.</h3></td>
+            </tr>
+        </table>
+    </div>
+    
+<!------------------------------------------------------------------------------>
+
+    <!-- Main part of the Page...Where the List is made and Shown: -->
+    <div class="main_Mid">
+        <form id="taskForm" method="post" onsubmit="return addTask('list',this.newTask)">
+            <strong><label id="taskLabel">New Task: </label></strong><input type="text" id="newTask" required placeholder="Please enter a task to add.">
+            <input type="submit"value="Add Task" id = "AddButton">
+        </form>
+        <br>
+        <h3>Tasks To Do:</h3>
+            <ol id="tasks">
+                <!-- Task List Items get added and checked off via functions and DOM manipulation is JS. -->
+            </ol>
+              
+        </table>
+    </div>
+
+
+
+</body>
+</html>
