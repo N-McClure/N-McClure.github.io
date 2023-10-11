@@ -300,7 +300,12 @@ h2:hover
 #E-Mail_Icon
 {
   width: 20%;
-  border-radius: 55%;
+  padding-left: 6.5%;
+}
+#YouTube_Icon
+{
+  width: 20%;
+  border-radius: 50%;
   padding-left: 6.5%;
 }
 
