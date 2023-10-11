@@ -304,8 +304,7 @@ h2:hover
 }
 #YouTube_Icon
 {
-  height: 1%;
-  border-radius: 50%;
+  width: 20%;
   padding-left: 6.5%;
 }
 
