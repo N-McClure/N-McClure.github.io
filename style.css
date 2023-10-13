@@ -316,7 +316,7 @@ h2:hover
 /***********************************************************************/
 
 /* Trying to make the Section Divs Fill the screen: */
-.mainTop, .main3, .mainBottom
+.mainTop, .mainBottom
 {
   height: 100vh;
 }
