@@ -29,7 +29,7 @@ html
     margin-left: 5%;
     margin-right: 5%;
     background-color: rgb(255, 48, 48);
-    border-radius: 12deg;
+    border-radius: 25px;
 
 }
 /*Closing Tag Logo Image: */
@@ -95,13 +95,13 @@ h2:hover
 {
   background-color: white;
   width: 45%;
-  border-radius: 12deg;
+  border-radius: 15%;
 }
 #HelloThere
 {
   background-color: rgb(255, 48, 48);
   width: 45%;
-  border-radius: 12deg;
+  border-radius: 15%;
   padding-left: 2%;
 }
 
@@ -132,13 +132,13 @@ h2:hover
 {
   background-color: white;
   width: 100%;
-  border-radius: 12deg;
+  border-radius: 15%;
 }
 #AboutMe
 {
   background-color: rgb(255, 48, 48);
   width: 45%;
-  border-radius: 12deg;
+  border-radius: 15%;
   padding-left: 2%;
 }
 
@@ -264,7 +264,7 @@ h2:hover
 {
   background-color: white;
   width: 30%;
-  border-radius: 12deg;
+  border-radius: 15%;
   padding-left: 2%;
 }
 #ResumeText
@@ -277,7 +277,7 @@ h2:hover
   background-color:rgb(255, 48, 48);
   width: 50%;
   font-size: 125%;
-  border-radius: 12deg;
+  border-radius: 15%;
   padding: 2%;
 }
 #resumeDoc:hover
@@ -289,7 +289,7 @@ h2:hover
 {
   background-color:rgb(255, 48, 48);
   width: 65%;
-  border-radius: 12deg;
+  border-radius: 15%;
   padding: 13%;
 }
 #GitHub_Icon
