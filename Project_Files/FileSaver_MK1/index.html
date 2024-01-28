@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!--
+
+    Project Name: File-Saver
+    Project Description: This app allows you to write content in a text box and then save it as a variety of different File types.
+    Date Started: 2024-01-22
+    Date Finished: 2024-01-28
+    
+    -------------------------------------------------------------------------------------------------------------------------------
+
+    Developer Name: Nick McClure
+    Portfolio / Personal Site: https://n-mcclure.github.io/
+    GitHub: https://github.com/N-McClure
+    LinkedIn: https://www.linkedin.com/in/nick-mcclure-578565295/
+    YouTube: https://www.youtube.com/@NickMcClure_ProgrammingGuy
+    Blog: https://n-mcclure004.livejournal.com/
+
+-->
+
+<html>
+    <head>
+        <!-- Content for the page tab: -->
+        <title>File-Saver</title>
+
+        <!-- Connection to the External JavaScript File: -->
+        <script src="js_Stuff.js" defer></script>
+
+        <!-- Connection to the External CSS File: -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Div for all the Inputs: -->
+        <div class="wrapping">
+            <!-- Text Area for the File contents: -->
+            <textarea placeholder="Please enter text content." required></textarea>
+            
+            <div class="fileOptions">
+                <!-- File Name Input: -->
+                <div class="fileName">
+                    <label> File Name: </label>
+                    <input type="text" placeholder="Enter File Name." required>
+                </div>
+
+                <br>
+
+                <!-- Selecting the type of file to Save it as: -->
+                <div class="fileSaveAs">
+                    <label> Save As: </label>
+                    <div class="typeOptions">
+                        <select>
+                            <option value="text/plain">Text File (.txt)</option>
+                            <option value="text/javascript">JavaScript File (.js)</option>
+                            <option value="text/html">HTML File (.html)</option>
+                            <option value="application/msword">Document File (.doc)</option>
+                            <option value="application/vnd.ms-powerpoint">PowerPoint File (.ppt)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <!-- Button to Save the file: -->
+            <button class="saveFile">Save File</button>
+        </div>
+    </body>
+</html>

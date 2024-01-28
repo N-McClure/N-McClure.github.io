@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 214, 118);
+    min-height: 100vh;
+
+}
+
+.wrapping{
+    width: 450px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 30px 25px 40px;
+}
+
+.wrapping :where(textarea, input, select, button){
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.wrapping :where(input){
+    border: 2px solid #ccc;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.wrapping textarea{
+    height: 270px;
+    border: 2px  solid #ccc;
+    resize: none;
+    padding: 8px 3px;
+}
+
+.wrapping .typeOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.typeOptions .option{
+    width: calc(100% / 2 - 8px);
+}
+
+.option :where(input, .typeOptions){
+    height: 50px;
+    padding: 0 15px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+}
+
+.option .typeOptions select{
+    height: 50px;
+}
+
+.wrapping .saveFile{
+    color: white;
+    margin-top: 20px;
+    padding: 16px;
+    background: rgb(0, 214, 118)
+}
+.wrapping .saveFile:hover{
+    background: #ccc;
+    border: 2px solid rgb(0, 214, 118);
+}
