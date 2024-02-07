@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <!-- Content for the page tab: -->
+        <link rel="icon" href="multimedia/oscarsLogo.png">s
+        <title>Search By Film Name</title>
+
+        <!-- Connection to the External JavaScript Files: -->
+        <script src="js-Data.js" defer></script>
+        <script src="js-Functions.js" defer></script>
+
+        <!-- Connection to the External CSS File: -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="wrapping">
+            <div class="filmInput">
+                <!-- Film Name Input: -->
+                <div class="filmName">
+                    <label> Film Name: </label>
+                    <input type="text" id="titleInput" placeholder="Search by Film Name." required>
+                </div>
+            </div>
+            <!-- Button to Search for the Films by User Inputted Title: -->
+            <button class="searchFilm" id="nameButton" onclick="searchViaTitle()">Search for Films</button>
+
+            <button class="searchFilm"><a href="index.html">Back to Main Page</a></button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <!-- Content for the page tab: -->
+        <link rel="icon" href="multimedia/oscarsLogo.png">
+        <title>Search By Category</title>
+
+        <!-- Connection to the External JavaScript Files: -->
+        <script src="js-Data.js" defer></script>
+        <script src="js-Functions.js" defer></script>
+
+        <!-- Connection to the External CSS File: -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Nomination Category Selection: -->
+        <div class="wrapping">
+            <div class="categorySelection">
+                <label> Search by Nomination Category: </label>
+                <div class="categoryOptions">
+                    <select>
+                        <option value="Best Motion Picture">Best Motion Picture</option>
+                        <option value="Actor In a Leading Role">Actor In a Leading Role</option>
+                        <option value="Actor In a Supporting Role">Actor In a Supporting Role</option>
+                        <option value="Actress In a Leading Role">Actress In a Leading Role</option>
+                        <option value="Actress In a Supporting Role">Actress In a Supporting Role</option>
+                        <option value="Directing">Directing</option>
+                        <option value="Animated Feature Film">Animated Feature Film</option>
+                        <option value="Cinematography">Cinemetography</option>
+                        <option value="Costume Design">Costume Design</option>
+                        <option value="Documentary Feature Film">Documentary Feature Film</option>
+                        <option value="Documentary Short Film">Documentary Short Film</option>
+                        <option value="Film Editing">Film Editing</option>
+                        <option value="International Feature Film">International Feature Film</option>
+                        <option value="Make Up and Hair Styling">Make Up and Hair Styling</option>
+                        <option value="Music (Original Score)">Music (Original Score)</option>
+                        <option value="Music (Original Song)">Music (Original Song)</option>
+                        <option value="Production Design">Production Design</option>
+                        <option value="Animated Short Film">Animated Short Film</option>
+                        <option value="Live-Action Short Film">Live Action Short Film</option>
+                        <option value="Sound">Sound</option>
+                        <option value="Visual Effects">Visual Effects</option>
+                        <option value="Writing (Adapted Screenplay)">Writing (Adapted Screenplay)</option>
+                        <option value="Writing (Original Screenplay)">Writing (Original Screenplay)</option>
+                        </select>
+                    </div>
+                </div>
+            <!-- Button to Search for the Films in the Selected Nomination Category: -->
+            <button class="searchFilm" id="categoryButton" onclick="searchViaCategory()">Search for Films</button>
+            <button class="searchFilm"><a href="index.html">Back to Main Page</a></button>
+        </div>
+    </body>
+</html>
