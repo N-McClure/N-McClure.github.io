@@ -1,0 +1,116 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    align-items: center;
+    background: linear-gradient(320deg, rgb(255, 98, 0),rgb(255, 204, 0),rgb(0, 255, 238),white);
+    display: flex;
+    font-family: 'Dosis', sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
+}
+
+.wrapping{
+    backdrop-filter: blur(5.25px);
+    -webkit-backdrop-filter: blur(5.25px);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgb(35,35,35,0.1);
+    color: black;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgb(255,255,255,0.30);
+    border: 1px solid rgb(255,255,255,0.34);
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 35px;
+}
+
+.outputScreen{
+    backdrop-filter: blur(5.25px);
+    -webkit-backdrop-filter: blur(5.25px);
+    background: rgb(255,255,255,0.75);
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgb(35,35,35,0.1);
+    color: black;
+    font-size: 35px;
+    overflow: auto;
+    padding: 20px;
+    text-align: right;
+    width: 326px;
+}
+
+.buttonRow{
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+.calcButton{
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.5);
+    background: rgb(255,255,255,0.75);
+    border: 1px solid rgb(255,255,255,0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgb(35,35,35,0.1);
+    color: black;
+    flex-basis: 20%;
+    font-family: inherit;
+    font-size: 24px;
+    height: 65px;
+}
+
+.calcButton:last-child{
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.5);
+    background: rgb(255,255,255,0.75);
+    border: 1px solid rgb(255,255,255,0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgb(35,35,35,0.1);
+    color: white;
+    background: rgb(255, 98, 0);
+}
+
+.calcButton:last-child:hover{
+    background-color: inherit;
+    color: inherit;
+}
+
+.calcButton:last-child:active{
+    background-color: rgb(0, 255, 238);
+}
+
+.calcButton:hover{
+    background-color: inherit;
+    color: inherit;
+}
+
+.calcButton:active{
+    background-color: rgb(0, 255, 238);
+}
+
+.double{
+    flex-basis: 47%;
+}
+
+.triple{
+    flex-basis: 73%;
+}
+
+@media screen and (max-width: 767px) {
+    .wrapping{
+        height: 100%;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 20px;
+    }
+}
