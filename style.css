@@ -1,324 +1,195 @@
-/*Gets Rid of Line and Color from Links: */
-a:link, a:visited
-{
-  color:white;
-  text-decoration: none;
+*{
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
-/*Smooth Scrolling in the HTML: */
-html
-{
-  scroll-behavior: smooth;
+img{
+    width: 100%;
+    display: flex;
 }
 
-/*****************************************************/
-
-/*Div 1 on Index.html */
-
-.mainTop,.mainBottom
-{
-  background-color: rgb(165, 165, 165);
-}
-
-/*Top Nav-Bar Table/Row: */
-#Top_Row
-{
-    height: 3%;
-    width: 90%;
-    margin-top: none;;
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: rgb(255, 48, 48);
-    border-radius: 25px;
-
-}
-/*Closing Tag Logo Image: */
-#Tag_Logo, #Tag_Logo2,#Tag_Logo3
-{
-    height: 60px;
-    border-radius: 50%;
-}
-
-.navbar 
-{
-    overflow: hidden;
- 
-  }
-  
-  .navbar a 
-  {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+a{
     text-decoration: none;
-  }
-  
-  
-  .dropbtn, .dropbtn2, .dropbtn3
-  { 
-    border-radius: 50%;
-    border: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-  }
-  
-  .navbar a:hover, .dropbtn:hover, .dropbtn3:hover
-  {
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: white;
-  }
-
-/*Nav-Bar Font: */
-h2,h1
-{
-  color: white;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2:hover
-{
-  color: rgb(165, 165, 165);
-}
-  
-/*Table with Image and Hello in Top Div on Index: */
-#Div1_Content
-{  
-  width: 90%;
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1%;
-}
-#WaveNick
-{
-  background-color: white;
-  width: 45%;
-  border-radius: 15%;
-}
-#HelloThere
-{
-  background-color: rgb(255, 48, 48);
-  width: 45%;
-  border-radius: 15%;
-  padding-left: 2%;
+nav{
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
-/************************************************/
-
-/*Div 2 on Index.html: */
-
-.main2
-{
-  background-color: white;
+.navbarLogo{
+    max-width: 175px;
 }
 
-.dropbtn2:hover
-{
-  background-color: rgb(255, 48, 48);
+.navLinks{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
 }
 
-/*Table with Image and Description in Second Div on Index: */
-#Div2_Content
-{  
-  width: 90%;
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1%;
+.links a{
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: black;
 }
-#NickImage
-{
-  background-color: white;
-  width: 100%;
-  border-radius: 15%;
+.links a:hover{
+    color: red;
 }
-#AboutMe
-{
-  background-color: rgb(255, 48, 48);
-  width: 45%;
-  border-radius: 15%;
-  padding-left: 2%;
+.links a::after{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease;
 }
 
-/*********************************************/
-
-/* Div 3 on Index.html: */
-
-.main3
-{
-  background-color:rgb(255, 48, 48);
+.buttons{
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.buttons:hover{
+    opacity: 50%;
 }
 
-#Div3_Content
-{
-  width: 90%;
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1%;
+.wrapping{
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 2rem;
 }
 
-/*Slideshow Container: */
-.Slideshow_container
-{
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+header{
+    position: relative;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
 }
 
-/*Hide the Images by Default: */
-.theSlides 
-{
-  display: none;
+header .content h1{
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3rem
 }
 
-/*The Navigation Buttons: */
-/* Position the image container (needed to position the left and right arrows) */
-.container 
-{
-  position: relative;
+h1{
+    color: red;
 }
 
-/* Hide the images by default */
-.mySlides 
-{
-  display: none;
-  width: 70%;
-  margin-left: 25%;
-  margin-right: 25%;
+header .content h1 span{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px red;
 }
 
-/* Add a pointer when hovering over the thumbnail images */
-.cursor 
-{
-  cursor: pointer;
+header .content p{
+    margin-bottom: 2rem;
+    color: black;
 }
 
-/* Next & previous buttons */
-.prev,.next 
-{
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
+header .content .image{
+    position: relative;
+}
+header .content .image img{
+    max-width: 50%;
+    margin: auto;
 }
 
-/* Position the "next button" to the right */
-.next 
-{
-  right: 0;
-  border-radius: 3px 0 0 3px;
+section .header{
+    margin-bottom: 1rem;
+    color: red;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover,
-#git:hover,
-#email:hover
-{
-  background-color: white;
+.projects{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
 }
 
-/* Number text (1/# etc) */
-.numbertext 
-{
-  color: black;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.projects .card{
+    background-color: red;
+    padding: 1rem;
+    border: 2px solid red;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    opacity: 85%;
+}
+.projects .card:hover{
+    opacity: 50%;
 }
 
-.row:after 
-{
-  content: "";
-  display: table;
-  clear: both;
+.projects .card h4{
+    margin-bottom: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-
-/*********************************************/
-
-/* Div 4 on Index.html: */
-
-#Div4_Content
-{  
-  width: 90%;
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1%;
+footer .column .socials{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-#Resume
-{
-  background-color: white;
-  width: 30%;
-  border-radius: 15%;
-  padding-left: 2%;
+footer .column .socials a{
+    color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
 }
-#ResumeText
-{
-  color:rgb(255, 48, 48);
-}
-
-#resumeDoc
-{
-  background-color:rgb(255, 48, 48);
-  width: 50%;
-  font-size: 125%;
-  border-radius: 15%;
-  padding: 2%;
-}
-#resumeDoc:hover
-{
-  background-color:rgb(165, 165, 165);
+footer .column .socials a:hover{
+    opacity: 50%;
 }
 
-#links
-{
-  background-color:rgb(255, 48, 48);
-  width: 65%;
-  border-radius: 15%;
-  padding: 13%;
-}
-#GitHub_Icon
-{
-  width: 20%;
-  border-radius: 50%;
-}
-#E-Mail_Icon
-{
-  width: 20%;
-  padding-left: 4.5%;
-}
-#YouTube_Icon
-{
-  width: 20%;
-  padding-left: 4.5%;
-}
-#LinkedIn_Icon
-{
-  width: 20%;
-  padding-left: 4.5%;
+.copyright{
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
-/***********************************************************************/
-
-/* Trying to make the Section Divs Fill the screen: */
-.mainTop, .mainBottom, .main3
-{
-  height: 100vh;
+/* Media Queries to make the Site Responsive: */
+@media(width < 900px){
+    .navLinks{
+        display: none;
+    }
+    header{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    header .image{
+        grid-area: 1/1/2/2;
+    }
+    .projects{
+        grid-template-columns: repeat(2,1fr);
+    }
+    footer{
+        grid-template-columns: 1fr 200px;
+    }
 }
-
-

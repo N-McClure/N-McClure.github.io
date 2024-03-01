@@ -1,200 +1,171 @@
+<!--
+
+    Project Name: Portfolio MK-3 (Responsive)
+    Project Description: This site is the third version of my portfolio / personal website. I am once again changing the design and am gonna make this one have a responsive Layout.
+    Date Started: 2024-02-28
+    Date Finished: 2024-03-01
+    
+    -------------------------------------------------------------------------------------------------------------------------------
+
+    Developer Name: Nick McClure
+    Portfolio / Personal Site: https://n-mcclure.github.io/
+    GitHub: https://github.com/N-McClure
+    LinkedIn: https://www.linkedin.com/in/nick-mcclure-578565295/
+    YouTube: https://www.youtube.com/@NickMcClure_ProgrammingGuy
+    Blog: https://n-mcclure004.livejournal.com/
+
+-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     
-    <!-- Tab Content = Nick McClure: -->
-    <link rel ="icon" href = "MultiMedia/Programming pic.jpg">
+    <link rel="icon" href="Multimedia/HeadshotRBG.png">
     <title>Nick McClure | Software Developer</title>
-
 </head>
-<body onload="showSlides()">
-    
-    <!-- Connected to the JavaScript File: -->
-    <script src = "index.js"></script>
+<body>
+    <!--
+        MUST HAVES:
+        -----------
+        - Navigation bar at top.
+        - Links to socials in footer or bottom Div.
+        - Image or Icon.
+        - Description of Me.
+        - My projects (Runnable).
+        - Responsive layout.
 
-    <!-- Connected to the CSS File: -->
+        FEATURES and FUNCTIONALITY:
+        ---------------------------
+        - scrollTo function.
+        - TypeWriter effect.
+    -->
+
+    <!-- Link to external CSS Files: -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Div for Top Part of the Main Page: -->
-    <div class="mainTop">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
 
-      <!-- The Navigation Bar for Top Part on Main Page: -->
-      <table id = "Top_Row">
-        <tr>
-            <td>
-              <a href="#Top_Row">
-                <div class="navbar">
-                    <div class="dropdown">
-                      <button class="dropbtn"><img id = "Tag_Logo" src = "MultiMedia/Programming pic.jpg">
-                    </div> 
-                  </div>
-              </a>
-            </td>
-            <td><a href="#Div2_Content"><h2>About Me </h2></a></td>
-            <td><a href="#projects_Row"><h2>Projects </h2></a></td>
-            <td><a href="#Div4_Content"><h2>Contact</h2></a></td>
-        </tr>
-    </table>
-
-    <!-- Table for Waving Bitmoji and Greetings Box: -->
-    <table id = "Div1_Content">
-      <tr colspan="2">
-        <td id = "WaveNick"><img src="MultiMedia/Waving_Nick.png"></td>
-        <td id = "HelloThere"><h1>Hello There!...I'm Nick!</h1></td>
-      </tr>
-    </table>
-
-  </div>
-
-  <!-- Div for the Second part of the Main Page: -->
-  <div class="main2">
-          <!-- The Navigation Bar to the Top Part on Main Page: -->
-          <table id = "second_Row">
-            <tr>
-              <td>
-                <a href="#Top_Row">
-                <button class="dropbtn2"><img id = "Tag_Logo2" src = "MultiMedia/Programming pic.jpg"> 
-                </a>
-              </td>
-            </tr>
-        </table>
-
-        <!-- Table for Brief Description of Me and an IRL Image: -->
-        <table id = "Div2_Content">
-          <tr colspan="2">
-            <td id = "AboutMe">
-              <h1>
-                My Name is Nicholas McClure...But you can call me Nick.<br>
-                <br>
-                I am a Software Developer who is passionate about developing technical solutions to real world problems.<br>
-                <br>
-                I am currently in my Second year at Sheridan College studying Computer Programming.<br>
-              </h1>
-            </td>
-            <td><img id="NickImage"src="MultiMedia/Billionaire_Nick.JPG"></td>
-          </tr>
-        </table>
-  </div>
-
-  <!-- Div for the Third part of the Main Page: -->
-  <div class="main3">
-      <table id = "projects_Row">
-        <tr>
-          <td>
-            <a href="#Top_Row">
-              <div class="navbar">
-                <div class="dropdown">
-                  <button class="dropbtn3"><img id = "Tag_Logo3" src = "MultiMedia/Programming pic.jpg"> 
-                </div> 
-              </div>
+    <!-- The Navigation Bar and Links: -->
+    <nav>
+        <!-- The Nav Bar Logo: -->
+        <div class="navbarLogo">
+            <a href="#">
+                <img src="Multimedia/NickLogo.png">
             </a>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Table for Projects: -->
-      <table id="Div3_Content">
-        <!-- Container for the image gallery -->
-        <div class="container">
-            
-          <!-- Giggle: -->
-          <div class="mySlides">
-            <a target = "blank" href = "Project_Files/Giggle_MK2/index.html">
-              <img src="MultiMedia/Giggle_Logo.png" style="width:70%">
-            </a>
-          </div>
-
-          <!-- Zombie Outbreak: -->
-          <div class="mySlides">
-            <a target = "blank" href = "https://studio.code.org/projects/applab/wZK18LRnbi1n12U_mpajDgtXYV2cSqm6_MvIpuAQz3s">
-              <img src="MultiMedia/zombie-outbreak.jpg" style="width:70%">
-            </a>
-          </div>
-
-          <!-- Picture Voting: -->
-          <div class="mySlides">
-            <a target="blank" href = "Project_Files/PicVote/main.html">
-              <img src = "MultiMedia/VotingPoll.jpg" style="width: 70%">
-            </a>
-          </div>
-
-          <!-- Jot&Do To-Do List Maker: -->
-          <div class="mySlides">
-            <a target="blank" href="Project_Files/Jot&Do/index.html">
-              <img src = "MultiMedia/Note_Icon.png" style="width: 50%">
-            </a>
-          </div>
-
-          <!-- FileSaver Document / File Creator: -->
-          <div class="mySlides">
-            <a target="blank" href="Project_Files/FileSaver_MK1/index.html">
-              <img src="MultiMedia/fileSaver_ScreenShot.png" style="width: 45%">
-            </a>
-          </div>
-
-          <!-- 2024 Oscars Search: -->
-          <div class="mySlides">
-            <a target="blank" href="Project_Files/Oscars_Who&What/index.html">
-              <img src="MultiMedia/OscarsApp_MainPage.png" style="width: 45%">
-            </a>
-          </div>
-
-          <!-- Basic Calculator: -->
-          <div class="mySlides">
-            <a target="blank" href="Project_Files/BasicCalculator/index.html">
-              <img src="MultiMedia/CalcLogo.png" style="width: 35%">
-            </a>
-          </div>
-
-          <!-- Weather-Info: -->
-          <div class="mySlides">
-            <a target="blank" href="Project_Files/weatherInfo/index.html">
-              <img src="MultiMedia/Screenshot 2024-02-27 144050.png" style="width: 35%">
-            </a>
-          </div>
-
-          <!-- Next and previous buttons -->
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-      </table>
-  </div>
+        <!-- The Nav Bar Links: -->
+        <ul class="navLinks">
+            <li id="about" class="links"><a href="#">About</a></li>
+            <li id="projects" class="links"><a href="#">Projects</a></li>
+            <li id="socials" class="links"><a href="#">Socials</a></li>
+        </ul>
 
-    <!-- Div for the Bottom part of the Main Page: -->
-  <div class="mainBottom">
-      <!-- The Navigation Bar to the Top Part on Main Page: -->
-      <table id = "second_Row">
-        <tr>
-          <td>
-            <a href="#Top_Row">
-            <button class="dropbtn2"><img id = "Tag_Logo3" src = "MultiMedia/Programming pic.jpg"> 
-            </a>
-          </td>
-        </tr>
-      </table>
+        <!-- Button for the Mailing / Contact Me: -->
+        <a href="mailto:nmcclure0330@gmail.com"><button class="buttons">Contact Me</button></a>
+    </nav>
 
-      <!-- Table for Pintable PDF of Resume, GitHub, and E-Mail: -->
-      <table id="Div4_Content">
-        <tr colspan="2">
-          <td id="Resume">
-            <h1 id="ResumeText">Click below to take a gander at my Resume.</h1>
-            <br>
-            <button id="resumeDoc" type="submit"><a href="Resume_Brantford-1_.pdf" target="blank">Resume</a></button>
-          </td>
-          <td id="links">
-            <a target="blank" href="https://github.com/N-McClure"><img src="MultiMedia/GitHub.png" id="GitHub_Icon"></a>
-            <a target="blank" href="mailto:nmcclure0330@gmail.com"><img src="MultiMedia/email.png" id="E-Mail_Icon"></a>
-            <a target="blank" href="https://www.linkedin.com/in/nick-mcclure-578565295/"><img src="MultiMedia/linkedin.png" id="LinkedIn_Icon"></a>  
-            <a target="blank" href="https://www.youtube.com/@NickMcClure_ProgrammingGuy"><img src="MultiMedia/youtube.png" id="YouTube_Icon"></a>
-          </td>
-        </tr>
-      </table>
+    <!-- Header with a brief decription of Me and the Image: -->
+    <header class="wrapping">
+        <div class="content">
+            <!-- Description of Nick: -->
+            <h1>Hello there, I'm <span>Nick</span>, a Software Developer</h1>
+            <p>
+                I am a Software Engineer, Web Developer, and Computer Nerd from Brantford Ontario who likes to build cool things with different technologies.
+                <br><br>
+                I am a firm beleiver that side projects are the best way for developers to practice their skills and grow. When I am not working or attending class I can often be found working on my own projects to keep my skills sharp and keep up with the newest advancements in Tech.
+                <br><br>
+                Be sure to visit my <a class="gitAndYT" href="https://github.com/N-McClure" target="blank"><strong>GitHub</strong></a> and <a class="gitAndYT" href="https://www.youtube.com/@NickMcClure_ProgrammingGuy" target="blank"><strong>YouTube</strong></a> for updates on my projects.
+                <br><br>
+                I am currently finishing up my Second year at Sheridan College studying Computer Programming and will begin my journey into a Cyber-Security Bachelor's degree program in May.
+            </p>
+        </div>
 
-  </div>
+        <!-- Image of "Nick": -->
+        <div class="image">
+            <img src="Multimedia/HeadshotRBG.png">
+        </div>
+    </header>
+
+    <!-- Projects: -->
+    <section class="wrapping">
+        <h2 class="header">Projects</h2>
+        <div class="projects">
+
+            <!-- Giggle Search: -->
+            <div class="card">
+                <h4>Giggle Search</h4>
+                <a target="_blank" href="#">
+                    <img src="Multimedia/Giggle_Logo.png">
+                </a>
+            </div>
+
+            <!-- Zombie Outbreak: -->
+            <div class="card">
+                <h4>Zombie Outbreak</h4>
+                <a target="_blank" href="#">
+                    <img src="Multimedia/zombie-outbreak.png">
+                </a>
+            </div>
+
+            <!-- Jot&Do: -->
+            <div class="card">
+                <h4>Jot&Do! To-Do List Maker</h4>
+                <a target="blank" href="#">
+                    <img src="Multimedia/Note_Icon.png">
+                </a>
+            </div>
+
+            <!-- File-Saver: -->
+            <div class="card">
+                <h4>File-Saver</h4>
+                <a target="blank" href="#">
+                    <img src="Multimedia/fileSaver.png">
+                </a>
+            </div>
+
+            <!-- Oscars 2024 Search: -->
+            <div class="card">
+                <h4>Oscars 2024 - Who&What</h4>
+                <a target="_blank" href="#">
+                    <img src="Multimedia/Oscars.png">
+                </a>
+            </div>
+
+            <!-- Basic Calculator: -->
+            <div class="card">
+                <h4>Basic Calculator</h4>
+                <a target="_blank" href="#">
+                    <img src="Multimedia/calculator.png">
+                </a>
+            </div>
+
+            <!-- Weather-Info: -->
+            <div class="card">
+                <h4>Weather-Info</h4>
+                <a target="_blank" href="#">
+                    <img src="Multimedia/weatherInfo.png">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with all My Socials: -->
+    <footer class="wrapping">
+        <div class="column">
+            <div class="socials">
+                <a href="https://www.youtube.com/@NickMcClure_ProgrammingGuy" target="_blank"><i class="ri-youtube-fill"></i></a>
+                <a href="https://github.com/N-McClure" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://www.linkedin.com/in/nick-mcclure-578565295/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                <div class="copyright">
+                    Copyright &copy; 2024 Nick McClure. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript File: -->
+    <script src="script.js"></script>
 
 </body>
 </html>
