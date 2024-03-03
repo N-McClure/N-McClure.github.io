@@ -83,7 +83,7 @@ nav{
 .wrapping .content a:visited{
     color: red;
 }
-.wrapping .content a:hover{
+.wrapping .content strong:hover{
     color: black;
 }
 .wrapping .content strong{
