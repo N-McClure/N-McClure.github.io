@@ -77,6 +77,13 @@ nav{
     padding: 5rem 2rem;
 }
 
+.wrapping .content strong a:link{
+    color: red;
+}
+.wrapping .content strong a:after{
+    color: red;
+}
+
 header{
     position: relative;
     padding-top: 2rem;
