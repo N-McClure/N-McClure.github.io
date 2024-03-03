@@ -77,7 +77,7 @@ nav{
     padding: 5rem 2rem;
 }
 
-.wrapping .content a:link{
+.wrapping .content a{
     color: red;
 }
 .wrapping .content a:visited{
