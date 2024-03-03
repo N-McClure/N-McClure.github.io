@@ -80,7 +80,7 @@ nav{
 .wrapping .content a:link{
     color: red;
 }
-.wrapping .content a:after{
+.wrapping .content a:visited{
     color: red;
 }
 
