@@ -83,6 +83,9 @@ nav{
 .wrapping .content a:visited{
     color: red;
 }
+.wrapping .content strong{
+    color: red;
+}
 
 header{
     position: relative;
