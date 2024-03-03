@@ -83,11 +83,11 @@ nav{
 .wrapping .content a:visited{
     color: red;
 }
-.wrapping .content strong:hover{
-    color: black;
-}
 .wrapping .content strong{
     color: red;
+}
+.wrapping .content strong:hover{
+    color: black;
 }
 
 header{
