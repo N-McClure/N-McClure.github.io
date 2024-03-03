@@ -77,10 +77,10 @@ nav{
     padding: 5rem 2rem;
 }
 
-.wrapping .content strong a:link{
+.wrapping .content a:link{
     color: red;
 }
-.wrapping .content strong a:after{
+.wrapping .content a:after{
     color: red;
 }
 
