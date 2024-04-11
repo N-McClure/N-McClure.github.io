@@ -62,3 +62,11 @@ body{
     height: 540px;
     padding: 20px 35px;
 }
+
+/* Media Queries to make the Site Responsive: */
+@media(width < 900px){
+    img{
+        height: 10%;
+        width: 20%;
+    }
+}
