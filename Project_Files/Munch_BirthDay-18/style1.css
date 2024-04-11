@@ -1,0 +1,54 @@
+/*Brings Headers to the very top of Screen: */
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+/*BackGround Image: */
+body
+{
+    background-image:url('multiMedia/circuitWallpaper.jfif');
+    background-size: 33.3%;
+    background-color: transparent;
+}
+
+/*The Header: */
+h1
+{
+    color: red;
+}
+
+h2,h3
+{
+    color: white;
+}
+
+img
+{
+   height: 15%; 
+   width: 60%;
+   padding-left: 10%;
+   padding-bottom: 5%;
+}
+
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#Message
+{
+    background-image: linear-gradient(rgb(21, 0, 255), rgb(0, 119, 193), rgb(0, 255, 255));
+    padding-left: 11%;
+    padding-right: 11%;
+    width: 80%;
+
+    border: solid 5px;
+    border-color: purple;
+
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}

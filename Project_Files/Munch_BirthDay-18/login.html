@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="multiMedia/cakeClip.jfif">
+    <title>Log-In</title>
+</head>
+<body>
+
+    <!-- Link to External CSS File: -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to External JavaScript File: -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <div class="wrapping">
+        
+        <div>
+            <img id="security" src="multiMedia/bodyguard.png">
+            <br>
+            <h1>HOLD UP...Please Fill out the form to confirm you are 18+.</h1>
+        </div>
+        <br>
+            <form id="getInfo" onsubmit="return welcomeMunch()">
+                
+                <!-- Fist Name Input: -->
+                <label>First Name : </label><input type="text" name="firstName" required placeholder="First Name">
+
+                <br>
+
+                <!-- Nick-Name Input: -->
+                <label>Nick-Name : </label><input type="text" name="nickName" required placeholder="Nick-Name">
+
+                <br>
+
+                <!-- Last Name Input: -->
+                <label>Last Name : </label><input type="text" name="lastName" required placeholder="Last Name">
+
+                <br>
+
+                <!-- Age Input: -->
+                <label>Age : </label><input type="number" name="age" required placeholder="Age">
+
+                <br>
+
+                <!-- Birth-Day Input: -->
+                <label>Birth-Day : </label><input type="date" name="birthDay" required placeholder="Birth-Day">
+
+                <br>
+
+                <!-- Submit Button: -->
+                <button type="submit" name="submit">Submit</button>
+            </form>
+    </div>
+</body>
+</html>
