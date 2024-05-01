@@ -1,0 +1,110 @@
+<!--
+
+    Project Name: Currency Converter
+    Project Description: This app allows the user to enter a value and convert it from one currency type to another.
+    Date Started: 2024-05-01
+    Date Finished: 2024-05-02
+    
+    -------------------------------------------------------------------------------------------------------------------------------
+
+    Developer Name: Nick McClure
+    Portfolio / Personal Site: https://n-mcclure.github.io/
+    GitHub: https://github.com/N-McClure
+    LinkedIn: https://www.linkedin.com/in/nick-mcclure-578565295/
+    YouTube: https://www.youtube.com/@NickMcClure_ProgrammingGuy
+    Blog: https://n-mcclure004.livejournal.com/
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" href="multimedia/arrow-left-right-line.png">
+    <title>Currency Converter</title>
+</head>
+<body>
+
+    <!-- Connection to External CSS File: -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Connection to FontAwesome for Images and Fonts: -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!--
+        Must Have Features:
+        ===================
+        - Text input field for value (Doubles and Integers). ==> DONE!
+        - Two (2) Dropdown menus for the currency types, "Converting FROM" and "Converting TO". ==> DONE!
+        - Currency types have to be accompanied by flag of country that uses that currency or symbol. ==> DONE!
+        - Button to do the conversion function when clicked. ==> DONE!
+        - Clear display area for successful conversion. ==> DONE!
+        - Clean and Responsive (Desktop and Mobile Freindly) UI.
+
+        Notes:
+        ======
+        - Site for free Flag Icons and Images = https://flagcdn.com
+        - API Key for the Exchange Rate = 4c4d2d80c14756f969d66066
+    -->
+
+    <!-- Wrapping Div for the whole thing: -->
+    <div class="wrapping">
+        <!-- Header for the App name: -->
+        <header>Currency Converter</header>
+
+        <!-- Form for the user to enter their inputs: -->
+        <form action="#">
+            <!-- Div for the Value to convert: -->
+            <div class="amountToConvert">
+                <p>Amount</p>
+                <input type="text" name="amount" required placeholder="Amount to Convert.">
+            </div>
+
+            <!-- Div for the Two (2) DropDown Menus: -->
+            <div class="dropdowns">
+                
+                <!-- Div for the From / Starting Currency: -->
+                <div class="from">
+                    <div class="selectOptions">
+                        <p>From   </p>
+                        <!-- Image of Canadian Flag: -->
+                        <img src="https://flagcdn.com/48x36/ca.png" alt="flag">
+                        <select>
+                            <!-- Boatload of currency options Go HERE. -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Div for the Conversion Icon: -->
+                <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+
+                <!-- Div for the To / Conversion outcome Currency: -->
+                <div class="to">
+                    <div class="selectOptions">
+                        <p>To   </p>
+                        <!-- Image of United States of America's Flag: -->
+                        <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+                        <select>
+                            <!-- Boatload of currency options Go HERE. -->
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Div to Display "Converting..." after button is clicked before returning values: -->
+            <div class="converting"></div>
+            <button>Convert Currencies</button>
+
+        </form>
+    </div>
+
+    <!-- Connection to the External JavaScript File containing the Country and Currency Codes: -->
+    <script type="text/javascript" src="countries.js"></script>
+
+    <!-- Connection to External JavaScript File: -->
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
