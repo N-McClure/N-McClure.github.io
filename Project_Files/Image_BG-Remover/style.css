@@ -1,0 +1,92 @@
+/* Imports the "Poppins" Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: linear-gradient(rgb(255, 136, 0), orange, rgb(255, 189, 66));
+  }
+
+  .wrapping{
+    height: 540px;
+    padding: 30px 35px;
+
+    backdrop-filter: blur(5.25px);
+    -webkit-backdrop-filter: blur(5.25px);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgb(35,35,35,0.1);
+    color: rgb(0, 136, 255);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgb(255,255,255,0.30);
+    border: 1px solid rgb(255,255,255,0.34);
+    flex-basis: 400px;
+  }
+
+  .wrapping header{
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(0, 136, 255);
+  }
+
+  .wrapping form{
+    margin: 40px 0 20px 0;
+  }
+
+  form :where(select, button){
+    width: 100%;
+    outline: none;
+    border-radius: 25px;
+    border:rgb(255, 136, 0) solid 3px;
+  }
+
+  form label{
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  form input{
+    height: 50px;
+    font-size: 17px;
+    padding: 0 5px;
+  }
+
+  form button{
+    height: 52px;
+    color: white;
+    background-color: rgb(0, 136, 255);
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  form button:hover{
+    color: rgb(0, 136, 255);
+    background-color: rgb(255, 189, 66);
+  }
+
+  .wrapping img{
+    height: 25%;
+    width: 100%;
+  }
+
+  /* Media Query to make the app responsive and pretty on mobile as well as desktop: */
+  @media screen and (max-width: 767px) {
+    .wrapping{
+        height: 100%;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 20px;
+    }
+}
