@@ -1,0 +1,89 @@
+<!--
+
+    Project Name: Raichel Santos - 20th Birth-Day Card
+    Project Description: A digital Birth-Day card for Rai.
+    Date Started: 2024-07-19
+    Date Finished: 
+    
+    -------------------------------------------------------------------------------------------------------------------------------
+
+    Developer Name: Nick McClure
+    Portfolio / Personal Site: https://n-mcclure.github.io/
+    GitHub: https://github.com/N-McClure
+    LinkedIn: https://www.linkedin.com/in/nick-mcclure-578565295/
+    YouTube: https://www.youtube.com/@NickMcClure_ProgrammingGuy
+    Blog: https://n-mcclure004.livejournal.com/
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" href="images/IMG_2622.jpeg">
+    <title>Happy Birth-Day Rai !!!</title>
+</head>
+<body>
+
+    <!-- Connection to External CSS File: -->
+    <link rel="stylesheet" href="style.css">
+
+    <!--
+
+        Must Have Features:
+        ===================
+        - Happy Birth-Day Message.
+        - Audio Player for "Happy Birth-Day" to play Automatically on Open/Load.
+        - An Array of "Rai Images".
+        - Button to Randomly select a "Rai Image" to display.
+        - Space to Display the generated Image.
+        - Responsive UI (DeskTop and Mobile Friendly).
+
+    -->
+
+    <audio id="my_audio" src="happy-birthday-music-box.mp3"></audio>
+
+    <!-- Div for the Wrapping of the whole app: -->
+    <div class="wrapping">
+
+        <!-- Header for the App Name: "Happy Birth-Day Raichel!!!": -->
+        <header>Happy Birth-day Raichel!!!</header>
+
+        <!-- Form for B-Day wishes and Random Generated Images: -->
+        <form action="#">
+
+            <!-- Area for the B-Day Wishes Message: -->
+             <p>
+                Happy Birth-Day Raichel!
+                <br>
+                I hope you have a fantastic day today!
+                <br>
+                I can't believe that we have been friends for a decade dude...thats crazy!
+                <br>
+                Thank you for putting up with me and I can't wait for another 10.
+                <br>
+
+                Enjoy your day...Laugh lots...Party hard...and Love harder.
+                <br>
+                Love ya.
+                <br>
+                - Nick "Nicky Nicky" McClure
+             </p>
+
+            <br><br>
+
+            <!-- Div for where the Randomly Generated "Rai" Image will go: -->
+            <div class="generatedImage"></div>
+
+            <!-- Button to Download the Image that had the Background removed: -->
+            <button onclick="generateImage()">Generate Random Raichel Image</button>
+
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
