@@ -149,7 +149,7 @@ section .header{
     border: 2px solid red;
     border-radius: 15px;
     transition: all 0.3s ease;
-    opacity: 85%;
+    opacity: 80%;
 }
 .projects .card:hover{
     opacity: 50%;
