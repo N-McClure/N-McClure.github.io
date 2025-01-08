@@ -196,12 +196,12 @@ section .header{
 
 
 .modal p {
-    font-size: 0.9rem;
-    color: #777;
+    font-size: 1rem;
+    color: black;
     margin: 0.4rem 0 0.2rem;
 }
 
-.modal .form-btn {
+.modal .submit button {
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1rem;
