@@ -187,9 +187,10 @@ section .header{
   
 .modal input {
     padding: 0.7rem 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid red;
     border-radius: 5px;
     font-size: 0.9em;
+    position: center;
 }
   
 .modal p {
@@ -211,7 +212,6 @@ section .header{
 
 #message {
     height: 300%;
-    border: 1px solid red;
     position: center;
 }
 
