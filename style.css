@@ -201,7 +201,7 @@ section .header{
     margin: 0.4rem 0 0.2rem;
 }
 
-.modal .formButton {
+.modal button {
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1rem;
@@ -209,11 +209,6 @@ section .header{
     background-color: red;
     border-radius: 5px;
     transition: all 0.3s ease;
-    position: center;
-}
-
-#message {
-    height: 300%;
     position: center;
 }
 
