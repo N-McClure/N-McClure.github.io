@@ -212,6 +212,10 @@ section .header{
     width: 100%;
 }
 
+.modal .submit button:hover{
+    opacity: 50%;
+}
+
 footer .column .socials{
     display: flex;
     align-items: center;
