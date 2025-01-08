@@ -209,6 +209,10 @@ section .header{
     font-size: 1em;
 }
 
+#message {
+    height: 100%;
+}
+
 footer .column .socials{
     display: flex;
     align-items: center;
