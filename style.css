@@ -201,7 +201,7 @@ section .header{
     margin: 0.4rem 0 0.2rem;
 }
 
-.modal form-btn {
+.modal .form-btn {
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1rem;
