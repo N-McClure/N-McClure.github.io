@@ -175,7 +175,7 @@ section .header{
     z-index: 2;
     top: 20%;
     background-color: white;
-    border: 1px solid red;
+    border: 2px solid red;
     border-radius: 15px;
 }
 
@@ -194,15 +194,6 @@ section .header{
     width: 100%; 
 }
 
-.modal input #message {
-    padding: 0.7rem 1rem;
-    border: 1px solid red;
-    border-radius: 5px;
-    font-size: 0.9em;
-    position: center;
-    width: 400px;
-    height: 400px;
-}
 
 .modal p {
     font-size: 0.9rem;
@@ -210,15 +201,15 @@ section .header{
     margin: 0.4rem 0 0.2rem;
 }
 
-.btn {
+.formButton {
     display: inline-block;
-    padding: 0.8rem 1.4rem;
-    font-weight: 700;
-    background-color: black;
+    padding: 1rem 3rem;
+    font-size: 1rem;
     color: white;
+    background-color: red;
     border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
+    transition: all 0.3s ease;
+    position: center;
 }
 
 #message {
