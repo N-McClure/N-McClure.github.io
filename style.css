@@ -209,7 +209,7 @@ section .header{
     background-color: red;
     border-radius: 5px;
     transition: all 0.3s ease;
-    align-items: center;
+    justify-content: center;
 }
 
 footer .column .socials{
