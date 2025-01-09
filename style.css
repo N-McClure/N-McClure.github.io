@@ -168,7 +168,7 @@ section .header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
+    position: relative;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
