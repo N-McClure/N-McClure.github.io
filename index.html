@@ -18,13 +18,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    
+
     <link rel="icon" href="Multimedia/HeadshotRBG.png">
     <title>Nick McClure | Software Developer</title>
 </head>
+
 <body>
     <!--
         MUST HAVES:
@@ -66,6 +68,31 @@
         <a href="Nicholas-McClure1.pdf" target="_blank"><button class="buttons">My Resume</button></a>
     </nav>
 
+    <!-- Modal that will appear with Contact Me form: -->
+    <section class="modal hidden" id="contact-me">
+        <div class="flex">
+            <!-- Modal Content: -->
+            <div class="btn-close">
+                <button>X</button>
+            </div>
+        </div>
+        <div>
+            <h3>Stay In Touch.</h3>
+            <p>Feel free to reach out if you have any inquiries.</p>
+        </div>
+
+        <!-- Form to send message: -->
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+            <input type="email" id="email" name="email" placeholder="randomEmail@email.ca" required><br><br>
+            <input type="text" id="message" name="message" placeholder="Message" required><br><br>
+            <div class="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
+    <div class='overlay hidden'></div>
+
     <!-- Header with a brief decription of Me and the Image: -->
     <header class="wrapping">
         <div class="content">
@@ -76,13 +103,20 @@
                 </a>
             </h1>
             <p>
-                I am a Software Engineer, Web Developer, and Cyber-Security Practitioner who likes to experiment and build cool things with tech.
+                I am a Software Engineer, Web Developer, and Cyber-Security Practitioner who likes to experiment and
+                build cool things with tech.
                 <br><br>
-                I am a firm believer that side projects are the best way for developers to practice their skills and grow. When I am not working or attending class I can often be found working on my own projects to keep my skills sharp and keep up with the newest advancements in Tech.
+                I am a firm believer that side projects are the best way for developers to practice their skills and
+                grow. When I am not working or attending class I can often be found working on my own projects to keep
+                my skills sharp and keep up with the newest advancements in Tech.
                 <br><br>
-                Be sure to visit my <a class="gitAndYT" href="https://github.com/N-McClure" target="blank"><strong>GitHub</strong></a> and <a class="gitAndYT" href="https://www.youtube.com/@NickMcClure_ProgrammingGuy" target="blank"><strong>YouTube</strong></a> for updates on my projects.
+                Be sure to visit my <a class="gitAndYT" href="https://github.com/N-McClure"
+                    target="blank"><strong>GitHub</strong></a> and <a class="gitAndYT"
+                    href="https://www.youtube.com/@NickMcClure_ProgrammingGuy"
+                    target="blank"><strong>YouTube</strong></a> for updates on my projects.
                 <br><br>
-                I have received a diploma for Computer Programming from Sheridan College and am currently a Cyber-Security student persuing a Bachelor's Degree.
+                I have received a diploma for Computer Programming from Sheridan College and am currently a
+                Cyber-Security student persuing a Bachelor's Degree.
             </p>
         </div>
 
@@ -108,7 +142,8 @@
             <!-- Zombie Outbreak: -->
             <div class="card">
                 <h4>Zombie Outbreak</h4>
-                <a target="_blank" href="https://studio.code.org/projects/applab/wZK18LRnbi1n12U_mpajDgtXYV2cSqm6_MvIpuAQz3s">
+                <a target="_blank"
+                    href="https://studio.code.org/projects/applab/wZK18LRnbi1n12U_mpajDgtXYV2cSqm6_MvIpuAQz3s">
                     <img src="Multimedia/zombie-outbreak.png">
                 </a>
             </div>
@@ -155,39 +190,16 @@
         </div>
     </section>
 
-    <!-- Modal that will appear with Contact Me form: -->
-    <section class="modal hidden" id="contact-me">
-        <div class="flex">
-            <!-- Modal Content: -->
-            <div class="btn-close">
-                <button>X</button>
-            </div>
-        </div>
-        <div>
-            <h3>Stay In Touch.</h3>
-            <p>Feel free to reach out if you have any inquiries.</p>
-        </div>
-
-        <!-- Form to send message: -->
-        <form id="contact-form">
-            <input type="text" id="name" name="name" placeholder="Name" required><br><br>
-            <input type="email" id="email" name="email" placeholder="randomEmail@email.ca" required><br><br>
-            <input type="text" id="message" name="message" placeholder="Message" required><br><br>
-            <div class="submit">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </section>
-    <div class='overlay hidden'></div>
-
     <!-- Footer with all My Socials: -->
     <footer class="wrapping">
         <div class="column">
             <div class="socials">
                 <a href="mailto:nmcclure0330@gmail.com" target="_blank"><i class="ri-mail-unread-line"></i></a>
-                <a href="https://www.youtube.com/@NickMcClure_ProgrammingGuy" target="_blank"><i class="ri-youtube-fill"></i></a>
+                <a href="https://www.youtube.com/@NickMcClure_ProgrammingGuy" target="_blank"><i
+                        class="ri-youtube-fill"></i></a>
                 <a href="https://github.com/N-McClure" target="_blank"><i class="ri-github-fill"></i></a>
-                <a href="https://www.linkedin.com/in/nick-mcclure-578565295/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://www.linkedin.com/in/nick-mcclure-578565295/" target="_blank"><i
+                        class="ri-linkedin-fill"></i></a>
                 <div class="copyright">
                     Copyright &copy; 2024 Nick McClure. All rights reserved.
                 </div>
@@ -199,4 +211,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
