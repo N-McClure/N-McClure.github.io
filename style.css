@@ -171,7 +171,7 @@ section .header{
     width: 450px;
     padding: 1.3rem;
     min-height: 250px;
-    position: center;
+    position: fixed;
     z-index: 2;
     top: 20%;
     background-color: white;
@@ -193,7 +193,6 @@ section .header{
     position: center;
     width: 100%; 
 }
-
 
 .modal p {
     font-size: 1rem;
