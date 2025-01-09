@@ -18,6 +18,7 @@ a{
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: white;
+    position: relative;
 }
 
 nav{
