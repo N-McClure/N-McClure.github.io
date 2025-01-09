@@ -178,7 +178,7 @@ section .header{
     position: relative;
     float: left;
     left: 50%;
-    top: 50vh;
+    top: 40vh;
     transform: translate(-50%, -50%);
 }
 
