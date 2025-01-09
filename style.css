@@ -169,8 +169,6 @@ section .header{
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    max-width: fit-content;
-    margin-inline: auto;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
