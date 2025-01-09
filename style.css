@@ -171,7 +171,7 @@ section .header{
     width: 450px;
     padding: 1.3rem;
     min-height: 250px;
-    position: absolute;
+    position: center;
     z-index: 2;
     top: 20%;
     background-color: white;
