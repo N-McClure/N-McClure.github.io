@@ -166,7 +166,8 @@ section .header{
 .modal {
     display: flex;
     flex-direction: column;
-    position: center;
+    justify-content: center;
+    position: absolute;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
