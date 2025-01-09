@@ -167,7 +167,7 @@ section .header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
+    align-items: center;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
