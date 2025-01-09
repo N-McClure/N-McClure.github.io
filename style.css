@@ -165,9 +165,10 @@ section .header{
 /* Styling for the contact me modal: */
 .modal {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
