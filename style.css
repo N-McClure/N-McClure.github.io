@@ -42,7 +42,7 @@ nav{
     gap: 3rem;
 }
 
-.links a{
+.links a, .card a{
     position: relative;
     padding-bottom: 0.75rem;
     color: black;
