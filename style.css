@@ -163,6 +163,13 @@ section .header{
     font-weight: 600;
 }
 
+.projects .card p{
+    margin-bottom: 0.5rem;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 100;
+}
+
 /* Styling for the contact me modal: */
 .modal {
     display: flex;
