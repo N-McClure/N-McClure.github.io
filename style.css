@@ -163,7 +163,7 @@ section .header{
     font-weight: 600;
 }
 
-.projects .card p{
+.projects .card h6{
     margin-bottom: 0.5rem;
     color: white;
     font-size: 0.75rem;
