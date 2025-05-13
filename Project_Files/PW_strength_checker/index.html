@@ -1,0 +1,48 @@
+<!--
+
+    Project Name: Password Strength Checker
+    Project Description: This application is a simple app that allows a user to input a password in cleartext and see the strength of it.
+    Date Started: 2025-05-13
+    Date Finished: 2025-05-13
+    
+    -------------------------------------------------------------------------------------------------------------------------------
+
+    Developer Name: Nick McClure
+    Portfolio / Personal Site: https://n-mcclure.github.io/
+    GitHub: https://github.com/N-McClure
+    LinkedIn: https://www.linkedin.com/in/nick-mcclure-578565295/
+    YouTube: https://www.youtube.com/@NickMcClure_ProgrammingGuy
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Div for the whole of the app: -->
+  <div class="container">
+
+    <!-- Header for App title-->
+    <h2>Check Password Strength</h2>
+
+    <!-- Input box for user to enter password: -->
+    <input type="text" id="password" placeholder="Enter your password" />
+
+    <!-- Div for the "strength bar": -->
+    <div class="strength-bar">
+      <div class="strength-bar-fill" id="strength-bar-fill"></div>
+    </div>
+
+    <!-- Div for the "strength rating" that will be generated via DOM manipulation: -->
+    <div class="strength-text" id="strength-text"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
