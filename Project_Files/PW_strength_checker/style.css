@@ -36,15 +36,6 @@ input[type="password"], input[type="text"]{
   border-radius: 5px;
 }
 
-.toggle-password {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 1.2rem;
-  user-select: none;
-}
-
 .strength-bar {
   height: 10px;
   width: 100%;
