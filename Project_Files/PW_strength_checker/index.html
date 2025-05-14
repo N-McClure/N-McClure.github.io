@@ -17,6 +17,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,16 +27,19 @@
 
 <body>
 
-    <!-- Div for the whole of the app: -->
+  <!-- Div for the whole of the app: -->
   <div class="container">
 
     <!-- Header for App title-->
     <h2>Check Password Strength</h2>
 
-    <!-- Input box for user to enter password: -->
-    <input type="password" id="password" placeholder="Enter your password" />
-    <!-- Eye Icon to toggle the password to cleartext: -->
-     <span id="toggle-password" class="toggle-password">👁️</span>
+    <!-- Div for the input field and the toggle icon: -->
+    <div class="input-wrapper">
+      <!-- Input box for user to enter password: -->
+      <input type="password" id="password" placeholder="Enter your password" />
+      <!-- Eye Icon to toggle the password to cleartext: -->
+      <span id="toggle-password" class="toggle-password">👁️</span>
+    </div>
 
     <!-- Div for the "strength bar": -->
     <div class="strength-bar">
@@ -47,4 +51,5 @@
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>
