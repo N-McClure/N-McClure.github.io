@@ -2,6 +2,7 @@
 const passwordInput = document.getElementById('password');
 const strengthBarFill = document.getElementById('strength-bar-fill');
 const strengthText = document.getElementById('strength-text');
+const togglePassword = document.getElementById('toggle-password');
 
 // Add event listener for the input field and calls on function to get the strength of inputted pw:
 passwordInput.addEventListener('input', () => {
@@ -56,3 +57,10 @@ function getPasswordStrength(password) {
   if (/[@$!%*?&#]/.test(password)) strength++; // pw should have special characters.
   return password.length === 0 ? 0 : strength;
 }
+
+// Feature to toggle the inputted password's visibility...it's hidden by default.
+togglePassword.addEventListener('click', () => {
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+});
