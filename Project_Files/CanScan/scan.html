@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="multimedia/Logo.jpg">
+    <title>CanScan | Manual Barcode Entry</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapping">
+        <h2>Enter Barcode Manually</h2>
+        <input type="text" id="barcodeInput" placeholder="Enter barcode number" />
+        <button id="checkButton">Check Barcode</button>
+
+        <!-- Product Info -->
+        <div class="product-info" id="productInfo" style="display: none;">
+            <h2>Product Details</h2>
+            <p><strong>Name:</strong> <span id="productName">-</span></p>
+            <p><strong>Brand:</strong> <span id="productBrand">-</span></p>
+            <p><strong>Category:</strong> <span id="productCategory">-</span></p>
+            <p><strong>Description:</strong> <span id="productDescription">-</span></p>
+            <p><strong>Country of Origin:</strong> <span id="productCountry">-</span></p>
+            <img id="productImage" src="" alt="Product Image" style="max-width:100px; display:block; margin:0 auto;" />
+        </div>
+    </div>
+
+    <script src="scan.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 1em;
+        }
+
+        .product-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #productImage {
+            margin-top: 10px;
+        }
+    </style>
+</body>
+</html>
