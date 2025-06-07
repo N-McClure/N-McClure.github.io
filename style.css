@@ -152,7 +152,7 @@ section .header{
     transition: all 0.3s ease;
     opacity: 80%;
 }
-.projects .card:hover{
+.projects .card img:hover{
     opacity: 50%;
 }
 
