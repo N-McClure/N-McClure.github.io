@@ -30,7 +30,7 @@ let images = [
     "multimedia/im25.jpg",
     "multimedia/im26.jpg",
     "multimedia/im27.jpg",
-    "multimedia/im18.png",
+    "multimedia/im28.png",
     "multimedia/im29.jpg",
     "multimedia/im30.jpg",
     "multimedia/im31.jpg",
