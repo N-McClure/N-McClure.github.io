@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Programming Quiz: Strings, Structures, Memory & Files</title>
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f7f9fb;
+        margin: 0;
+        padding: 20px;
+        color: #222;
+    }
+    h1, h2 {
+        text-align: center;
+        color: #1e3a8a;
+    }
+    .quiz-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px 40px;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .question {
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .question h3 {
+        margin-bottom: 8px;
+        color: #111;
+    }
+    label {
+        display: block;
+        background: #f0f4ff;
+        margin: 6px 0;
+        padding: 8px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    label:hover {
+        background: #dbeafe;
+    }
+    .correct-answer {
+        margin-top: 6px;
+        font-weight: 600;
+    }
+    .correct {
+        color: #16a34a;
+    }
+    .wrong {
+        color: #dc2626;
+    }
+    button {
+        background: #2563eb;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+        display: block;
+        width: 100%;
+    }
+    button:hover {
+        background: #1d4ed8;
+    }
+    .result {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 12px;
+    }
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>C Programming MCQ Quiz</h1>
+    <h2>Strings, Structures, Dynamic Memory & Files</h2>
+
+    <form id="quizForm"></form>
+
+    <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+// Quiz Data
+const quizData = [
+    {q:"Which of the following correctly declares a string in C?", o:["char str[] = {'H','e','l','l','o'};","char str[] = \"Hello\";","string str = \"Hello\";","Both A and B"], a:3},
+    {q:"What is the output of printf(strcat(\"Hi\",\"There\")); ?", o:["Hi","There","HiThere","Error"], a:2},
+    {q:"Which function returns the length of a string?", o:["strlen()","length()","strlength()","len()"], a:0},
+    {q:"Result of strcmp(\"abc\",\"abd\") ?", o:["0","Negative","Positive","1"], a:1},
+    {q:"Output of printf(\"%c\",*(\"Hello\"+4)); ?", o:["o","H","e","l"], a:0},
+    {q:"Which of these is unsafe and deprecated?", o:["fgets()","gets()","scanf()","strcpy()"], a:1},
+    {q:"What will strcpy(dest,src) do?", o:["Copy src to dest","Copy dest to src","Compare","Append"], a:0},
+    {q:"strcat() requires:", o:["Enough destination space","Same length","Initialized constants","None"], a:0},
+    {q:"Header for string functions:", o:["stdio.h","string.h","stdlib.h","ctype.h"], a:1},
+    {q:"Null terminator is:", o:["\\n","'0'","\\0","0x10"], a:2},
+    {q:"sizeof(char s[10]=\"abc\") returns:", o:["3","4","10","Depends"], a:2},
+    {q:"ANSI C reverse function:", o:["strrev()","reverse()","None standard","revstr()"], a:2},
+    {q:"Modifying string literal causes:", o:["Nothing","Segmentation fault","Warning","Permanent change"], a:1},
+    {q:"Which copies limited chars?", o:["strncpy()","strcpy()","memcpy()","memmove()"], a:0},
+    {q:"strlen(\"Hi\\0Hello\") gives:", o:["2","5","7","8"], a:0},
+
+    {q:"Keyword to define a structure:", o:["struct","structure","record","typedef"], a:0},
+    {q:"Access structure member age via variable p:", o:["p->age","p.age","p:age","age.p"], a:1},
+    {q:"Access age via pointer to structure p:", o:["p.age","p->age","(*p).age","Both B and C"], a:3},
+    {q:"Structures can contain arrays?", o:["Yes","No","Only via pointer","Only global"], a:0},
+    {q:"Assignment '=' on structures:", o:["Not allowed","Deep copy","Member-wise copy","Copies pointers only"], a:2},
+    {q:"Default access specifier:", o:["Private","Protected","Public","None"], a:2},
+    {q:"typedef for structure does:", o:["Alias","Allocate","Initialize","Global"], a:0},
+    {q:"Nested structures allowed?", o:["Yes","No","Only pointers","One level"], a:0},
+    {q:"Structures can be passed to functions:", o:["By value","By reference","Both","Neither"], a:2},
+    {q:"sizeof(struct) depends on:", o:["Member types","Compiler padding","Alignment","All"], a:3},
+
+    {q:"Header for malloc/free:", o:["malloc.h","stdlib.h","memory.h","alloc.h"], a:1},
+    {q:"Return type of malloc():", o:["int*","void*","char*","size_t"], a:1},
+    {q:"calloc() does:", o:["Allocates uninitialized","Initializes to zero","Frees memory","None"], a:1},
+    {q:"realloc() used for:", o:["Allocate new","Free","Resize","None"], a:2},
+    {q:"Allocate 10 ints:", o:["int*p=malloc(10*sizeof(int));","int*p=calloc(10,sizeof(int));","Both","None"], a:2},
+    {q:"malloc() fails returns:", o:["0","NULL","-1","void"], a:1},
+    {q:"Memory leak occurs when:", o:["No free()","Free twice","calloc()","malloc(0)"], a:0},
+    {q:"free(NULL):", o:["Crash","Does nothing","Frees all","Return 1"], a:1},
+    {q:"sizeof(char):", o:["2","4","1","Depends"], a:2},
+    {q:"After free(), pointer:", o:["NULL","Dangling","Usable","Reallocated"], a:1},
+    {q:"Using freed memory:", o:["Undefined","Leak","Error","Crash"], a:0},
+    {q:"Avoid dangling pointer:", o:["Set to NULL","Avoid malloc","No arrays","Static only"], a:0},
+    {q:"int*p; *p=5;", o:["OK","Uninitialized pointer","Leak","Syntax error"], a:1},
+    {q:"Function to resize memory safely:", o:["realloc()","calloc()","malloc()","renew()"], a:0},
+
+    {q:"Open a file:", o:["fileopen()","fopen()","openfile()","open()"], a:1},
+    {q:"Read text mode:", o:["r","w","a","rw"], a:0},
+    {q:"Read one char from file:", o:["fgetc()","getc()","Both","getchar()"], a:2},
+    {q:"Write formatted output:", o:["fprintf()","fputs()","printf()","putc()"], a:0},
+    {q:"Close file:", o:["closefile()","fclose()","endfile()","finish()"], a:1},
+    {q:"fseek(fp,0,SEEK_END):", o:["Start","End","Delete","Write start"], a:1},
+    {q:"ftell(fp):", o:["File name","File size","Position","Lines"], a:2},
+    {q:"Rewind file pointer:", o:["rewind()","reset()","restart()","setbegin()"], a:0},
+    {q:"fopen() fails returns:", o:["EOF","NULL","-1","0"], a:1},
+    {q:"Mode \"rb\" means:", o:["Read binary","Read buffered","Read bytes","Replace binary"], a:0}
+];
+
+const form = document.getElementById("quizForm");
+
+quizData.forEach((item, index) => {
+    const qDiv = document.createElement("div");
+    qDiv.classList.add("question");
+    const qTitle = document.createElement("h3");
+    qTitle.textContent = `${index + 1}. ${item.q}`;
+    qDiv.appendChild(qTitle);
+
+    item.o.forEach((opt, i) => {
+        const label = document.createElement("label");
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "q" + index;
+        radio.value = i;
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(" " + opt));
+        qDiv.appendChild(label);
+    });
+
+    const feedback = document.createElement("div");
+    feedback.classList.add("correct-answer");
+    qDiv.appendChild(feedback);
+    form.appendChild(qDiv);
+});
+
+function submitQuiz() {
+    let score = 0;
+    quizData.forEach((item, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const feedbackDiv = document.querySelectorAll(".correct-answer")[i];
+        if (selected) {
+            const val = parseInt(selected.value);
+            if (val === item.a) {
+                score++;
+                feedbackDiv.innerHTML = `✅ <span class="correct">Correct!</span>`;
+            } else {
+                feedbackDiv.innerHTML = `❌ <span class="wrong">Incorrect.</span> Correct answer: <b>${item.o[item.a]}</b>`;
+            }
+        } else {
+            feedbackDiv.innerHTML = `❌ <span class="wrong">No answer selected.</span> Correct answer: <b>${item.o[item.a]}</b>`;
+        }
+    });
+    const percent = ((score / quizData.length) * 100).toFixed(1);
+    document.getElementById("result").innerHTML = 
+        `You scored <span class="${percent>=70?'correct':'wrong'}">${score}/${quizData.length}</span> 
+        (${percent}%)`;
+}
+</script>
+
+</body>
+</html>
