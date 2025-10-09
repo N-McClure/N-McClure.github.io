@@ -116,3 +116,22 @@ const openModal = function () {
 };
 // open modal event
 openModalBtn.addEventListener("click", openModal);
+
+// Code for the Appearing and disappearing of the Resume Modal:
+const resumeModal = document.getElementById("resume-modal");
+const openResumeBtn = document.getElementById("openResume");
+const closeResumeBtn = document.querySelector(".resume-close");
+
+const openResume = () => {
+  resumeModal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+const closeResume = () => {
+  resumeModal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+openResumeBtn.addEventListener("click", openResume);
+closeResumeBtn.addEventListener("click", closeResume);
+overlay.addEventListener("click", closeResume);
