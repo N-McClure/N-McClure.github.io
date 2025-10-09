@@ -87,7 +87,7 @@ window.onload = function() {
 };
 
 // Code for the Appearing and disappearing of the Contact Me Modal:
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".contact-modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.getElementById("contactme");
 const closeModalBtn = document.querySelector(".btn-close");

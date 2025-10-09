@@ -179,7 +179,7 @@ section .header {
 }
 
 /* Contact Me Modal */
-.modal {
+.contact-modal {
     display: flex;
     flex-direction: column;
     width: 450px;
@@ -195,13 +195,13 @@ section .header {
     transform: translate(-50%, -50%);
 }
 
-.modal .flex {
+.contact-modal .flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
   
-.modal input {
+.contact-modal input {
     padding: 0.7rem 1rem;
     border: 1px solid red;
     border-radius: 5px;
@@ -209,13 +209,13 @@ section .header {
     width: 100%; 
 }
 
-.modal p {
+.contact-modal p {
     font-size: 1rem;
     color: black;
     margin: 0.4rem 0 0.2rem;
 }
 
-.modal .submit button {
+.contact-modal .submit button {
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1rem;
@@ -226,11 +226,11 @@ section .header {
     width: 100%;
 }
 
-.modal .submit button:hover {
+.contact-modal .submit button:hover {
     opacity: 50%;
 }
 
-.modal .btn-close {
+.contact-modal .btn-close {
     transform: translate(10px, -20px);
     padding: 0.5rem 0.7rem;
     color: white;
