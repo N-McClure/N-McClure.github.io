@@ -60,7 +60,7 @@ nav{
     transition: all 0.3s ease;
 }
 
-.openResume{
+.buttons{
     padding: 1rem 3rem;
     font-size: 1rem;
     color: white;
@@ -68,7 +68,7 @@ nav{
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.openResume:hover{
+.buttons:hover{
     opacity: 50%;
 }
 
@@ -135,58 +135,6 @@ section .header{
     text-align: center;
     font-size: 2.25rem;
     font-weight: 600;
-}
-
-/* Resume Modal Styling */
-.resume-modal {
-    width: 60%;
-    max-width: 800px;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border: 2px solid red;
-    border-radius: 15px;
-    padding: 1rem;
-    z-index: 2;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.resume-modal .flex {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.resume-modal h3 {
-    color: red;
-    margin-bottom: 0.5rem;
-}
-
-.resume-frame {
-    width: 100%;
-    height: 70vh;
-    border: 1px solid red;
-    border-radius: 10px;
-    margin: 1rem 0;
-}
-
-.resume-modal .submit button {
-    width: 100%;
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    padding: 1rem;
-    transition: all 0.3s ease;
-}
-
-.resume-modal .submit button:hover {
-    opacity: 50%;
 }
 
 .projects{
@@ -299,6 +247,59 @@ section .header{
 .hidden {
     display: none;
 }
+
+/* Resume Modal Styling */
+.resume-modal {
+    width: 60%;
+    max-width: 800px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 15px;
+    padding: 1rem;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resume-modal .flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resume-modal h3 {
+    color: red;
+    margin-bottom: 0.5rem;
+}
+
+.resume-frame {
+    width: 100%;
+    height: 70vh;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.resume-modal .submit button {
+    width: 100%;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.resume-modal .submit button:hover {
+    opacity: 50%;
+}
+
 
 footer .column .socials{
     display: flex;
