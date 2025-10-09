@@ -86,33 +86,38 @@ window.onload = function() {
     document.body.appendChild(css);
 };
 
-// Code for the Appearing and disappearing of the Contact Me Modal:
-const modal = document.querySelector(".contact-modal");
+// CONTACT ME MODAL LOGIC
+const modal = document.getElementById("contact-me");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.getElementById("contactme");
-const closeModalBtn = document.querySelector(".btn-close");
+const closeModalBtn = modal.querySelector(".btn-close button");
 
-// close modal function
-const closeModal = function () {
+// Open modal
+openModalBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+// Close modal
+const closeModal = () => {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
-// close the modal when the close button and overlay is clicked
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
-// close modal when the Esc key is pressed
-document.addEventListener("keydown", function (e) {
+// Close modal on Esc key
+document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
     closeModal();
   }
 });
 
-// Resume Modal Logic
+// RESUME MODAL LOGIC
 const resumeModal = document.getElementById("resume-modal");
 const openResumeBtn = document.getElementById("openResume");
-const closeResumeBtn = document.querySelector(".resume-close");
+const closeResumeBtn = resumeModal.querySelector(".resume-close button");
 
 const openResume = () => {
   resumeModal.classList.remove("hidden");
@@ -124,20 +129,15 @@ const closeResume = () => {
   overlay.classList.add("hidden");
 };
 
-// Open modal on button click
 openResumeBtn.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent link jump
+  e.preventDefault();
   openResume();
 });
 
-// Close modal when X or overlay is clicked
 closeResumeBtn.addEventListener("click", closeResume);
 overlay.addEventListener("click", closeResume);
-
-// Close modal when the Esc key is pressed
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !resumeModal.classList.contains("hidden")) {
     closeResume();
   }
 });
-
