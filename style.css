@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     outline: 0;
@@ -6,22 +6,22 @@
     box-sizing: border-box;
 }
 
-img{
+img {
     width: 100%;
     display: flex;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-body{
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: white;
     position: relative;
 }
 
-nav{
+nav {
     max-width: 1200px;
     margin: auto;
     padding: 2rem 1rem;
@@ -31,26 +31,28 @@ nav{
     gap: 2rem;
 }
 
-.navbarLogo{
+.navbarLogo {
     max-width: 175px;
 }
 
-.navLinks{
+.navLinks {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 3rem;
 }
 
-.links a, .card a{
+.links a, .card a {
     position: relative;
     padding-bottom: 0.75rem;
     color: black;
 }
-.links a:hover{
+
+.links a:hover {
     color: red;
 }
-.links a::after{
+
+.links a::after {
     content: "";
     position: absolute;
     height: 3px;
@@ -60,7 +62,7 @@ nav{
     transition: all 0.3s ease;
 }
 
-.buttons{
+.buttons {
     padding: 1rem 3rem;
     font-size: 1rem;
     color: white;
@@ -68,30 +70,34 @@ nav{
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.buttons:hover{
+
+.buttons:hover {
     opacity: 50%;
 }
 
-.wrapping{
+.wrapping {
     max-width: 1200px;
     margin: auto;
     padding: 5rem 2rem;
 }
 
-.wrapping .content a{
+.wrapping .content a {
     color: red;
 }
-.wrapping .content a:visited{
+
+.wrapping .content a:visited {
     color: red;
 }
-.wrapping .content strong{
+
+.wrapping .content strong {
     color: red;
 }
-.wrapping .content strong:hover{
+
+.wrapping .content strong:hover {
     color: black;
 }
 
-header{
+header {
     position: relative;
     padding-top: 2rem;
     display: grid;
@@ -100,36 +106,37 @@ header{
     gap: 3rem;
 }
 
-header .content h1{
+header .content h1 {
     margin-bottom: 1rem;
     font-size: 3rem;
     font-weight: 700;
-    line-height: 3rem
+    line-height: 3rem;
 }
 
-h1{
+h1 {
     color: red;
 }
 
-header .content h1 span{
+header .content h1 span {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px red;
 }
 
-header .content p{
+header .content p {
     margin-bottom: 2rem;
     color: black;
 }
 
-header .content .image{
+header .content .image {
     position: relative;
 }
-header .content .image img{
+
+header .content .image img {
     max-width: 50%;
     margin: auto;
 }
 
-section .header{
+section .header {
     margin-bottom: 1rem;
     color: red;
     text-align: center;
@@ -137,14 +144,14 @@ section .header{
     font-weight: 600;
 }
 
-.projects{
+.projects {
     margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
-.projects .card{
+.projects .card {
     background-color: red;
     padding: 1rem;
     border: 2px solid red;
@@ -152,25 +159,26 @@ section .header{
     transition: all 0.3s ease;
     opacity: 80%;
 }
-.projects .card img:hover{
+
+.projects .card img:hover {
     opacity: 50%;
 }
 
-.projects .card h4{
+.projects .card h4 {
     margin-bottom: 0.5rem;
     color: white;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-.projects .card h6{
+.projects .card h6 {
     margin-bottom: 0.5rem;
     color: white;
     font-size: 0.80rem;
     font-weight: 100;
 }
 
-/* Styling for the contact me modal: */
+/* Contact Me Modal */
 .modal {
     display: flex;
     flex-direction: column;
@@ -178,12 +186,10 @@ section .header{
     padding: 1.3rem;
     min-height: 250px;
     z-index: 2;
-    top: 20%;
     background-color: white;
     border: 2px solid red;
     border-radius: 15px;
-    position: relative;
-    float: left;
+    position: fixed;
     left: 50%;
     top: 25vh;
     transform: translate(-50%, -50%);
@@ -200,7 +206,6 @@ section .header{
     border: 1px solid red;
     border-radius: 5px;
     font-size: 0.9em;
-    position: center;
     width: 100%; 
 }
 
@@ -221,7 +226,7 @@ section .header{
     width: 100%;
 }
 
-.modal .submit button:hover{
+.modal .submit button:hover {
     opacity: 50%;
 }
 
@@ -232,7 +237,7 @@ section .header{
     border-radius: 50%;
 }
 
-/* Resume Modal Styling */
+/* Resume Modal */
 .resume-modal {
   width: 80%;
   max-width: 900px;
@@ -276,13 +281,12 @@ section .header{
 .resume-content {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  padding: 0;
 }
 
 .resume-frame {
-  flex: 1;
   width: 100%;
   height: 100%;
   border: none;
@@ -312,64 +316,82 @@ section .header{
   opacity: 0.6;
 }
 
+/* Overlay and Hidden Classes */
 .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(9px);
-    z-index: 1;
-  }
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(9px);
+  z-index: 1;
+}
 
 .hidden {
+  display: none !important;
+}
+
+/* Footer */
+footer .column .socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .column .socials a {
+  color: red;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+footer .column .socials a:hover {
+  opacity: 50%;
+}
+
+.copyright {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (width < 900px) {
+  .navLinks {
     display: none;
+  }
+  header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  header .image {
+    grid-area: 1/1/2/2;
+  }
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  footer {
+    grid-template-columns: 1fr 200px;
+  }
 }
-
-
-footer .column .socials{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-footer .column .socials a{
-    color: red;
-    border: 1px solid red;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-size: 1.25rem;
-    transition: all 0.3s ease;
-}
-footer .column .socials a:hover{
-    opacity: 50%;
-}
-
-.copyright{
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem;
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-/* Media Queries to make the Site Responsive: */
-@media(width < 900px){
-    .navLinks{
-        display: none;
-    }
-    header{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    header .image{
-        grid-area: 1/1/2/2;
-    }
-    .projects{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    footer{
-        grid-template-columns: 1fr 200px;
-    }
+@media (width < 600px) {
+  .wrapping {
+    padding: 2rem 1rem;
+  }
+  header .content h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .resume-modal {
+    width: 90%;
+    height: 80vh;
+  }
 }
