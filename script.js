@@ -109,15 +109,6 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// open modal function
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-// open modal event
-openModalBtn.addEventListener("click", openModal);
-
-// Code for the Appearing and disappearing of the Resume Modal:
 // Resume Modal Logic
 const resumeModal = document.getElementById("resume-modal");
 const openResumeBtn = document.getElementById("openResume");
@@ -133,11 +124,20 @@ const closeResume = () => {
   overlay.classList.add("hidden");
 };
 
-openResumeBtn.addEventListener("click", openResume);
+// Open modal on button click
+openResumeBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent link jump
+  openResume();
+});
+
+// Close modal when X or overlay is clicked
 closeResumeBtn.addEventListener("click", closeResume);
 overlay.addEventListener("click", closeResume);
+
+// Close modal when the Esc key is pressed
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !resumeModal.classList.contains("hidden")) {
     closeResume();
-  } 
+  }
 });
+
