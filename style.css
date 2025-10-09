@@ -60,7 +60,7 @@ nav{
     transition: all 0.3s ease;
 }
 
-.buttons{
+.openResume{
     padding: 1rem 3rem;
     font-size: 1rem;
     color: white;
@@ -68,7 +68,7 @@ nav{
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.buttons:hover{
+.openResume:hover{
     opacity: 50%;
 }
 
