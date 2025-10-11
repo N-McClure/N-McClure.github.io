@@ -1,7 +1,7 @@
 console.log("Writeups page loaded...");
 
 // Fetch posts from JSON and render cards
-fetch("posts.json")
+fetch("blog-posts.json")
   .then((res) => res.json())
   .then((posts) => {
     const container = document.getElementById("blog-container");
