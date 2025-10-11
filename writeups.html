@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writeups – Nick’s Blog</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="writeups.html" class="active">Writeups</a></li>
+            <li><button id="resumeBtn">My Resume</button></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="wrapping" id="blog">
+        <h2 class="header">Writeups</h2>
+        <div class="blog-posts" id="blog-posts-container">
+
+            <!-- Articles and Write-Ups will load here dynamically -->
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <section class="blog-modal hidden" id="blog-modal">
+        <div class="flex">
+            <h3 id="blog-modal-title"></h3>
+            <div class="btn-close blog-close"><button>X</button></div>
+        </div>
+        <div class="blog-modal-content">
+            <img id="blog-modal-image" alt="Blog Post Image">
+            <p class="blog-modal-date" id="blog-modal-date"></p>
+            <p id="blog-modal-text"></p>
+        </div>
+    </section>
+
+    <!-- Shared Overlay -->
+    <div class="overlay hidden"></div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
