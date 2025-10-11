@@ -4,57 +4,48 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Writeups – Nick’s Blog</title>
+    <title>Nick McClure | Writeups</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+    <!-- Navigation -->
     <nav>
-        <!-- The Nav Bar Logo: -->
         <div class="navbarLogo">
-            <a href="#">
-                <img src="Multimedia/NickLogo.png">
+            <a href="index.html">
+                <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
             </a>
         </div>
-        <!-- The Nav Bar Links: -->
         <ul class="navLinks">
             <li id="about" class="links"><a href="index.html">Back to Home</a></li>
-            <li id="writeups" class="links"><a href="writeups.html" target="_blank">Writeups</a></li>
+            <li id="writeups" class="links"><a href="writeups.html" class="active">Writeups</a></li>
         </ul>
-
-        <!-- Button for viewing my Resume: -->
         <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
-
     </nav>
 
     <!-- Blog Section -->
-    <section class="wrapping" id="blog">
-        <h2 class="header">Writeups</h2>
-        <div class="blog-posts" id="blog-posts-container">
-
-            <!-- Articles and Write-Ups will load here dynamically -->
-        </div>
+    <section class="wrapping">
+        <h2 class="header">My Writeups & Blog Posts</h2>
+        <div id="blog-container" class="projects"></div>
     </section>
 
     <!-- Blog Modal -->
-    <section class="blog-modal hidden" id="blog-modal">
+    <section class="resume-modal hidden" id="blog-modal">
         <div class="flex">
-            <h3 id="blog-modal-title"></h3>
+            <h3 id="blog-modal-title">Blog Title</h3>
             <div class="btn-close blog-close"><button>X</button></div>
         </div>
-        <div class="blog-modal-content">
-            <img id="blog-modal-image" alt="Blog Post Image">
-            <p class="blog-modal-date" id="blog-modal-date"></p>
-            <p id="blog-modal-text"></p>
+        <div class="resume-content">
+            <img id="blog-modal-image" class="modal-image" style="width:100%; border-bottom:2px solid red;">
+            <p id="blog-modal-date" style="padding:1rem; color:red;"></p>
+            <div id="blog-modal-text" style="padding:1rem; overflow-y:auto; flex:1;"></div>
         </div>
     </section>
 
-    <!-- Shared Overlay -->
     <div class="overlay hidden"></div>
 
-    <!-- JS -->
-    <script src="script.js"></script>
+    <script src="writeups.js"></script>
 </body>
 
 </html>
