@@ -3,7 +3,7 @@
     "slug": "iss-ctf-2025-crypto-sos",
     "title": "ISS CTF 2025 - Crypto SOS Writeup",
     "date": "February 11, 2025",
-    "image": "blog-posts/media/sos.png",
+    "image": "blog-posts/media/sos1.png",
     "preview": "A detailed writeup of the Crypto SOS challenge from the ISS CTF 2025, covering the steps taken to decode the message and retrieve the flag."
   }
 ]
