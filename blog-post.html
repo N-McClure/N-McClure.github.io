@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Multimedia/NickLogo.png" />
+  <title>Blog Post</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div class="navbarLogo">
+      <a href="index.html"><img src="Multimedia/NickLogo.png" alt="Nick McClure Logo"></a>
+    </div>
+    <ul class="navLinks">
+      <li><a href="writeups.html">Back to Writeups</a></li>
+    </ul>
+  </nav>
+
+  <section class="wrapping">
+    <article id="blog-article" class="blog-article"></article>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    fetch("blog-posts.json")
+      .then(res => res.json())
+      .then(posts => {
+        const post = posts.find(p => p.slug === slug);
+        if (!post) {
+          document.getElementById("blog-article").innerHTML = "<h2>Post not found</h2>";
+          return;
+        }
+
+        fetch(post.content)
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("blog-article").innerHTML = `
+              <h1>${post.title}</h1>
+              <p class="blog-date">${post.date}</p>
+              <img src="${post.image}" alt="${post.title}" class="blog-thumb">
+              <div class="blog-content">${html}</div>
+            `;
+            document.title = post.title;
+          });
+      });
+  </script>
+</body>
+</html>

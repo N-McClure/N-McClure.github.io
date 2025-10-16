@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nick McClure | Writeups</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Multimedia/NickLogo.png" />
+  <title>Nick McClure | Writeups</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="navbarLogo">
-            <a href="index.html">
-                <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
-            </a>
-        </div>
-        <ul class="navLinks">
-            <li id="about" class="links"><a href="index.html">Back to Home</a></li>
-            <li id="writeups" class="links"><a href="writeups.html" class="active">Writeups</a></li>
-        </ul>
-        <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <div class="navbarLogo">
+      <a href="index.html">
+        <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
+      </a>
+    </div>
+    <ul class="navLinks">
+      <li id="about" class="links"><a href="index.html">Back to Home</a></li>
+      <li id="writeups" class="links"><a href="writeups.html" class="active">Writeups</a></li>
+    </ul>
+    <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
+  </nav>
 
-    <!-- Blog Section -->
-    <section class="wrapping">
-        <h2 class="header">My Writeups & Blog Posts</h2>
-        <div id="blog-container" class="projects"></div>
-    </section>
+  <!-- Blog Section -->
+  <section class="wrapping">
+    <h2 class="header">My Writeups & Blog Posts</h2>
+    <div id="blog-container" class="blog-list"></div>
+  </section>
 
-    <!-- Blog Modal -->
-    <section class="resume-modal hidden" id="blog-modal">
-        <div class="flex">
-            <h3 id="blog-modal-title">Blog Title</h3>
-            <div class="btn-close blog-close"><button>X</button></div>
-        </div>
-        <div class="resume-content">
-            <img id="blog-modal-image" class="modal-image" style="width:100%; border-bottom:2px solid red;">
-            <p id="blog-modal-date" style="padding:1rem; color:red;"></p>
-            <div id="blog-modal-text" style="padding:1rem; overflow-y:auto; flex:1;"></div>
-        </div>
-    </section>
-
-    <div class="overlay hidden"></div>
-
-    <script src="writeups.js"></script>
+  <script src="writeups.js"></script>
 </body>
-
 </html>
