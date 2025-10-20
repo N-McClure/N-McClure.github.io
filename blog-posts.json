@@ -8,5 +8,15 @@
     "tags": ["CTF", "Crypto", "Writeup"],
     "author": "Nick McClure",
     "content": "blog-posts/iss-ctf-2025-crypto-sos.html"
+  },
+  {
+    "slug": "my-first-reported-vuln-fake-wp-plugin",
+    "title": "My First Reported Vulnerability - Fake WordPress Plugin",
+    "date": "October 19, 2025",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "A story about how I discovered and reported my first security vulnerability while I was learning how to use the tool 'WPScan'.",
+    "tags": ["Security", "Vulnerability", "WordPress"],
+    "author": "Nick McClure",
+    "content": "blog-posts/my-first-reported-vuln-fake-wp-plugin.html"
   }
 ]
