@@ -1,5 +1,6 @@
 <!--
     --- Article Breakdown / Outline ---
+
     - Title: My First Reported Vulnerability - Fake WordPress Plugin
     - Date: 10 / 19 / 2025
     - Cover Image: /blog-posts/media/code.jpg
@@ -40,10 +41,16 @@
 <h3>Introduction: </h3><br>
 <p>
     On Friday October 10th of 2025, I took some time to learn and become familiar with the usage of the tool WPScan.
-    During this exploration of WPScan I decided to run a command on a the website of a local pizzeria because I knew off the top of my head that this site was infat built with WordPress.<br>
+    During this exploration of WPScan I decided to run a command on a the website of a local pizzeria because I knew off the top of my head that this site was infat built with WordPress.<br><br>
     <strong>Command I ran : </strong>wpscan --url [website-domain-to-scan] -e vp --plugins-detection mixed --api-token [api-token-for-my-account] --random-user-agent <br><br>
     The WPScan output returned a list of plugins installed on the site and one of them was flagged as vulnerable. It was at this moment that my curiousity got the best of me and I decided to research the flagged plugin.
 </p><br>
 
 <!-- Paragraph 1: Discovery and Inital Research -->
 <h3>Discovery and Initial Research: </h3><br>
+<p>
+    <strong>Vulnerability Detected : </strong> blnmrpb - Web Shell in Fake WordPress Plugin<br><br>
+    I then proceeded to search online for any information that I could find about this vulnerability. This led me to an article by Sucuri.net that turned out to be the blog posting that covered the initial finding of the Fake Plugin dating back to January of 2020.
+    The article provided a detailed breakdown of the vulnerability and how it can be exploited by malicious actors.<br><br>
+    <strong>Link to the Article about Vulnerability : </strong><a href="https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html">https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html</a>
+</p>
