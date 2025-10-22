@@ -14,7 +14,7 @@
         - Finding of the article covering the initial release / report of the vulnerability.
         - Breakdown of the vulnerability / "summary" from the article.
 
-    - Paragraph 2: Inital Documentation and Reporting
+    - Paragraph 2: Documentation and Reporting
         - Taking my notes and formatting them into a proper and professional report.
         - Shoutout to the resources and people that helped me learn how to write a proper report.
         - The anxiety about if I should submit the report or not.
@@ -47,12 +47,21 @@
     I then proceeded to search online for any information that I could find about this vulnerability. This led me to an article by Sucuri.net that turned out to be the blog posting that covered the initial finding of the Fake Plugin dating back to January of 2020.
     The article provided a detailed breakdown of the vulnerability and how it can be exploited by malicious actors.<br><br>
     <strong>Link to the Article about Vulnerability : </strong><a href="https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html">https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html</a><br><br>
-    <strong>Breakdown of the Fake Plugin :</strong><br>
+    
+    <strong>Breakdown of the Fake Plugin Contents:</strong><br>
     <ul>
         <li>The plugin contains two (2) files, index.php and log.txt</li>
         <li>index.php --> Full of comments and one (1) line of PHP code that opens the log.txt file.</li>
         <li>log.txt --> Contains the actual PHP code for the web shell to be executed.</li>
         <li>Plugin Path --> [target-domain]/wp-content/plugins/blnmrpb</li>
-        
-    </ul>
+    </ul><br>
+    <img src="blog-posts/media/marianos_403.png"><br>
+    I then went to the path that the plugin is supposed to be located at on the website and was hit with an Error 403 Forbidden, which confirmed that the path did indeed exist on the site but was not accessible from a client-side perspective.<br><br>
+    Once I had a better understanding of how this "plugin" worked and what it was capable of allowing an attacker to do, I worked on compiling all of my notes, scan outputs, and other documentation into a more formal report.
+</p><br>
+
+<!-- Paragraph 2: Documentation and Reporting -->
+<h3>Documentation and Reporting: </h3><br>
+<p>
+    
 </p>
