@@ -381,6 +381,21 @@ section .header {
   font-weight: bold;
 }
 
+.blog-content a {
+  color: red;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-content a:visited {
+  color: red;
+}
+
+.blog-content a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 .hidden {
   display: none !important;
 }
