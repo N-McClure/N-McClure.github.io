@@ -23,14 +23,8 @@
     - Paragraph 3: Response and Over-the-Phone Follow-Up
         - Receiving the initial response from the company co-owner.
         - The back-and-forth text exchange with co-owners.
-        - Realizing that I may need to have a "boots on the ground" meeting and look at the site in person.
-
-    - Paragraph 4: In-Person Meeting and Resolution
-        - Setting up the in-person meeting with the co-owner.
-        - The meeting and walking through the vulnerability and how to fix it.
-        - The resolution and patching of the vulnerability.
     
-    - Paragraph 5: Reflection and Takeaways
+    - Paragraph 4: Reflection and Takeaways
         - Reflecting on the experience of reporting my first vulnerability.
         - Lessons learned about vulnerability research and reporting.
         - Encouragement for others to report vulnerabilities they find.
@@ -52,5 +46,13 @@
     <strong>Vulnerability Detected : </strong> blnmrpb - Web Shell in Fake WordPress Plugin<br><br>
     I then proceeded to search online for any information that I could find about this vulnerability. This led me to an article by Sucuri.net that turned out to be the blog posting that covered the initial finding of the Fake Plugin dating back to January of 2020.
     The article provided a detailed breakdown of the vulnerability and how it can be exploited by malicious actors.<br><br>
-    <strong>Link to the Article about Vulnerability : </strong><a href="https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html">https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html</a>
+    <strong>Link to the Article about Vulnerability : </strong><a href="https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html">https://blog.sucuri.net/2020/01/webshell-in-fake-plugin-blnmrpb-directory.html</a><br><br>
+    <strong>Breakdown of the Fake Plugin :</strong><br>
+    <ul>
+        <li>The plugin contains two (2) files, index.php and log.txt</li>
+        <li>index.php --> Full of comments and one (1) line of PHP code that opens the log.txt file.</li>
+        <li>log.txt --> Contains the actual PHP code for the web shell to be executed.</li>
+        <li>Plugin Path --> [target-domain]/wp-content/plugins/blnmrpb</li>
+        
+    </ul>
 </p>
