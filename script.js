@@ -141,3 +141,19 @@ document.addEventListener("keydown", (e) => {
     closeResume();
   }
 });
+
+// HAMBURGER SIDEBAR TOGGLE
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("open");
+  overlay.classList.toggle("hidden"); // reuse your overlay
+});
+
+// Close sidebar when clicking overlay
+overlay.addEventListener("click", () => {
+  navMenu.classList.remove("open");
+  hamburger.classList.remove("active");
+});
