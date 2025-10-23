@@ -142,17 +142,16 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// HAMBURGER SIDEBAR TOGGLE
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
+const overlay = document.querySelector(".overlay"); // reuse if already on page
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("open");
-  overlay.classList.toggle("hidden"); // reuse your overlay
+  overlay.classList.toggle("hidden");
 });
 
-// Close sidebar when clicking overlay
 overlay.addEventListener("click", () => {
   navMenu.classList.remove("open");
   hamburger.classList.remove("active");

@@ -428,7 +428,7 @@ footer .column .socials a:hover {
   text-align: center;
 }
 
-/* HAMBURGER ICON */
+/* Hamburger icon */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -436,7 +436,7 @@ footer .column .socials a:hover {
   width: 25px;
   height: 20px;
   cursor: pointer;
-  z-index: 1001; /* above overlay */
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -447,13 +447,14 @@ footer .column .socials a:hover {
   transition: all 0.3s ease;
 }
 
-/* SIDEBAR NAV MENU */
+/* Default nav layout */
 .navMenu {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
+/* --- Mobile Sidebar --- */
 @media (max-width: 900px) {
   .hamburger {
     display: flex;
@@ -462,14 +463,15 @@ footer .column .socials a:hover {
   .navMenu {
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 250px;
+    right: -260px; /* offscreen initially */
+    width: 260px;
     height: 100%;
-    background-color: white;
-    box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+    background: #fff;
+    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
-    align-items: start;
-    padding: 4rem 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
     gap: 2rem;
     transition: right 0.3s ease;
     z-index: 1000;
@@ -480,31 +482,48 @@ footer .column .socials a:hover {
   }
 
   .navLinks {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    list-style: none;
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
   }
 
   .navLinks li a {
     color: black;
+    text-decoration: none;
     font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .navLinks li a:hover {
+    color: red;
   }
 
   .buttons {
     width: 100%;
     text-align: center;
+    background: red;
+    color: white;
+    padding: 0.75rem 0;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
   }
 
-  /* HAMBURGER ANIMATION */
+  .buttons:hover {
+    background: black;
+  }
+
+  /* Hamburger animation when active */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translateY(8px);
   }
-
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
-
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translateY(-8px);
   }
