@@ -141,19 +141,3 @@ document.addEventListener("keydown", (e) => {
     closeResume();
   }
 });
-
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-const overlay = document.querySelector(".overlay"); // reuse if already on page
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("open");
-  overlay.classList.toggle("hidden");
-});
-
-overlay.addEventListener("click", () => {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("open");
-  hamburger.classList.remove("active");
-});

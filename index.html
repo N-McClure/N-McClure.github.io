@@ -50,34 +50,25 @@
 
     <!-- The Navigation Bar and Links: -->
     <nav>
+        <!-- The Nav Bar Logo: -->
         <div class="navbarLogo">
-            <a href="index.html">
-                <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
+            <a href="#">
+                <img src="Multimedia/NickLogo.png">
             </a>
         </div>
+        <!-- The Nav Bar Links: -->
+        <ul class="navLinks">
+            <li id="about" class="links"><a href="#">About</a></li>
+            <li id="projects" class="links"><a href="#">Projects</a></li>
+            <li id="socials" class="links"><a href="#">Socials</a></li>
+            <li id="contactme" class="links"><a href="#">Contact Me</a></li>
+            <li id="writeups" class="links"><a href="writeups.html">Writeups</a></li>
+        </ul>
 
-        <!-- Hamburger Icon -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <!-- Button for viewing my Resume: -->
+        <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
 
-        <!-- Sidebar Menu -->
-        <div class="navMenu" id="navMenu">
-            <ul class="navLinks">
-                <li><a href="index.html">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Socials</a></li>
-                <li><a href="#">Contact Me</a></li>
-                <li><a href="writeups.html">Writeups</a></li>
-            </ul>
-            <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
-        </div>
     </nav>
-
-    <!-- Hidden Overlay for the Navigation Sidebar in Mobile view: -->
-    <div class="overlay hidden" id="navOverlay"></div>
 
     <!-- Modal that will appear with Contact Me form: -->
     <section class="modal hidden" id="contact-me">
