@@ -153,6 +153,7 @@ hamburger.addEventListener("click", () => {
 });
 
 overlay.addEventListener("click", () => {
+  hamburger.classList.remove("active");
   navMenu.classList.remove("open");
   hamburger.classList.remove("active");
 });
