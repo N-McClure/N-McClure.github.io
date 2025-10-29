@@ -48,20 +48,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
 
-    <!-- Collapsible Sidebar Navigation -->
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">
-        ☰
-    </button>
-
-    <nav id="sidebar" class="sidebar">
-        <!-- Logo -->
+    <!-- Main Navigation Bar -->
+    <nav>
+        <!-- Nav Bar Logo (kept visible always) -->
         <div class="navbarLogo">
             <a href="#">
                 <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
             </a>
         </div>
 
-        <!-- Nav Links -->
+        <!-- Regular nav links (desktop only) -->
         <ul class="navLinks">
             <li id="about" class="links"><a href="#">About</a></li>
             <li id="projects" class="links"><a href="#">Projects</a></li>
@@ -72,7 +68,25 @@
 
         <!-- Resume Button -->
         <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
+
+        <!-- Hamburger Toggle (mobile only) -->
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
     </nav>
+
+    <!-- Collapsible Sidebar -->
+    <nav id="sidebar" class="sidebar">
+        <ul class="navLinks">
+            <li id="about-mobile" class="links"><a href="#">About</a></li>
+            <li id="projects-mobile" class="links"><a href="#">Projects</a></li>
+            <li id="socials-mobile" class="links"><a href="#">Socials</a></li>
+            <li id="contactme-mobile" class="links"><a href="#">Contact Me</a></li>
+            <li id="writeups-mobile" class="links"><a href="writeups.html">Writeups</a></li>
+        </ul>
+        <a href="#" id="openResumeMobile"><button class="buttons">My Resume</button></a>
+    </nav>
+
 
     <!-- Modal that will appear with Contact Me form: -->
     <section class="modal hidden" id="contact-me">

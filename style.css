@@ -435,23 +435,23 @@ footer .column .socials a:hover {
 .sidebar {
   position: fixed;
   top: 0;
-  left: -260px; /* hidden off-screen by default */
+  right: -260px; /* hidden off-screen to the right */
   width: 260px;
   height: 100%;
   background-color: white;
-  border-right: 2px solid red;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  border-left: 2px solid red;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
-  transition: left 0.3s ease;
+  transition: right 0.3s ease;
   z-index: 2000;
 }
 
 .sidebar.active {
-  left: 0;
+  right: 0;
 }
 
 .sidebar .navLinks {
@@ -474,7 +474,7 @@ footer .column .socials a:hover {
   display: none;
   position: fixed;
   top: 1.2rem;
-  left: 1.2rem;
+  right: 1.2rem;
   background: red;
   color: white;
   border: none;
@@ -502,7 +502,7 @@ footer .column .socials a:hover {
   z-index: 1500;
 }
 
-/* Show sidebar on mobile */
+/* Responsive behavior */
 @media (max-width: 900px) {
   nav {
     justify-content: space-between;

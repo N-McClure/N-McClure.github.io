@@ -152,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
   overlay.classList.add('sidebar-overlay');
   document.body.appendChild(overlay);
 
-  // Open/close sidebar
   const toggleSidebar = () => {
     sidebar.classList.toggle('active');
     overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
@@ -160,5 +159,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggle.addEventListener('click', toggleSidebar);
   overlay.addEventListener('click', toggleSidebar);
-});
 
+  // Optional: sync sidebar links with desktop scroll behavior
+  const syncLinks = ['about', 'projects', 'socials'];
+  syncLinks.forEach(id => {
+    const desktopLink = document.getElementById(id);
+    const mobileLink = document.getElementById(`${id}-mobile`);
+    if (desktopLink && mobileLink) {
+      mobileLink.addEventListener('click', e => {
+        e.preventDefault();
+        desktopLink.click();
+        toggleSidebar(); // close sidebar after navigating
+      });
+    }
+  });
+
+  // Resume modal link for mobile
+  const openResumeMobile = document.getElementById('openResumeMobile');
+  if (openResumeMobile) {
+    openResumeMobile.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('openResume').click();
+      toggleSidebar();
+    });
+  }
+});
