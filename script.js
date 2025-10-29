@@ -142,18 +142,23 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// HAMBURGER SIDEBAR TOGGLE
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
+// Sidebar toggle logic
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('sidebar');
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("open");
-  overlay.classList.toggle("hidden"); // reuse your overlay
+  // Create overlay element
+  const overlay = document.createElement('div');
+  overlay.classList.add('sidebar-overlay');
+  document.body.appendChild(overlay);
+
+  // Open/close sidebar
+  const toggleSidebar = () => {
+    sidebar.classList.toggle('active');
+    overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+  };
+
+  toggle.addEventListener('click', toggleSidebar);
+  overlay.addEventListener('click', toggleSidebar);
 });
 
-// Close sidebar when clicking overlay
-overlay.addEventListener("click", () => {
-  navMenu.classList.remove("open");
-  hamburger.classList.remove("active");
-});

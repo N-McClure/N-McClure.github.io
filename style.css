@@ -430,6 +430,94 @@ footer .column .socials a:hover {
   text-align: center;
 }
 
+/* === SIDEBAR NAVIGATION (MOBILE) === */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* hidden off-screen by default */
+  width: 260px;
+  height: 100%;
+  background-color: white;
+  border-right: 2px solid red;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  transition: left 0.3s ease;
+  z-index: 2000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar .navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar .links a {
+  color: black;
+  font-size: 1.1rem;
+}
+
+.sidebar .buttons {
+  width: 100%;
+}
+
+/* Toggle (hamburger) button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  left: 1.2rem;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  z-index: 2100;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Overlay for dimming the page */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+}
+
+/* Show sidebar on mobile */
+@media (max-width: 900px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .navLinks {
+    display: none; /* hide horizontal nav */
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+
 /* Responsive Design */
 @media (width < 900px) {
   .navLinks {

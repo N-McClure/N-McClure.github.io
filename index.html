@@ -48,15 +48,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
 
-    <!-- The Navigation Bar and Links: -->
-    <nav>
-        <!-- The Nav Bar Logo: -->
+    <!-- Collapsible Sidebar Navigation -->
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">
+        ☰
+    </button>
+
+    <nav id="sidebar" class="sidebar">
+        <!-- Logo -->
         <div class="navbarLogo">
             <a href="#">
-                <img src="Multimedia/NickLogo.png">
+                <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
             </a>
         </div>
-        <!-- The Nav Bar Links: -->
+
+        <!-- Nav Links -->
         <ul class="navLinks">
             <li id="about" class="links"><a href="#">About</a></li>
             <li id="projects" class="links"><a href="#">Projects</a></li>
@@ -65,9 +70,8 @@
             <li id="writeups" class="links"><a href="writeups.html">Writeups</a></li>
         </ul>
 
-        <!-- Button for viewing my Resume: -->
+        <!-- Resume Button -->
         <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
-
     </nav>
 
     <!-- Modal that will appear with Contact Me form: -->
