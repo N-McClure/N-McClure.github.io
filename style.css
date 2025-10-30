@@ -473,13 +473,13 @@ footer .column .socials a:hover {
 .sidebar-toggle {
   display: none;
   position: relative;
-  top: 1.2rem;
+  top: 1.0rem;
   right: 1.2rem;
-  background: red;
-  color: white;
+  background: white;
+  color: red;
   border: none;
   font-size: 1.8rem;
-  padding: 0.4rem 0.4rem;
+  padding: 0.4rem 0.6rem;
   border-radius: 5px;
   z-index: 2100;
   cursor: pointer;
