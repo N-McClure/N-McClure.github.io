@@ -142,7 +142,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Sidebar toggle logic
+
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('sidebarToggle');
   const sidebar = document.getElementById('sidebar');
@@ -160,21 +160,21 @@ document.addEventListener('DOMContentLoaded', function () {
   toggle.addEventListener('click', toggleSidebar);
   overlay.addEventListener('click', toggleSidebar);
 
-  // Optional: sync sidebar links with desktop scroll behavior
-  const syncLinks = ['about', 'projects', 'socials'];
-  syncLinks.forEach(id => {
+  // Sync mobile sidebar links with desktop scroll behavior
+  const ids = ['about', 'projects', 'socials', 'contactme'];
+  ids.forEach(id => {
     const desktopLink = document.getElementById(id);
     const mobileLink = document.getElementById(`${id}-mobile`);
     if (desktopLink && mobileLink) {
       mobileLink.addEventListener('click', e => {
         e.preventDefault();
         desktopLink.click();
-        toggleSidebar(); // close sidebar after navigating
+        toggleSidebar(); // close sidebar
       });
     }
   });
 
-  // Resume modal link for mobile
+  // Mobile resume button triggers desktop one
   const openResumeMobile = document.getElementById('openResumeMobile');
   if (openResumeMobile) {
     openResumeMobile.addEventListener('click', e => {

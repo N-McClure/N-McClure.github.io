@@ -444,8 +444,7 @@ footer .column .socials a:hover {
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
+  justify-content: space-between;
   transition: right 0.3s ease;
   z-index: 2000;
 }
@@ -465,14 +464,15 @@ footer .column .socials a:hover {
   font-size: 1.1rem;
 }
 
-.sidebar .buttons {
+.sidebar .buttons.sidebar-resume {
   width: 100%;
+  margin-top: auto;
 }
 
 /* Toggle (hamburger) button */
 .sidebar-toggle {
   display: none;
-  position: fixed;
+  position: relative;
   top: 1.2rem;
   right: 1.2rem;
   background: red;
@@ -502,14 +502,14 @@ footer .column .socials a:hover {
   z-index: 1500;
 }
 
-/* Responsive behavior */
+/* Responsive behaviour */
 @media (max-width: 900px) {
-  nav {
-    justify-content: space-between;
-  }
-
   .navLinks {
     display: none; /* hide horizontal nav */
+  }
+
+  .resume-desktop {
+    display: none; /* hide resume button on mobile */
   }
 
   .sidebar-toggle {

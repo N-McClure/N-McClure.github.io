@@ -50,7 +50,7 @@
 
     <!-- Main Navigation Bar -->
     <nav>
-        <!-- Nav Bar Logo (kept visible always) -->
+        <!-- Logo (always visible) -->
         <div class="navbarLogo">
             <a href="#">
                 <img src="Multimedia/NickLogo.png" alt="Nick McClure Logo">
@@ -66,8 +66,10 @@
             <li id="writeups" class="links"><a href="writeups.html">Writeups</a></li>
         </ul>
 
-        <!-- Resume Button -->
-        <a href="#" id="openResume"><button class="buttons">My Resume</button></a>
+        <!-- Resume Button (desktop only) -->
+        <a href="#" id="openResume" class="resume-desktop">
+            <button class="buttons">My Resume</button>
+        </a>
 
         <!-- Hamburger Toggle (mobile only) -->
         <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">
@@ -75,7 +77,7 @@
         </button>
     </nav>
 
-    <!-- Collapsible Sidebar -->
+    <!-- Collapsible Sidebar (mobile only) -->
     <nav id="sidebar" class="sidebar">
         <ul class="navLinks">
             <li id="about-mobile" class="links"><a href="#">About</a></li>
@@ -84,8 +86,13 @@
             <li id="contactme-mobile" class="links"><a href="#">Contact Me</a></li>
             <li id="writeups-mobile" class="links"><a href="writeups.html">Writeups</a></li>
         </ul>
-        <a href="#" id="openResumeMobile"><button class="buttons">My Resume</button></a>
+
+        <!-- Resume Button (mobile only, at bottom of sidebar) -->
+        <a href="#" id="openResumeMobile">
+            <button class="buttons sidebar-resume">My Resume</button>
+        </a>
     </nav>
+
 
 
     <!-- Modal that will appear with Contact Me form: -->
