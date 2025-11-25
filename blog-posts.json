@@ -21,7 +21,7 @@
   },
   {
     "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
-    "title": "CyberSci CTF 2025 - Warmup They Don't Listen Writeup",
+    "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
     "date": "November 24, 2025",
     "image": "blog-posts/media/cybersci_thumbnail.jpg",
     "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",

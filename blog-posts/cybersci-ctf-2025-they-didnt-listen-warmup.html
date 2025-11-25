@@ -1,0 +1,48 @@
+<h3>Challenge Description: </h3>
+<p>
+    You know automata, they never listen to humans. That's how we got into this mess. They even stole our launch codes.<br>
+    
+    There was a link to the ip address 10.0.2.11
+</p><br>
+
+<h3>My Actions / Solution: </h3>
+<p>
+    I started the challenge by running an nmap scan on the provided IP address to see what ports were open.<br>
+    <strong>Command Ran: </strong>nmap -sS 10.0.2.11
+    <ul>
+        <li> Port 22 Open</li>
+        <li> Port 443 Open</li>
+        <li> Port 8080 Open</li>
+    </ul><br>
+
+    We were instructed by the competition organizers to ignore any and all open port 22 services, so I turned my attention to port 443 which meant that the address had an HTTPS service running.
+    I opened up my web browser and navigated to https://10.0.2.11 and was greeted with a blank white screen. Not exactly what I was hoping for.<br>
+    The challenge had mentioned "automata" which got me thinking about robots. I decided to go a little deeper into the site while following my robots train of thought
+    and navigated to the robots.txt file on the site.<br>
+
+    <strong>URL Visited: </strong>https://10.0.2.11/robots.txt
+</p>
+
+<img src="blog-posts/media/robot_contents.png"><br><br>
+
+<p>
+    The robots.txt file contained a disallowed directory called /undernocircumstancesareyourrobotstocheckthisfolder, so naturally I ignored this 
+    disallowed functionality and copied the directory path into my browser and slapped a forward slash "/" onto the very end of it so it would bypass the disallow command and display the contents of the directory.<br>
+    
+    <strong>URL Visited: </strong>https://10.0.2.11/undernocircumstancesareyourrobotstocheckthisfolder/
+</p>
+
+<img src="blog-posts/media/directory_contents.png"><br><br>
+
+<p>
+    When I navigated to this directory I saw it contained two (2) text files, one of which was the one I needed and the other one turned out to be part of a completely different challenge.<br>
+    <ul>
+        <li>launch_codes.txt --> File we are interested in for this challenge.</li>
+        <li>plans_for_the_resistance.txt --> Not for this challenge.</li>
+    </ul><br>
+
+    I then clicked on the launch_codes.txt file and was presented with the flag, signaling that the challenge was coplete.<br><br>
+    <strong>Found Flag: </strong> CyberSci{xR35AQBCZGtRD4ou7ZpVrvzS}
+</p>
+
+
