@@ -1,6 +1,6 @@
 <!--
 
-    === Blg Post Outline ===
+    === Blog Post Outline ===
     - Introduction:
         - Briefly describe how I found this article (add link to article), and how I talked about it at ISS this week (add link to ISS video).
     
@@ -36,10 +36,10 @@
     The attackers are leveraging the BitB technique to show a fake pop-up window inside the browser that looks like a legitimate login prompt (with the URL bar...etc), 
     but it is in fact a  malicious iframe / HTML overlay.<br><br>
 
-    <h6>Attack Flow:</h6>
+    <h4>Attack Flow:</h4>
     <ol>
         <li>The victim lands on a malicious URL (i.e. "previewdoc[.]us")</li>
-        <li>The victim is shown a spoofed "bot-check" (Cloudflare Turnstile) to build a feeling a legitimacy and trust.</li>
+        <li>The victim is shown a spoofed "bot-check" (Cloudflare Turnstile).</li>
         <li>The page then displays a prompt for the victim to "Login with Microsoft" to view the PDF.</li>
         <li>After the victim clicks the login button, the BitB login page is displayed and the victim enters their credentials into the input fields.</li>
         <li>Once the credentials have been inputted by the victim the credentials and the session details are then exfiltrated.</li>
@@ -51,4 +51,16 @@
     The key takeaway from this article is that Phishing attacks are continuously evolving and becoming more sophisticated, making it crucial for users to stay vigilant and for organizations to implement robust security measures.
 </p><br>
 
+<!-- Technical Breakdown of the Attack: -->
+<h3>Technical Breakdown of the Attack:</h3><br>
+<p>
+    <!-- Initial Landing & "Bot-Check": -->
+    <h4>1. Initial Landing & Bot-Check:</h4><br>
+    This attack begins when the victim is directed to a malicious URL, such as "previewdoc[.]us", which hosts the phishing kit via a phishing email or another social engineering method.
+    Before anything malicious shows, the page displays a spoofed Cloudflare Turnstile (or similar) bot challenge.
+    This serves two purposes: to filter out automated scanning tools crawlingt the page, and to delay / arrest non-human traffic...making detection harder.
+    Conditional loading is applied to only serve the malicious content if certain criteria are met (i.e. Geolocation, IP reputation, Browser Type...etc).
+    This ensures that only the intended victims are served the phishing page, otherwise benign content is shown.<br><br>
 
+    
+</p>
