@@ -20,16 +20,6 @@
     "content": "blog-posts/my-first-reported-vuln-fake-wp-plugin.html"
   },
   {
-    "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
-    "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
-    "date": "November 24, 2025",
-    "image": "blog-posts/media/cybersci_thumbnail.jpg",
-    "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",
-    "tags": ["CTF", "CyberSci", "Writeup"],
-    "author": "Nick McClure",
-    "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
-  },
-  {
     "slug": "iss-news-november-20-2025-browser-in-the-browser",
     "title": "ISS News - November 20, 2025 - Browser-in-the-Browser Attack",
     "date": "November 20, 2025",
@@ -38,5 +28,15 @@
     "tags": ["Security", "Browser-In-The-Browser", "News", "ISS", "ISSessions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-november-20-2025-browser-in-the-browser.html"
+  },
+  {
+    "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
+    "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
+    "date": "November 24, 2025",
+    "image": "blog-posts/media/cybersci_thumbnail.jpg",
+    "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",
+    "tags": ["CTF", "CyberSci", "Writeup"],
+    "author": "Nick McClure",
+    "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
   }
 ]

@@ -94,9 +94,45 @@
         <li><strong>Rapidly Rotated Domains</strong> to avoid blacklisting and make takedown efforts more difficult.</li>
         <li><strong>Conditional Loading</strong> to ensure that only intended targets see the phishing content.</li>
         <li><strong>Use of spoofed "Bot-Checks"</strong> prevents automated crawling by researchers and tools.</li>
+    </ul><br><br>
+
+    <!-- Passkeys & Downgrade Attacks: -->
+    <h4>6. Passkeys & Downgrade Attacks:</h4>
+    The phishing kit also supports Passkeys, which are becoming more common as a passwordless authentication method.
+    However, the kit can perform downgrade attacks to trick users into entering their passwords instead of using Passkeys.
+    This is done by presenting the victim with a prompt that suggests they need to enter their password for compatibility reasons, thereby bypassing the security benefits of Passkeys.
+</p><br>
+
+<!-- Why is this attack effective?: -->
+<h3>Why is this Attack Effective?</h3><br>
+<p>
+    This attack is effective for several reasons:
+    <ul>
+        <li><strong>Realistic Appearance:</strong> The BitB technique creates a convincing illusion of a legitimate login prompt, making it difficult for victims to recognize the fraud.</li>
+        <li><strong>Bypassing Traditional Defenses:</strong> Since the phishing page is served within a legitimate domain and uses overlays, it can evade traditional URL-based detection methods.</li>
+        <li><strong>Advanced Evasion Techniques:</strong> The use of bot-checks, conditional loading, and developer tool disabling makes it harder for security researchers to analyze and detect the phishing kit.</li>
+        <li><strong>Targeted Approach:</strong> The conditional loading ensures that only specific targets see the phishing content, reducing the likelihood of detection by automated systems.</li>
     </ul>
-    These measures make the phishing kit more resilient and harder to analyze or block.<br><br>
+</p><br>
 
+<!-- Defensive Measures & Recommendations: -->
+<h3>Defensive Measures and Recommendations:</h3><br>
+<p>
+    To defend against BitB attacks and similar phishing techniques, consider the following measures:
+    <ul>
+        <li><strong>User Education:</strong> Train users to recognize phishing attempts and be cautious when entering credentials, especially on unexpected prompts.</li>
+        <li><strong>Multi-Factor Authentication (MFA):</strong> Implement MFA to add an additional layer of security, making it harder for attackers to gain access even if credentials are compromised.</li>
+        <li><strong>Browser Security Features:</strong> Encourage users to keep their browsers updated and utilize built-in security features that can help identify fraudulent sites.</li>
+        <li><strong>Anti-Phishing Solutions:</strong> Deploy advanced anti-phishing solutions that can detect and block sophisticated phishing attempts.</li>
+        <li><strong>Regular Security Audits:</strong> Conduct regular security audits and penetration testing to identify vulnerabilities in your systems and improve defenses.</li>
+    </ul>
+</p><br>
 
-
+<!-- My Thoughts: -->
+<h3>My Thoughts on the Article and Attack:</h3><br>
+<p>
+    This article caught my attention because of the innovative use of the Browser-in-the-Browser technique in phishing attacks.
+    Phishing has always been a significant threat, but the evolution of techniques like BitB shows how attackers are continuously adapting to bypass security measures and exploit user trust.
+    As toolkits like these become more prevalent and easily accessible, it is crucial for both users and organizations to stay informed about emerging threats and implement robust security practices.
+    Overall, this article serves as a reminder of the ever-evolving nature of cyber threats and the importance of vigilance in cybersecurity.
 </p>
