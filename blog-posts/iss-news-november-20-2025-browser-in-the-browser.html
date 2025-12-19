@@ -62,5 +62,19 @@
     Conditional loading is applied to only serve the malicious content if certain criteria are met (i.e. Geolocation, IP reputation, Browser Type...etc).
     This ensures that only the intended victims are served the phishing page, otherwise benign content is shown.<br><br>
 
+    <!-- Luring the Victim: -->
+    <h4>2. Luring the Victim:</h4>
+    After clearing the "Bot-Check", the victim is presented with a page that offers something enticing...in this case it is a document that they must "Login with Microsoft" to view.
+    The page is designed to look legitimate and trustworthy, often mimicking the style and branding of well-known services.
+    The "Login" button triggers the loading of the BitB login prompt.<br><br>
+
+    <!-- Fake Browser-in-the-Browser (BitB) Login pop-up: -->
+    <h4>3. Fake Browser-in-the-Browser (BitB) Login Pop-Up:</h4>
+    The Browser-in-the-Browser (BitB) technique is a key innovation in the way phishing attacks are being executed against targets.
+    Rather than redirecting the victim wholly to a fake login page on a phishing domain, the attacker embeds an HTML/CSS overlay (or iframe) 
+    that looks like a genuine browser window complete with URL bar, security indicators, and branding.
+    This overlay is designed to mimic the look and feel of a real login prompt, making it difficult for victims to discern its fraudulent nature.
+    When the victim clicks the "Login with Microsoft" button, this BitB login prompt is displayed, prompting them to enter their credentials.<br><br>
+
     
 </p>
