@@ -28,5 +28,15 @@
     "tags": ["CTF", "CyberSci", "Writeup"],
     "author": "Nick McClure",
     "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
+  },
+  {
+    "slug": "iss-news-november-20-2025-browser-in-the-browser",
+    "title": "ISS News - November 20, 2025 - Browser-in-the-Browser Attack",
+    "date": "November 20, 2025",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "An overview of the Browser-In-The-Browser (BitB) attack news story that I covered for the News segment at ISS this week.",
+    "tags": ["Security", "Browser-In-The-Browser", "News", "ISS", "ISSessions"],
+    "author":"Nick McClure",
+    "content": "blog-posts/iss-news-november-20-2025-browser-in-the-browser.html"
   }
 ]
