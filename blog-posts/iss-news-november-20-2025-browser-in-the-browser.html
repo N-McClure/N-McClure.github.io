@@ -17,7 +17,9 @@
 
         - Why is this attack effective?
 
-        - Defensive Measures and Recomendations:
+        - Defensive Measures and Recomendations.
+
+        - My thouhgts on the article and attack.
 
 -->
 
@@ -55,7 +57,7 @@
 <h3>Technical Breakdown of the Attack:</h3><br>
 <p>
     <!-- Initial Landing & "Bot-Check": -->
-    <h4>1. Initial Landing & Bot-Check:</h4><br>
+    <h4>1. Initial Landing & Bot-Check:</h4>
     This attack begins when the victim is directed to a malicious URL, such as "previewdoc[.]us", which hosts the phishing kit via a phishing email or another social engineering method.
     Before anything malicious shows, the page displays a spoofed Cloudflare Turnstile (or similar) bot challenge.
     This serves two purposes: to filter out automated scanning tools crawlingt the page, and to delay / arrest non-human traffic...making detection harder.
@@ -77,5 +79,24 @@
     When the victim clicks the "Login with Microsoft" button, this BitB login prompt is displayed, prompting them to enter their credentials.<br><br>
 
     <img class="gif" src="blog-posts/media/BitB_demo.gif"><br><br>
+
+    <!-- Exfiltration and Account Takeover: -->
+    <h4>4. Exfiltration and Account Takeover:</h4>
+    Once credentials (and often Multi-Facator Authentication codes or Session Cookies) are captured, the attacker uses them to log into the real account and take over the victim's session and hijack their account.
+    Because the attacker captures session cookies as well, they can bypass certain security measures and maintain access even if the victim changes their password later on.<br><br>
+
+    <!-- Evasion & Resilience: -->
+    <h4>5. Evasion & Resilience:</h4>
+    This phishing kit incorporates a plethora of evasion techniques to avoid detection from victims and analysis from security researchers.
+    These include;
+    <ul>
+        <li><strong>Disabling Browser Developer Tools</strong> so that if a user tries to inspect the page things will break or the overlay will hide things.</li>
+        <li><strong>Rapidly Rotated Domains</strong> to avoid blacklisting and make takedown efforts more difficult.</li>
+        <li><strong>Conditional Loading</strong> to ensure that only intended targets see the phishing content.</li>
+        <li><strong>Use of spoofed "Bot-Checks"</strong> prevents automated crawling by researchers and tools.</li>
+    </ul>
+    These measures make the phishing kit more resilient and harder to analyze or block.<br><br>
+
+
 
 </p>
