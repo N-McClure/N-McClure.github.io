@@ -33,5 +33,22 @@
 <h3>Summary of the Article and Key Points:</h3><br>
 <p>
     The kit which is being used for these attacks has been observed by "Push Security" researchers to mainly be targeting Microsoft accounts.
-    
-</p>
+    The attackers are leveraging the BitB technique to show a fake pop-up window inside the browser that looks like a legitimate login prompt (with the URL bar...etc), 
+    but it is in fact a  malicious iframe / HTML overlay.<br><br>
+
+    <h6>Attack Flow:</h6>
+    <ol>
+        <li>The victim lands on a malicious URL (i.e. "previewdoc[.]us")</li>
+        <li>The victim is shown a spoofed "bot-check" (Cloudflare Turnstile) to build a feeling a legitimacy and trust.</li>
+        <li>The page then displays a prompt for the victim to "Login with Microsoft" to view the PDF.</li>
+        <li>After the victim clicks the login button, the BitB login page is displayed and the victim enters their credentials into the input fields.</li>
+        <li>Once the credentials have been inputted by the victim the credentials and the session details are then exfiltrated.</li>
+    </ol><br><br>
+
+    The article also talks about how the phishing kit has built-in anti-analysis and evasion measures such as; the disabling of developer tools, 
+    rapidly rotated domains, and conditional loading (target filtering) so only the intended victims are served the phishing page.
+    It is also mentioned that the kit supports Passkeys, and can even perform downgrade attacks to trick users into entering their passwords instead of using Passkeys.
+    The key takeaway from this article is that Phishing attacks are continuously evolving and becoming more sophisticated, making it crucial for users to stay vigilant and for organizations to implement robust security measures.
+</p><br>
+
+
