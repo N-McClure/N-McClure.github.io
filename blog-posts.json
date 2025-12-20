@@ -38,5 +38,15 @@
     "tags": ["CTF", "CyberSci", "Writeup"],
     "author": "Nick McClure",
     "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
+  },
+  {
+    "slug": "iss-news-december-4-2025-shadypanda-malware-campaign",
+    "title": "ISS News - December 4, 2025 - ShadyPanda Malware Campaign",
+    "date": "December 4, 2025",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "An overview of the ShadyPanda malware campaign news story that I covered for the News segment at ISS this week.",
+    "tags": ["Security", "Malware", "News", "ISS", "ISSessions", "Browser Extensions"],
+    "author":"Nick McClure",
+    "content": "blog-posts/iss-news-december-4-2025-shadypanda-malware-campaign.html"
   }
 ]
