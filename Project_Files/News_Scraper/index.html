@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title -->
+  <title>Web News Scraper</title>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Main container to center content -->
+  <div class="container">
+
+    <!-- Application heading -->
+    <h1>Web-Based News Article Scraper</h1>
+
+    <!-- Keyword search input and button -->
+    <div class="search-bar">
+      <input
+        id="keywordInput"
+        type="text"
+        placeholder="Enter keywords to search for news articles"
+      />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Date filtering controls -->
+    <div class="date-filters">
+      <label>
+        Start Date:
+        <input type="date" id="startDate" />
+      </label>
+
+      <label>
+        End Date:
+        <input type="date" id="endDate" />
+      </label>
+    </div>
+
+    <!-- Results container populated by JavaScript -->
+    <div id="results" class="results"></div>
+
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
