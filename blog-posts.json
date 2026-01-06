@@ -13,7 +13,7 @@
     "slug": "my-first-reported-vuln-fake-wp-plugin",
     "title": "My First Reported Vulnerability - Fake WordPress Plugin",
     "date": "October 19, 2025",
-    "image": "blog-posts/media/code.jpg",
+    "image": "blog-posts/media/smaller_htp_banner.png",
     "preview": "A story about how I discovered and reported my first security vulnerability while I was learning how to use the tool 'WPScan'.",
     "tags": ["Security", "Vulnerability", "WordPress"],
     "author": "Nick McClure",
