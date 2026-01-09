@@ -34,7 +34,7 @@
     - Breakdown of the email source code.
     - Talk about how I found an IP address in the email source code.
 
-    Paragraph Four (4): Tracking the IP Address and Building a Profile of Suspect
+    Paragraph Four (4): Tracing the IP Address and Building a Profile of Suspect
     -----------------------------------------------------------------------------
     - Explain how I ran the IP address through the usage of "whois" command.
     - Explain how I uncovered a multitude of info from that command.
@@ -117,5 +117,7 @@
 
     I took note of these findings and continued to skim through the remainder of the code in hunt for any other suspicious looking or interesting elements.
     <br><br><img src="blog-posts/media/mt_4.png"><br>
-    Eventually I stumbled upon
-</p>
+    The last interesting element that I found in the source code of the email was in the "received-spf" header which contained a message saying that the SPF check for the email had failed and that the IP address "46.232.41.252" was not an authorized sender.
+    This was a significant finding as it indicated that the email was likely sent from a compromised server or a server that was not authorized to send emails on behalf of the domain.
+</p><br>
+
