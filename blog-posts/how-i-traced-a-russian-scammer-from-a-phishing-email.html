@@ -127,14 +127,26 @@
     With the info from the email source in hand, I booted up my "hacking environment" and got to work.
     The first thing that I did was run nmap against the domain to se if there were any ports open but unfortunately the server was offline.
     I confirmed this by pinging the domain and receiving no response back. Looking back as I am writing this I realize I could have saved myself a step running the ping before the nmap scan...oh well, live and learn.
-    Next, I used the "whois" command to see if I could uncover some details about the IP's ownership and Location.<br>
+    Next, I used the "whois" command to see if I could uncover some details about the IP's ownership and Location.<br><br>
     <strong>Command Run: </strong>whois 46.232.41.252<br><br>
 
     <img src="blog-posts/media/whois_pc1.png"><br>
     
     I first noticed that the IP address was tied to the email <strong>pavel_chachin@keemail.me</strong>, which I made a note of because the domain looked odd to me.
     After a quick Google search I learned that the domain "keemail.me" is a privacy-focused, encrypted email service that is associtated with the legitamate email provider "Tuta Mail" (priorly known as "Tutanota") but has been flagged as malicious as their service is often 
-    favored and used by cybercriminals for nefarious purposes. You can read more about Tuta Mail's anonymous email service <a href="https://tuta.com/blog/anonymous-email">here</a>.<br><br>
+    favored and used by cybercriminals for nefarious purposes. You can read more about Tuta Mail's anonymous email service <a href="https://tuta.com/blog/anonymous-email" target="_blank">here</a>.<br><br>
 
+    <img src="blog-posts/media/whois_pc2.png"><br>
+
+    Under the "remarks" section of the output I noticed that it stated "Pending deregistration by the RIPE NCC"
+    which indicated to me that the IP address was in the process of being decommissioned and would soon no longer be in use.
+    After a search online I learned that the <a href="https://www.ripe.net/" target="blank">RIPE NCC</a> is the Regional Internet Registry (RIR) for Europe, the Middle East, and parts of Central Asia.
+    I made sure to take note of this service in case I come across it in any future investigations.<br>
+    From the contents of the "netname" field (RU-DOMTEHNIKI-NET-20110209) I deduced...<br><br>
+    <ul>
+        <li>This IP address is registered in Russia</li>
+        <li>It is likely owned by a company named "DomTekhniki"</li>
+        <li>The IP was likely assigned to this company on February 9th, 2011</li>
+    </ul><br>
     
 </p>
