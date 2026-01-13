@@ -34,20 +34,25 @@
     - Breakdown of the email source code.
     - Talk about how I found an IP address in the email source code.
 
-    Paragraph Four (4): Tracing the IP Address and Building a Profile of The Suspect
-    -----------------------------------------------------------------------------
+    Paragraph Four (4): Tracing the IP Address & Inital Info On Suspect
+    -------------------------------------------------------------------
     - Explain how I ran the IP address through the usage of "whois" command.
     - Explain how I uncovered a multitude of info from that command.
-    - Talk about how I used the username prefex of the email and the tool "sherlock" to find more accounts associated with that username.
 
-    Paragraph Five (5): Sending My Findings To The Victim
+    Paragraph Five (5): Digging Deeper Into The Suspect & Building A Profile
+    ------------------------------------------------------------------------
+    - Talk about how I used the username prefex of the email and the tool "sherlock" to find more accounts associated with that username.
+    - Explain how I found multiple social media accounts tied to the suspect.
+    - Mention how I pieced together a profile of the suspect based on the info I found.
+
+    Paragraph Six (6): Sending My Findings To The Victim
     -----------------------------------------------------
     - Talk about how I compiled all of my findings into a report.
     - Explain how I sent the report to my friend and reassured her that her account was safe.
     - Mention how I advised her on best practices to avoid falling victim to such scams in the future.
 
-    Paragraph Six (6): Reflection and Conclusion
-    --------------------------------------------
+    Paragraph Seven (7): Reflection and Conclusion
+    ----------------------------------------------
     - Reflect on the experience and what I learned from it.
     - Emphasize the importance of being vigilant against phishing attempts.
     - Encourage readers to educate themselves about cybersecurity and to seek help if they suspect they have been targeted by scammers.
@@ -121,8 +126,8 @@
     This was a significant finding as it indicated that the email was likely sent from a compromised server or a server that was not authorized to send emails on behalf of the domain.
 </p><br>
 
-<!-- Paragraph Four (4): Tracing the IP Address and Building a Profile of The Suspect-->
-<h3>Tracing the IP Address and Building a Profile of The Suspect: </h3><br>
+<!-- Paragraph Four (4): Tracing the IP Address & Inital Info On Suspect -->
+<h3>Tracing the IP Address & Inital Info On Suspect: </h3><br>
 <p>
     With the info from the email source in hand, I booted up my "hacking environment" and got to work.
     The first thing that I did was run nmap against the domain to se if there were any ports open but unfortunately the server was offline.
@@ -143,10 +148,29 @@
     After a search online I learned that the <a href="https://www.ripe.net/" target="blank">RIPE NCC</a> is the Regional Internet Registry (RIR) for Europe, the Middle East, and parts of Central Asia.
     I made sure to take note of this service in case I come across it in any future investigations.<br>
     From the contents of the "netname" field (RU-DOMTEHNIKI-NET-20110209) I deduced...<br><br>
-    <ul>
-        <li>This IP address is registered in Russia</li>
-        <li>It is likely owned by a company named "DomTekhniki"</li>
-        <li>The IP was likely assigned to this company on February 9th, 2011</li>
-    </ul><br>
     
+    <ul>
+        <li><strong>"RU" :</strong> This IP address is registered in Russia</li>
+        <li><strong>"DOMTEHNIKI" :</strong>It is likely owned by a company named "Dom Tekhniki"</li>
+        <li><stong>"20110209" :</stong>The IP was likely assigned to this company on February 9th, 2011</li>
+    </ul><br>
+
+    I looked into "Dom Tekhniki" and learned that it is a Russian restaurant tht focuses on smoked meats and barbecue.
+    I found it odd that a restaurant would be the owner of an IP address that was being used to send phishing emails, which further reinforced my belief that the email was sent from a compromised server or a network that was spoofed to look like it belonged to this restaurant.<br>
+    Under the "remarks" sections regarding maintenance permissions it is clear that "Chachin" has complete control over this network.<br><br>
+    
+    <ul>
+        <li><strong>Who can edit (mnt-by) : </strong>chanchinmnt</li>
+        <li><strong>Who can create child objects / subnets (mnt-lower) :</strong>chachinmnt</li>
+        <li><strong>Who can create BGP route objects (mnt-routes) :</strong>chachinmnt</li>
+    </ul><br><br>
+    
+    <img src="blog-posts/media/whois_pc3.png"><br>
+
+    This block of the "whois" output provided me with an abundance of information that claimed to have belonged to the 
+    restaurant "Dom Tekhniki", but I cross referenced the details (address, phone number...etc) provided in the output with the restaurant's official website and found that they did not match up at all.
+    This further reinforced my belief that the email was sent from a network that was spoofed to look like it belonged to this restaurant.<br><br>
+    The last portion of the coutput provided me with a plethora of information about the owner of the IP address.<br><br>
+
+
 </p>
