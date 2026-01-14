@@ -152,7 +152,7 @@
     <ul>
         <li><strong>"RU" :</strong> This IP address is registered in Russia</li>
         <li><strong>"DOMTEHNIKI" :</strong>It is likely owned by a company named "Dom Tekhniki"</li>
-        <li><stong>"20110209" :</stong>The IP was likely assigned to this company on February 9th, 2011</li>
+        <li><strong>"20110209" :</strong>The IP was likely assigned to this company on February 9th, 2011</li>
     </ul><br>
 
     I looked into "Dom Tekhniki" and learned that it is a Russian restaurant tht focuses on smoked meats and barbecue.
@@ -182,4 +182,23 @@
 
     At this point I had a name, address, phone number, and email address associated with the IP address from the sender of the phish.
     This was a significant breakthrough in my investigation as it provided me with a great foundation to further my investigation with the implementation of OSINT.
+</p><br>
+
+<!-- Paragraph Five (5): Digging Deeper Into The Suspect & Building A Profile -->
+<h3>Digging Deeper Into The Suspect & Building A Profile: </h3><br>
+<p>
+    I started this portion of the investigation by taking the name "Pavel Chachin" and inputting it into my browser and seeing what initial results I was able to find.
+    To my surprise I was able to find a Facebook profile, and a "Presi" presentation that belonged to a person with the same name that was from the same region of Russia as the address that I had found in the "whois" output.<br>
+    <ul>
+        <li><strong>Facebook Account : </strong><a href=https://www.facebook.com/pavel.chachin.7/" target="blank">https://www.facebook.com/pavel.chachin.7/</a></li>
+        <li><strong>"About Me" Presi Presentation : </strong><a href="https://prezi.com/rolmmyabdhim/11111/" target="_blank">https://prezi.com/rolmmyabdhim/11111/</a></li>
+    </ul><br><br>
+
+    <img src="blog-posts/media/pc_facebook.png"><br>
+
+    I took note of the information that the Facebook profile and the conveniently made "About Me" presentation provided me with and proceeded to take the 
+    username that he used for his Facebook account ("pavel.chachin.7") and ran it through the tool "sherlock" to see if there were any other accounts associated with that username across various social media platforms.<br><br>
+    <strong>Command Run: </strong>python3 sherlock pavel.chachin.7 --print-found --disable-update-check
+    <br><br>
+    <img src="blog-posts/media/pc_sherlock.png"><br>
 </p>
