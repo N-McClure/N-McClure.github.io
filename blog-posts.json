@@ -48,15 +48,5 @@
     "tags": ["Security", "Malware", "News", "ISS", "ISSessions", "Browser Extensions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-december-4-2025-shadypanda-malware-campaign.html"
-  },
-  {
-    "slug": "how-i-traced-a-russian-scammer-from-a-phishing-email",
-    "title": "How I Traced a Russian Scammer from a Phishing Email To Their Real Identity",
-    "date": "January 14, 2026",
-    "image": "blog-posts/media/code.jpg",
-    "preview": "A story about how I went from looking into an interesting phishing email from a peer to finding the real identity of the Russian scammer behind this attempt, and everything I learned throughout this process.",
-    "tags": ["Security", "Phishing", "Investigation", "OSINT", "Forensics"],
-    "author": "Nick McClure",
-    "content": "blog-posts/how-i-traced-a-russian-scammer-from-a-phishing-email.html"
   }
 ]
