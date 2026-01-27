@@ -48,5 +48,15 @@
     "tags": ["Security", "Malware", "News", "ISS", "ISSessions", "Browser Extensions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-december-4-2025-shadypanda-malware-campaign.html"
+  },
+  {
+    "slug": "iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia",
+    "title": "ISS News - January 26, 2026 - Multi-Stage Phishing Campaign Targets Russia With Amnesia RAT & Ransomware",
+    "date": "January 26th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the multi-stage phishing campaign story that I covered for the News segment at ISS this week at our first meeting of 2026.",
+    "tags": ["Security", "Phishing", "Ransomware", "Amnesia RAT", "News", "ISS", "ISSessions"],
+    "author":"Nick McClure",
+    "content": "blog-posts/iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia.html"
   }
 ]
