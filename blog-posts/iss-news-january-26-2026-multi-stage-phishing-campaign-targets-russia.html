@@ -74,11 +74,17 @@
     The shortcut file utilizes the usage of double file extensions (e.g. "Задание_для_бухгалтера_02отдела.txt.lnk") to fool the victim that it is simply a text file that is no different than any of the others
     in the archive.<br><br>
 
-    <!-- 2. Victim extracts .zip file and runs PowerShell loader script: -->
-    <h4>2. Victim Extracts .zip File & Runs PowerShell Loader Script:</h4>
+    <!-- 2. Victim extracts .zip file and runs PowerShell loader scripts: -->
+    <h4>2. Victim Extracts .zip File & Runs PowerShell Loader Scripts:</h4>
     When the victim clicks the malicious shortcut file, it executes a PowerShell command that downloads another PowerShell
     script from a GitHub repository that is utilized in the next stage of the attack.
-    The use of GitHub as a hosting platform for the attacker's payloads is a common tactic used by threat actors to evade detection, as it allows them to leverage a trusted platform to distribute their malicious code.<br><br>
+    The use of GitHub as a hosting platform for the attacker's payloads is a common tactic used by threat actors to evade detection, as it allows them to leverage a trusted platform to distribute their malicious code.
+    The PowerShell script then sends a message to the attacker via usage of the Telegram Bot API to inform them that the first stage of the attack is complete.
+    The last thing the PowerShell script does is run a Visual Basic Script ("SCRRC4ryuk.vbe") that is hosted in the same GitHub repository.<br>
+    This VBS script is a piece of obfuscated code that is used to asseble together the payload for the next stage of the attack directly in the memory of the victim's machine, which is a common technique used by attackers to avoid detection by traditional antivirus software that relies on file-based signatures.
+    The VBS script will also check to see if it is running with elevated permissions, and if it detects it is in fact not
+    it will attempt to escalate it's permissions by repeatedly displaying a User Account Control (UAC) prompt at a delay of 3000 milliseconds until the victim eventually clicks "Yes" to allow the script to run with elevated permissions.<br><br>
 
-    
+    <!-- 3. Defence Suppression and Disabling Protections: -->
+    <h4>3. Defence Supression & Disabling Protections:</h4>
 </p><br>
