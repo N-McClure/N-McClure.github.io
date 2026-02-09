@@ -88,5 +88,17 @@
     <!-- 3. Defence Suppression and Disabling Protections: -->
     <h4>3. Defence Supression & Disabling Protections:</h4>
     This step of the attack is where the attackers attempt to disable various security measures on the victim's machine.<br>
-    
+    <img src="media/disable_defender1.png" alt="Modification to Widows Defender scan preferences" width="500"><br>
+    <img src="media/disable_defender2.png" alt="Sequential disabling of Defender protection features" width="500"><br>
+    <img src="media/disable_defender3.png" alt="Registry-based enforcement of Defender Suppression" width="500"><br>
+    The PowerShell script makes several modifications to the Windows Defender settings, including those impacted by...
+    <ul>
+        <li>Disabling Real-Time monitoring.</li>
+        <li>Disabling Behavior Monitoring.</li>
+        <li>Disabling Script Scanning.</li>
+        <li>Disabling Archive Inspection.</li>
+        <li>Disabling Administrative Diagnostic Tools.</li>
+    </ul>
+        The script also makes registry modifications to ensure that these settings cannot be easily re-enabled by the victim, and to prevent Windows Defender from automatically updating itself to potentially remove the attacker's payloads.
+        This level of defense suppression is particularly concerning, as it significantly reduces the victim's ability to detect and respond to the attack, allowing the attackers to operate with greater freedom on the compromised system.
 </p><br>
