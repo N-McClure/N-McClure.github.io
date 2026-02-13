@@ -87,7 +87,7 @@
 
     <!-- 3. Defence Suppression and Disabling Protections: -->
     <h4>3. Defence Supression & Disabling Protections:</h4>
-    This step of the attack is where the attackers attempt to disable various security measures on the victim's machine.<br>
+    This step of the attack is where the attackers attempt to disable various security measures on the victim's machine.<br><br>
     <img src="blog-posts/media/disable_defender1.png" alt="Modification to Widows Defender scan preferences" width="500"><br>
     <img src="blog-posts/media/disable_defender2.png" alt="Sequential disabling of Defender protection features" width="500"><br>
     <img src="blog-posts/media/disable_defender3.png" alt="Registry-based enforcement of Defender Suppression" width="500"><br>
@@ -107,6 +107,13 @@
 
     <!-- 4. Reconnaissance & Persistence: -->
     <h4>4. Reconnaissance & Persistence:</h4>
-    
+    Once the attack has successfully bypassed the victim's security controls, the script utilizes the use of the 
+    the Telegram Bot API to send a message to the attacker with an abundance of information about the victim's hardware,
+    network configuration, and security measures. The script also fetches a screen capturing program from the same GitHub repository that the other script was pulled from.
+    This screen capturing program is used to undetectedly capture screenshots of the victim's machine at iterations 
+    of 30 seconds, and send them to the attacker via the Telegram Bot API.<br><br>
+
+    <!-- 5. Deploying Payload One - Amnesia RAT: -->
+    <h4>5. Deploying Payload One - Amnesia RAT:</h4>
 
 </p><br>
