@@ -58,5 +58,15 @@
     "tags": ["Security", "Phishing", "Ransomware", "Amnesia RAT", "News", "ISS", "ISSessions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia.html"
+  },
+  {
+    "slug": "iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites",
+    "title": "ISS News - February 9, 2026 - WordPress Plugin SQLi Vuln Impacts 40K Sites",
+    "date": "February 9th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the WordPress plugin SQLi vulnerability news story that I covered for the News segment at ISS this week.",
+    "tags": ["Security", "WordPress", "SQLi", "News", "ISS", "ISSessions"],
+    "author":"Nick McClure",
+    "content": "blog-posts/iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites.html"
   }
 ]
