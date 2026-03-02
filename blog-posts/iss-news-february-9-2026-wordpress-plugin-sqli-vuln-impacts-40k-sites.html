@@ -45,6 +45,11 @@
 <!-- Summary Of The Article & Vulnerability: -->
 <h3>Summary Of The Articles & Vulnerability:</h3><br>
 <p>
-    Researchers at Patchstack have discovered a Medium to High severity SQL Injection vulnerability in the "Quiz and Survey Master" WordPress plugin, 
-    which has been installed on over 40,000 sites. 
-</p>
+    Researchers at Patchstack have discovered a Medium to High severity SQL Injection vulnerability in versions 10.3.1 and below of the "Quiz and Survey Master" WordPress plugin, 
+    which has been installed on over 40,000 sites. The vulnerability, identified as CVE-2025-67987, was first discovered on November 21st 2025 and was patched on 
+    December 4th 2025, but was not publicly disclosed until January 28th 2026. This vulnerability allows attackers exploit it with the lowest of permissions 
+    (Subscriber role) to execute arbitrary SQL commands on the vulnerable site. This can lead to a wide range of potential impacts, including data theft, data manipulation, and even complete site takeover. The vulnerability is caused by a lack of proper input validation in the plugin's code, which allows attackers to inject malicious SQL commands into the plugin's database queries.
+</p><br>
+
+<!-- Technical Breakdown of the Vulnerability: -->
+<h3>Technical Breakdown of the Vulnerability:</h3><br>
