@@ -59,12 +59,13 @@
     before it is used directly in an SQL query (WHERE `question_id` IN (".$comma_seperated_ids.")"). Due to how the value is not confirmed to be a valid Integer ID, and it is autmatically concatinated into a SQL statement, a malicious actor 
     can easily inject an arbitrary SQL statement alogside an abnormal value for the "is_linking" parameter to execute arbitrary SQL commands on the vulnerable site. For example, an attacker could set the "is_linking" parameter to a value like "1); DROP TABLE wp_users; --", which would cause the plugin to execute a SQL query that drops the "wp_users" table from the database, effectively deleting all user accounts on the site. This is just one example of how an attacker could exploit this vulnerability.<br><br>
 
-    <img src="media/wp_vuln_plugin_code.png" width="500"><br><br>
+    <img src="blog-posts/media/wp_vuln_plugin_code.png" width="500"><br><br>
     The vulnerability was patched in version 10.3.2 of the plugin, which was released in early December of 2025. The patch involved adding proper input validation and sanitization for the content of the "is_linking" parameter through the 
     usage of the "intval()" function, which ensures that the value is indeed an integer before it is used in the SQL query.
     This patch effectively mitigates the vulnerability by removing the ability to input anything other than an integer in the field.<br><br>
 
-    <img src="media/wp_vuln_plugin_patch.png" width="500">
+    <img src="blog-posts/media/wp_vuln_plugin_patch.png" width="500">
 </p><br>
 
 <!-- Walk Through of the Exploit (Proof Of Concept): -->
+<h3>Walk Through Of The Exploit (Proof Of Concept):</h3><br>
