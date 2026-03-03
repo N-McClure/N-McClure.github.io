@@ -68,5 +68,15 @@
     "tags": ["Security", "WordPress", "SQLi", "News", "ISS", "ISSessions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites.html"
+  },
+  {
+    "slug": "getting-familiar-with-digital-forensics-via-enron-scandal-analysis",
+    "title": "Getting Familiar With Digital Forensics - Enron Scandal Analysis",
+    "date": "March 3rd, 2026",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "A story talking about how I got thrown into the world of Digital Forensics for a school assignment and how I utilized specific tools and techniques to analyze the Enron Scandal Dataset.",
+    "tags": ["Digital Forensics", "Enron Scandal", "Analysis", "School Work"],
+    "author":"Nick McClure",
+    "content": "blog-posts/getting-familiar-with-digital-forensics-via-enron-scandal-analysis.html"
   }
 ]
