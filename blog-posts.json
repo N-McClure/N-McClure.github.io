@@ -78,5 +78,15 @@
     "tags": ["Digital Forensics", "Enron Scandal", "Analysis", "School Work"],
     "author":"Nick McClure",
     "content": "blog-posts/getting-familiar-with-digital-forensics-via-enron-scandal-analysis.html"
+  },
+  {
+    "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
+    "title": "ISS News - March 9, 2026 - WordPress Plugin Bug Exploited To Allow Attackers To Create Admin Accounts",
+    "date": "March 9th, 2026",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "An overview of the WordPress plugin bug that allows attackers to create admin accounts that I covered this week for the News Segment at ISS.",
+    "tags": ["Security", "WordPress", "News", "ISS", "ISSessions"],
+    "author":"Nick McClure",
+    "content": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts.html"
   }
 ]
