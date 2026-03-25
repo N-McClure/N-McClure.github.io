@@ -389,6 +389,11 @@ section .header {
   transition: color 0.2s ease;
 }
 
+.blog-content img {
+  width: 70%;
+  margin: 2rem 15%;
+}
+
 .blog-content a:visited {
   color: red;
 }
