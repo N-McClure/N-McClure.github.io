@@ -88,5 +88,15 @@
     "tags": ["Security", "WordPress", "News", "ISS", "ISSessions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts.html"
+  },
+  {
+    "slug": "iss-news-march-23-2026-darksword-ios-exploit-kit",
+    "title": "ISS News - March 23, 2026 - DarkSword IOS Exploit Kit",
+    "date": "March 23rd, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "Ab overview of the DarkSword IOS exploit kit news story that I covered at ISS this week during the News Segment portion of the meeting.",
+    "tags": ["Security", "Apple", "IOS", "News", "DarkSword", "ISS", "ISSessions"],
+    "author":"Nick McClure",
+    "content": "blog-posts/iss-news-march-23-2026-darksword-ios-exploit-kit.html"
   }
 ]
