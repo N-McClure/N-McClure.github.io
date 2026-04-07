@@ -8,7 +8,7 @@
 <h3>My Actions / Solution: </h3>
 <p>
     I started the challenge by running an nmap scan on the provided IP address to see what ports were open.<br>
-    <strong>Command Ran: </strong>nmap -sS 10.0.2.11
+    <strong>Command Ran: </strong><code>nmap -sS 10.0.2.11</code>
     <ul>
         <li> Port 22 Open</li>
         <li> Port 443 Open</li>
@@ -16,11 +16,11 @@
     </ul><br>
 
     We were instructed by the competition organizers to ignore any and all open port 22 services, so I turned my attention to port 443 which meant that the address had an HTTPS service running.
-    I opened up my web browser and navigated to https://10.0.2.11 and was greeted with a blank white screen. Not exactly what I was hoping for.<br>
+    I opened up my web browser and navigated to <code>https://10.0.2.11</code> and was greeted with a blank white screen. Not exactly what I was hoping for.<br>
     The challenge had mentioned "automata" which got me thinking about robots. I decided to go a little deeper into the site while following my robots train of thought
     and navigated to the robots.txt file on the site.<br>
 
-    <strong>URL Visited: </strong>https://10.0.2.11/robots.txt
+    <strong>URL Visited: </strong><code>https://10.0.2.11/robots.txt</code>
 </p>
 
 <img src="blog-posts/media/robot_contents.png"><br><br>
@@ -29,7 +29,7 @@
     The robots.txt file contained a disallowed directory called /undernocircumstancesareyourrobotstocheckthisfolder, so naturally I ignored this 
     disallowed functionality and copied the directory path into my browser and slapped a forward slash "/" onto the very end of it so it would bypass the disallow command and display the contents of the directory.<br>
     
-    <strong>URL Visited: </strong>https://10.0.2.11/undernocircumstancesareyourrobotstocheckthisfolder/
+    <strong>URL Visited: </strong><code>https://10.0.2.11/undernocircumstancesareyourrobotstocheckthisfolder/</code>
 </p>
 
 <img src="blog-posts/media/directory_contents.png"><br><br>
@@ -42,7 +42,7 @@
     </ul><br>
 
     I then clicked on the launch_codes.txt file and was presented with the flag, signaling that the challenge was coplete.<br><br>
-    <strong>Found Flag: </strong> CyberSci{xR35AQBCZGtRD4ou7ZpVrvzS}
+    <strong>Found Flag: </strong> <code>CyberSci{xR35AQBCZGtRD4ou7ZpVrvzS}</code>
 </p>
 
 
