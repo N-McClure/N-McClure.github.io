@@ -160,12 +160,16 @@
     This specific phrasing was crucial because it gave me a very clear scope to work within the parameters of. I feel that this is an important part of cybersecurity in general, but especially in forensics, as it is very easy to get lost in the data and go down a rabbit hole of analysis that may not be relevant to the case or assignment at hand. 
     As a student and someone who is coming up in the field, I think that it is important to integrate practices like this one into my workflow for everything ranging from assignments to side projects because it enables me to develop skills that are crucial "in the real world" instead of the CTF mindset of looking at EVERYTHING and treating it as potentially important.
     I used 7zip to find the specific folders on both men and extracted the singular "inbox" folders for each of them.<br>
-    <img src="blog-posts/media/kl_inbox.png" width="50%"><br>
+    <img src="blog-posts/media/kl_inbox.png" width="50%">
     <img src="blog-posts/media/js_inbox.png" width="50%">
 </p><br>
 
 <!-- Analyzing The Inbox Of The CEO - Kenneth Lay: -->
 <h3>Analyzing The Inbox Of The CEO - Kenneth Lay:</h3><br>
 <p>
-    
+    Once the inboxes were extracted, my objective was to analyze them and find messages that were sent to the CEOs with words of support or resentment.
+    I loaded the folder into <strong>FTK Imager</strong> "as evidence", and proceeded to slowly go through the messages one by one. It became very clear that this was not the most efficient way of 
+    approaching this task, as there were thousands of messages in this folder. After a quick search online I found some documentation on how to properly use FTK Imager and how to do 
+    keyword searches (perfect for what I was trying to accomplish), so I decided to use the search function to look for messages from addresses with an "@enron.com" domain suffix, 
+    under the assumption that people would use their corporate emails to talk to the CEO.
 </p>
