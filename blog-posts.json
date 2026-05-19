@@ -94,9 +94,19 @@
     "title": "ISS News - March 23, 2026 - DarkSword IOS Exploit Kit",
     "date": "March 23rd, 2026",
     "image": "blog-posts/media/issessions_cover.png",
-    "preview": "Ab overview of the DarkSword IOS exploit kit news story that I covered at ISS this week during the News Segment portion of the meeting.",
+    "preview": "An overview of the DarkSword IOS exploit kit news story that I covered at ISS this week during the News Segment portion of the meeting.",
     "tags": ["Security", "Apple", "IOS", "News", "DarkSword", "ISS", "ISSessions"],
     "author":"Nick McClure",
     "content": "blog-posts/iss-news-march-23-2026-darksword-ios-exploit-kit.html"
+  },
+  {
+    "slug": "iss-news-april-6-2026-axios-npm-supply-chain-attack",
+    "title": "ISS News - April 6, 2026 - Axios NPM Supply Chain Attack",
+    "date": "April 6th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the Axios NPM supply chain attack news story that I covered at ISS this week for my last in-person meeting as a Content Dev before the semester ends for the summer.",
+    "tags": ["Security", "Supply Chain Attack", "UNC1069", "Axios", "NPM", "News", "ISS", "ISSessions"],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-news-april-6-2026-axios-npm-supply-chain-attack.html"
   }
 ]
