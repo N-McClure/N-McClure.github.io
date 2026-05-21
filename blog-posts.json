@@ -1,93 +1,22 @@
 [
   {
-    "slug": "iss-ctf-2025-crypto-sos",
-    "title": "ISS CTF 2025 - Crypto SOS Writeup",
-    "date": "February 11, 2025",
-    "image": "blog-posts/media/sos1.png",
-    "preview": "A detailed writeup of the Crypto SOS challenge from the ISS CTF 2025, covering the steps taken to decode the message and retrieve the flag.",
-    "tags": ["CTF", "Crypto", "Writeup"],
+    "slug": "iss-news-april-6-2026-axios-npm-supply-chain-attack",
+    "title": "ISS News - April 6, 2026 - Axios NPM Supply Chain Attack",
+    "date": "April 6th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the Axios NPM supply chain attack news story that I covered at ISS this week for my last in-person meeting as a Content Dev before the semester ends for the summer.",
+    "tags": [
+      "Security",
+      "Supply Chain Attack",
+      "UNC1069",
+      "Axios",
+      "NPM",
+      "News",
+      "ISS",
+      "ISSessions"
+    ],
     "author": "Nick McClure",
-    "content": "blog-posts/iss-ctf-2025-crypto-sos.html"
-  },
-  {
-    "slug": "my-first-reported-vuln-fake-wp-plugin",
-    "title": "My First Reported Vulnerability - Fake WordPress Plugin",
-    "date": "October 19, 2025",
-    "image": "blog-posts/media/code.jpg",
-    "preview": "A story about how I discovered and reported my first security vulnerability while I was learning how to use the tool 'WPScan'.",
-    "tags": ["Security", "Vulnerability", "WordPress"],
-    "author": "Nick McClure",
-    "content": "blog-posts/my-first-reported-vuln-fake-wp-plugin.html"
-  },
-  {
-    "slug": "iss-news-november-20-2025-browser-in-the-browser",
-    "title": "ISS News - November 20, 2025 - Browser-in-the-Browser Attack",
-    "date": "November 20, 2025",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the Browser-In-The-Browser (BitB) attack news story that I covered for the News segment at ISS this week.",
-    "tags": ["Security", "Browser-In-The-Browser", "News", "ISS", "ISSessions"],
-    "author":"Nick McClure",
-    "content": "blog-posts/iss-news-november-20-2025-browser-in-the-browser.html"
-  },
-  {
-    "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
-    "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
-    "date": "November 24, 2025",
-    "image": "blog-posts/media/cybersci_thumbnail.jpg",
-    "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",
-    "tags": ["CTF", "CyberSci", "Writeup"],
-    "author": "Nick McClure",
-    "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
-  },
-  {
-    "slug": "iss-news-december-4-2025-shadypanda-malware-campaign",
-    "title": "ISS News - December 4, 2025 - ShadyPanda Malware Campaign",
-    "date": "December 4, 2025",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the ShadyPanda malware campaign news story that I covered for the News segment at ISS this week.",
-    "tags": ["Security", "Malware", "News", "ISS", "ISSessions", "Browser Extensions"],
-    "author":"Nick McClure",
-    "content": "blog-posts/iss-news-december-4-2025-shadypanda-malware-campaign.html"
-  },
-  {
-    "slug": "iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia",
-    "title": "ISS News - January 26, 2026 - Multi-Stage Phishing Campaign Targets Russia With Amnesia RAT & Ransomware",
-    "date": "January 26th, 2026",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the multi-stage phishing campaign story that I covered for the News segment at ISS this week at our first meeting of 2026.",
-    "tags": ["Security", "Phishing", "Ransomware", "Amnesia RAT", "News", "ISS", "ISSessions"],
-    "author":"Nick McClure",
-    "content": "blog-posts/iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia.html"
-  },
-  {
-    "slug": "iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites",
-    "title": "ISS News - February 9, 2026 - WordPress Plugin SQLi Vuln Impacts 40K Sites",
-    "date": "February 9th, 2026",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the WordPress plugin SQLi vulnerability news story that I covered for the News segment at ISS this week.",
-    "tags": ["Security", "WordPress", "SQLi", "News", "ISS", "ISSessions"],
-    "author":"Nick McClure",
-    "content": "blog-posts/iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites.html"
-  },
-  {
-    "slug": "getting-familiar-with-digital-forensics-via-enron-scandal-analysis",
-    "title": "Getting Familiar With Digital Forensics - Enron Scandal Analysis",
-    "date": "March 3rd, 2026",
-    "image": "blog-posts/media/code.jpg",
-    "preview": "A story talking about how I got thrown into the world of Digital Forensics for a school assignment and how I utilized specific tools and techniques to analyze the Enron Scandal Dataset.",
-    "tags": ["Digital Forensics", "Enron Scandal", "Analysis", "School Work"],
-    "author":"Nick McClure",
-    "content": "blog-posts/getting-familiar-with-digital-forensics-via-enron-scandal-analysis.html"
-  },
-  {
-    "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
-    "title": "ISS News - March 9, 2026 - WordPress Plugin Bug Exploited To Allow Attackers To Create Admin Accounts",
-    "date": "March 9th, 2026",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the WordPress plugin bug that allows attackers to create admin accounts that I covered this week for the News Segment at ISS.",
-    "tags": ["Security", "WordPress", "News", "ISS", "ISSessions"],
-    "author":"Nick McClure",
-    "content": "blog-posts/iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts.html"
+    "content": "blog-posts/iss-news-april-6-2026-axios-npm-supply-chain-attack.html"
   },
   {
     "slug": "iss-news-march-23-2026-darksword-ios-exploit-kit",
@@ -95,18 +24,157 @@
     "date": "March 23rd, 2026",
     "image": "blog-posts/media/issessions_cover.png",
     "preview": "An overview of the DarkSword IOS exploit kit news story that I covered at ISS this week during the News Segment portion of the meeting.",
-    "tags": ["Security", "Apple", "IOS", "News", "DarkSword", "ISS", "ISSessions"],
-    "author":"Nick McClure",
+    "tags": [
+      "Security",
+      "Apple",
+      "IOS",
+      "News",
+      "DarkSword",
+      "ISS",
+      "ISSessions"
+    ],
+    "author": "Nick McClure",
     "content": "blog-posts/iss-news-march-23-2026-darksword-ios-exploit-kit.html"
   },
   {
-    "slug": "iss-news-april-6-2026-axios-npm-supply-chain-attack",
-    "title": "ISS News - April 6, 2026 - Axios NPM Supply Chain Attack",
-    "date": "April 6th, 2026",
+    "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
+    "title": "ISS News - March 9, 2026 - WordPress Plugin Bug Exploited To Allow Attackers To Create Admin Accounts",
+    "date": "March 9th, 2026",
     "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the Axios NPM supply chain attack news story that I covered at ISS this week for my last in-person meeting as a Content Dev before the semester ends for the summer.",
-    "tags": ["Security", "Supply Chain Attack", "UNC1069", "Axios", "NPM", "News", "ISS", "ISSessions"],
+    "preview": "An overview of the WordPress plugin bug that allows attackers to create admin accounts that I covered this week for the News Segment at ISS.",
+    "tags": [
+      "Security",
+      "WordPress",
+      "News",
+      "ISS",
+      "ISSessions"
+    ],
     "author": "Nick McClure",
-    "content": "blog-posts/iss-news-april-6-2026-axios-npm-supply-chain-attack.html"
+    "content": "blog-posts/iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts.html"
+  },
+  {
+    "slug": "getting-familiar-with-digital-forensics-via-enron-scandal-analysis",
+    "title": "Getting Familiar With Digital Forensics - Enron Scandal Analysis",
+    "date": "March 3rd, 2026",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "A story talking about how I got thrown into the world of Digital Forensics for a school assignment and how I utilized specific tools and techniques to analyze the Enron Scandal Dataset.",
+    "tags": [
+      "Digital Forensics",
+      "Enron Scandal",
+      "Analysis",
+      "School Work"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/getting-familiar-with-digital-forensics-via-enron-scandal-analysis.html"
+  },
+  {
+    "slug": "iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites",
+    "title": "ISS News - February 9, 2026 - WordPress Plugin SQLi Vuln Impacts 40K Sites",
+    "date": "February 9th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the WordPress plugin SQLi vulnerability news story that I covered for the News segment at ISS this week.",
+    "tags": [
+      "Security",
+      "WordPress",
+      "SQLi",
+      "News",
+      "ISS",
+      "ISSessions"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-news-february-9-2026-wordpress-plugin-sqli-vuln-impacts-40k-sites.html"
+  },
+  {
+    "slug": "iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia",
+    "title": "ISS News - January 26, 2026 - Multi-Stage Phishing Campaign Targets Russia With Amnesia RAT & Ransomware",
+    "date": "January 26th, 2026",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the multi-stage phishing campaign story that I covered for the News segment at ISS this week at our first meeting of 2026.",
+    "tags": [
+      "Security",
+      "Phishing",
+      "Ransomware",
+      "Amnesia RAT",
+      "News",
+      "ISS",
+      "ISSessions"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia.html"
+  },
+  {
+    "slug": "iss-news-december-4-2025-shadypanda-malware-campaign",
+    "title": "ISS News - December 4, 2025 - ShadyPanda Malware Campaign",
+    "date": "December 4, 2025",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the ShadyPanda malware campaign news story that I covered for the News segment at ISS this week.",
+    "tags": [
+      "Security",
+      "Malware",
+      "News",
+      "ISS",
+      "ISSessions",
+      "Browser Extensions"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-news-december-4-2025-shadypanda-malware-campaign.html"
+  },
+  {
+    "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
+    "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
+    "date": "November 24, 2025",
+    "image": "blog-posts/media/cybersci_thumbnail.jpg",
+    "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",
+    "tags": [
+      "CTF",
+      "CyberSci",
+      "Writeup"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/cybersci-ctf-2025-they-didnt-listen-warmup.html"
+  },
+  {
+    "slug": "iss-news-november-20-2025-browser-in-the-browser",
+    "title": "ISS News - November 20, 2025 - Browser-in-the-Browser Attack",
+    "date": "November 20, 2025",
+    "image": "blog-posts/media/issessions_cover.png",
+    "preview": "An overview of the Browser-In-The-Browser (BitB) attack news story that I covered for the News segment at ISS this week.",
+    "tags": [
+      "Security",
+      "Browser-In-The-Browser",
+      "News",
+      "ISS",
+      "ISSessions"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-news-november-20-2025-browser-in-the-browser.html"
+  },
+  {
+    "slug": "my-first-reported-vuln-fake-wp-plugin",
+    "title": "My First Reported Vulnerability - Fake WordPress Plugin",
+    "date": "October 19, 2025",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "A story about how I discovered and reported my first security vulnerability while I was learning how to use the tool 'WPScan'.",
+    "tags": [
+      "Security",
+      "Vulnerability",
+      "WordPress"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/my-first-reported-vuln-fake-wp-plugin.html"
+  },
+  {
+    "slug": "iss-ctf-2025-crypto-sos",
+    "title": "ISS CTF 2025 - Crypto SOS Writeup",
+    "date": "February 11, 2025",
+    "image": "blog-posts/media/sos1.png",
+    "preview": "A detailed writeup of the Crypto SOS challenge from the ISS CTF 2025, covering the steps taken to decode the message and retrieve the flag.",
+    "tags": [
+      "CTF",
+      "Crypto",
+      "Writeup"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/iss-ctf-2025-crypto-sos.html"
   }
 ]
