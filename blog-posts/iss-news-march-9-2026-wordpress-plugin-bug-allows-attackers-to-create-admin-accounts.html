@@ -63,3 +63,9 @@
 
 <!-- Technical Breakdown Of Bug & Hypothetical Exploitation: -->
 <h3>Technical Breakdown Of Bug & Hypothetical Exploitation:</h3><br>
+<p>
+    The technical details of this bug are quite interesting. Specifically, the plugin does not properly check the role assigned to a new user during registration, which allows attackers to specify an admin role when creating a new account. 
+    This means that an attacker can simply send a specially crafted registration request with the admin role specified, and the plugin will create an account with administrative privileges without any authentication. 
+    Once an attacker has created an admin account, they can log in and take complete control of the targeted WordPress site, including installing malicious plugins, modifying content, and stealing sensitive information.
+    
+</p>
