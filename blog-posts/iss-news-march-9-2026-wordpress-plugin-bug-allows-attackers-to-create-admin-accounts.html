@@ -62,10 +62,20 @@
 </p><br>
 
 <!-- Technical Breakdown Of Bug & Hypothetical Exploitation: -->
-<h3>Technical Breakdown Of Bug & Hypothetical Exploitation:</h3><br>
+<h3>Technical Breakdown Of Bug & Hypothetical Demo:</h3><br>
 <p>
     The technical details of this bug are quite interesting. Specifically, the plugin does not properly check the role assigned to a new user during registration, which allows attackers to specify an admin role when creating a new account. 
     This means that an attacker can simply send a specially crafted registration request with the admin role specified, and the plugin will create an account with administrative privileges without any authentication. 
     Once an attacker has created an admin account, they can log in and take complete control of the targeted WordPress site, including installing malicious plugins, modifying content, and stealing sensitive information.
-    
+    This vulnerability is dangerous because of how easy it is to exploit and I will now provide a theoretical example of how an attacker may escalate their privileges using this bug.<br>
+    I want to preface this by saying that What I am about to share is purely <strong>HYPOTHETICAL</strong> and for <strong>EDUCATIONAL</strong> 
+    purposes only. I do not condone or encourage any malicious activity, and am not resposnible for any abuse of this information. With that being said, lets get into it.<br><br>
+
+    <!-- Hypothetical Recon Phase / Workflow: -->
+    <h4>Hypothetical Reconnaissance Phase / Workflow:</h4><br>
+    For the purpose of this "demo", let us assume that we as the attacker (or researcher) have identified a potential target, 
+    which we will call <code>nicks-demo-target.com</code>, and we want to find out some info on the site including; whether or not it is indeed running WordPress, 
+    if the plugin exists on the site, what version of the plugin is running (keeping in mind that only versions up to and including 5.1.2 are vulnerable), 
+    and whether or not the site has frontend registration enabled. 
+
 </p>
