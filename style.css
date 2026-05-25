@@ -515,6 +515,16 @@ footer .column .socials a:hover {
   z-index: 1500;
 }
 
+/* Color for "Code" tags in the blog posts */
+.blog-content code {
+  background-color: #e1e1e1;
+  color: red;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+}
+
 /* Responsive behaviour */
 @media (max-width: 900px) {
   .navLinks {
