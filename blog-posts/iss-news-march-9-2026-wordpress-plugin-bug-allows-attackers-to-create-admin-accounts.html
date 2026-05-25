@@ -78,6 +78,7 @@
     if the plugin exists on the site, what version of the plugin is running (keeping in mind that only versions up to and including 5.1.2 are vulnerable), 
     and whether or not the site has frontend registration enabled. To identify if a site is infact running WordPress, we can use tools like; <a href="https://www.wappalyzer.com/" target="_blank">Wappalyzer</a> or <a href="https://whatcms.org/" target="_blank">WhatCMS</a>, 
     which are both great tools but I tend to go the more simple and manual route for just a simple confirmation of Yes or No. 
+    
     I will typically just navigate to the site and add <code>/wp-admin/</code> to the end of the URL and see if it redirects me to the admin login page or hits me with a 404. If it successfully redirects me to the login page, then I know for a definite fact that the site is built with WordPress.
     Regardless of how we confirm that the site is running WordPress, the next step is to identify if the vulnerable plugin is installed on the site. To do this, I highly recommend using the tool <a href="https://wpscan.com/" target="_blank">WPScan</a> which is a powerful WordPress scanning tool that I have been utilizing abundantly over the course of the year 
     and have had great success with. The command that we would use to scan for any vulnerable plugins detected on the site would be 
@@ -87,4 +88,13 @@
     <code>--plugins-detected mixed</code> uses a compination of Passive and Agressive detection methods to find plugins, the 
     <code>--api-token [API-TOKEN]</code> uses a specified API token to connect to the WPVulnDB and properly cross-reference the detected velnerabilities, and the 
     <code>--random-user-agent</code> flag randomizes the user agent for the scan to help obfuscate the scan and make it less likely to be blocked by simple filters or WAFs.
+
+    After running this scan, we would have a list of detected vulnerable plugins on the site, for the purpose of this "demo", lets move forward with the assumption that 
+    the scan found the User Registration & Membership plugin installed on the site and is indeed running a vulnerable version. 
+    This completes the "reconnaissance phase" and we can now move onto the next phase which covers how we could hypotetically exploit the bug.<br><br>
+
+    <!-- Hypothetical Enumeration & Exploitation: -->
+    <h4>Hypothetcial Enumeration & Exploitation:</h4><br>
+    Now onto how an attacker (or researcher) could hypothetically exploit this bug. To start, we would need to look for any exposed registration endpoints on the site. 
+    
 </p>
