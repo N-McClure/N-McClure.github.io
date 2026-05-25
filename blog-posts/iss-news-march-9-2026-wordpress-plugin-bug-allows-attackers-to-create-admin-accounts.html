@@ -76,6 +76,15 @@
     For the purpose of this "demo", let us assume that we as the attacker (or researcher) have identified a potential target, 
     which we will call <code>nicks-demo-target.com</code>, and we want to find out some info on the site including; whether or not it is indeed running WordPress, 
     if the plugin exists on the site, what version of the plugin is running (keeping in mind that only versions up to and including 5.1.2 are vulnerable), 
-    and whether or not the site has frontend registration enabled. 
-
+    and whether or not the site has frontend registration enabled. To identify if a site is infact running WordPress, we can use tools like; <a href="https://www.wappalyzer.com/" target="_blank">Wappalyzer</a> or <a href="https://whatcms.org/" target="_blank">WhatCMS</a>, 
+    which are both great tools but I tend to go the more simple and manual route for just a simple confirmation of Yes or No. 
+    I will typically just navigate to the site and add <code>/wp-admin/</code> to the end of the URL and see if it redirects me to the admin login page or hits me with a 404. If it successfully redirects me to the login page, then I know for a definite fact that the site is built with WordPress.
+    Regardless of how we confirm that the site is running WordPress, the next step is to identify if the vulnerable plugin is installed on the site. To do this, I highly recommend using the tool <a href="https://wpscan.com/" target="_blank">WPScan</a> which is a powerful WordPress scanning tool that I have been utilizing abundantly over the course of the year 
+    and have had great success with. The command that we would use to scan for any vulnerable plugins detected on the site would be 
+    <code>wpscan --url nicks-demo-target.com -e vp --plugins-detected mixed --api-token [API-TOKEN] --random-user-agent</code> where the 
+    <code>--url nicks-demo-target.com</code> specifies the target site's URL, the 
+    <code>-e vp</code> flag tells WPScan to enumerate only the plugins on the site that have known vulnerabilities, the 
+    <code>--plugins-detected mixed</code> uses a compination of Passive and Agressive detection methods to find plugins, the 
+    <code>--api-token [API-TOKEN]</code> uses a specified API token to connect to the WPVulnDB and properly cross-reference the detected velnerabilities, and the 
+    <code>--random-user-agent</code> flag randomizes the user agent for the scan to help obfuscate the scan and make it less likely to be blocked by simple filters or WAFs.
 </p>
