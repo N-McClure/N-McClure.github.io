@@ -516,7 +516,7 @@ footer .column .socials a:hover {
 }
 
 /* Color for "Code" tags in the blog posts */
-.blog-content code {
+code {
   background-color: #e1e1e1;
   color: red;
   padding: 0.2rem 0.4rem;
