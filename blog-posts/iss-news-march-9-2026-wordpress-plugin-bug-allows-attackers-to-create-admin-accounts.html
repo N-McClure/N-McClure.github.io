@@ -73,7 +73,7 @@
     released a patch in the latest version.
 </p><br>
 
-<!-- Technical Breakdown Of Bug & Hypothetical Exploitation: -->
+<!-- Technical Breakdown Of Bug & Hypothetical Demo: -->
 <h3>Technical Breakdown Of Bug & Hypothetical Demo:</h3><br>
 <p>
     The technical details of this bug are quite interesting. Specifically, the plugin does not properly check the role
@@ -185,5 +185,10 @@
         ur-frontend-form-id=4&<br>
         _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890<br>
     </code><br>
+    After sending the modified request, the plugin would process it and create a new user account with admin privileges without any 
+    authentication, which would allow us as the "attacker" (or researcher) to head over to the admin login page that we identified earlier 
+    and log in with the newly created admin account to take complete control pf the site...it is really that simple...hypothetically of course.
+</p><br>
 
-</p>
+<!-- Implications For WordPress Users: -->
+<h3>Implications For WordPress Users:</h3><br>
