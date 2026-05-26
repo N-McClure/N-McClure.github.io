@@ -39,89 +39,151 @@
 -->
 
 <!-- Introduction Paragrapgh: -->
-<br><h3>Introduction:</h3><br>
+<br>
+<h3>Introduction:</h3><br>
 <p>
-    This week at ISSessions, I presented a talk during our news segment about a bug covered in an article about a bug 
-    in a popular WordPress plugin with over 60'000 installations that allows attackers to create admin accounts. I found this article interesting 
-    because WordPress is something that I have been experimenting with for most of the year and when critical scoring velnerabilities are found in plugins that are so popular 
-    in the wild, it is important to understand the risks of them and share with the public. You can find the 
-    initial vulnerability report from WordFence <a href="https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/user-registration/user-registration-membership-512-unauthenticated-privilege-escalation-via-membership-registration" target="_blank">here</a>, 
-    the article from Bleeping Computer <a href="https://www.bleepingcomputer.com/news/security/wordpress-membership-plugin-bug-exploited-to-create-admin-accounts/" target="_blank">here</a>, 
-    and the video of me talking about this in a news segment at our session <a href="https://www.youtube.com/watch?v=t0L2a3qj9bg" target="_blank">here</a>. 
+    This week at ISSessions, I presented a talk during our news segment about a bug covered in an article about a bug
+    in a popular WordPress plugin with over 60'000 installations that allows attackers to create admin accounts. I found
+    this article interesting
+    because WordPress is something that I have been experimenting with for most of the year and when critical scoring
+    velnerabilities are found in plugins that are so popular
+    in the wild, it is important to understand the risks of them and share with the public. You can find the
+    initial vulnerability report from WordFence <a
+        href="https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/user-registration/user-registration-membership-512-unauthenticated-privilege-escalation-via-membership-registration"
+        target="_blank">here</a>,
+    the article from Bleeping Computer <a
+        href="https://www.bleepingcomputer.com/news/security/wordpress-membership-plugin-bug-exploited-to-create-admin-accounts/"
+        target="_blank">here</a>,
+    and the video of me talking about this in a news segment at our session <a
+        href="https://www.youtube.com/watch?v=t0L2a3qj9bg" target="_blank">here</a>.
 </p><br>
 
 <!-- Summary of the Article & Bug: -->
 <h3>Summary Of The Article & Bug:</h3>
 <p>
-    According to this article and the researchers at WordFence, this vulnerability is a <strong>Critical</strong> bug with a CVSS score of 
-    9.8 out of 10. The bug is in the User Registration & Membership plugin, which is an extremely popular plugin 
-    that is used to manage user registrations and memberships on WordPress sites. This bug allows malicious actors to 
-    create admin accounts remotely without any authentication, which can lead to a complete takeover of the targeted site. 
-    The vulnerability is due to a flaw in the plugin's code that fails to properly validate user input, which allows attackers to exploit the registration process and grant themselves escalated privileges at account creation. 
-    This bug is reported to effect all versions of the plugin <strong>up to</strong> 5.1.2, and the developers have released a patch in the latest version.
+    According to this article and the researchers at WordFence, this vulnerability is a <strong>Critical</strong> bug
+    with a CVSS score of
+    9.8 out of 10. The bug is in the User Registration & Membership plugin, which is an extremely popular plugin
+    that is used to manage user registrations and memberships on WordPress sites. This bug allows malicious actors to
+    create admin accounts remotely without any authentication, which can lead to a complete takeover of the targeted
+    site.
+    The vulnerability is due to a flaw in the plugin's code that fails to properly validate user input, which allows
+    attackers to exploit the registration process and grant themselves escalated privileges at account creation.
+    This bug is reported to effect all versions of the plugin <strong>up to</strong> 5.1.2, and the developers have
+    released a patch in the latest version.
 </p><br>
 
 <!-- Technical Breakdown Of Bug & Hypothetical Exploitation: -->
 <h3>Technical Breakdown Of Bug & Hypothetical Demo:</h3><br>
 <p>
-    The technical details of this bug are quite interesting. Specifically, the plugin does not properly check the role assigned to a new user during registration, which allows attackers to specify an admin role when creating a new account. 
-    This means that an attacker can simply send a specially crafted registration request with the admin role specified, and the plugin will create an account with administrative privileges without any authentication. 
-    Once an attacker has created an admin account, they can log in and take complete control of the targeted WordPress site, including installing malicious plugins, modifying content, and stealing sensitive information.
-    This vulnerability is dangerous because of how easy it is to exploit and I will now provide a theoretical example of how an attacker may escalate their privileges using this bug.<br>
-    I want to preface this by saying that What I am about to share is purely <strong>HYPOTHETICAL</strong> and for <strong>EDUCATIONAL</strong> 
-    purposes only. I do not condone or encourage any malicious activity, and am not resposnible for any abuse of this information. With that being said, lets get into it.<br><br>
+    The technical details of this bug are quite interesting. Specifically, the plugin does not properly check the role
+    assigned to a new user during registration, which allows attackers to specify an admin role when creating a new
+    account.
+    This means that an attacker can simply send a specially crafted registration request with the admin role specified,
+    and the plugin will create an account with administrative privileges without any authentication.
+    Once an attacker has created an admin account, they can log in and take complete control of the targeted WordPress
+    site, including installing malicious plugins, modifying content, and stealing sensitive information.
+    This vulnerability is dangerous because of how easy it is to exploit and I will now provide a theoretical example of
+    how an attacker may escalate their privileges using this bug.<br>
+    I want to preface this by saying that What I am about to share is purely <strong>HYPOTHETICAL</strong> and for
+    <strong>EDUCATIONAL</strong>
+    purposes only. I do not condone or encourage any malicious activity, and am not resposnible for any abuse of this
+    information. With that being said, lets get into it.<br><br>
 
     <!-- Hypothetical Recon Phase / Workflow: -->
     <h4>Hypothetical Reconnaissance Phase / Workflow:</h4><br>
-    For the purpose of this "demo", let us assume that we as the attacker (or researcher) have identified a potential target, 
-    which we will call <code>nicks-demo-target.com</code>, and we want to find out some info on the site including; whether or not it is indeed running WordPress, 
-    if the plugin exists on the site, what version of the plugin is running (keeping in mind that only versions up to and including 5.1.2 are vulnerable), 
-    and whether or not the site has frontend registration enabled. To identify if a site is infact running WordPress, we can use tools like; <a href="https://www.wappalyzer.com/" target="_blank">Wappalyzer</a> or <a href="https://whatcms.org/" target="_blank">WhatCMS</a>, 
-    which are both great tools but I tend to go the more simple and manual route for just a simple confirmation of Yes or No. 
-    
-    I will typically just navigate to the site and add <code>/wp-admin/</code> to the end of the URL and see if it redirects me to the admin login page or hits me with a 404. If it successfully redirects me to the login page, then I know for a definite fact that the site is built with WordPress.
-    Regardless of how we confirm that the site is running WordPress, the next step is to identify if the vulnerable plugin is installed on the site. To do this, I highly recommend using the tool <a href="https://wpscan.com/" target="_blank">WPScan</a> which is a powerful WordPress scanning tool that I have been utilizing abundantly over the course of the year 
-    and have had great success with. The command that we would use to scan for any vulnerable plugins detected on the site would be 
-    <code>wpscan --url nicks-demo-target.com -e vp --plugins-detected mixed --api-token [API-TOKEN] --random-user-agent</code> where the 
-    <code>--url nicks-demo-target.com</code> specifies the target site's URL, the 
-    <code>-e vp</code> flag tells WPScan to enumerate only the plugins on the site that have known vulnerabilities, the 
-    <code>--plugins-detected mixed</code> uses a compination of Passive and Agressive detection methods to find plugins, the 
-    <code>--api-token [API-TOKEN]</code> uses a specified API token to connect to the WPVulnDB and properly cross-reference the detected velnerabilities, and the 
-    <code>--random-user-agent</code> flag randomizes the user agent for the scan to help obfuscate the scan and make it less likely to be blocked by simple filters or WAFs.
+    For the purpose of this "demo", let us assume that we as the attacker (or researcher) have identified a potential
+    target,
+    which we will call <code>nicks-demo-target.com</code>, and we want to find out some info on the site including; whether
+    or not it is indeed running WordPress,
+    if the plugin exists on the site, what version of the plugin is running (keeping in mind that only versions up to and
+    including 5.1.2 are vulnerable),
+    and whether or not the site has frontend registration enabled. To identify if a site is infact running WordPress, we can
+    use tools like; <a href="https://www.wappalyzer.com/" target="_blank">Wappalyzer</a> or <a href="https://whatcms.org/"
+        target="_blank">WhatCMS</a>,
+    which are both great tools but I tend to go the more simple and manual route for just a simple confirmation of Yes or
+    No.
 
-    After running this scan, we would have a list of detected vulnerable plugins on the site, for the purpose of this "demo", lets move forward with the assumption that 
-    the scan found the User Registration & Membership plugin installed on the site and is indeed running a vulnerable version. 
-    This completes the "reconnaissance phase" and we can now move onto the next phase which covers how we could hypotetically exploit the bug.<br><br>
+    I will typically just navigate to the site and add <code>/wp-admin/</code> to the end of the URL and see if it redirects
+    me to the admin login page or hits me with a 404. If it successfully redirects me to the login page, then I know for a
+    definite fact that the site is built with WordPress.
+    Regardless of how we confirm that the site is running WordPress, the next step is to identify if the vulnerable plugin
+    is installed on the site. To do this, I highly recommend using the tool <a href="https://wpscan.com/"
+        target="_blank">WPScan</a> which is a powerful WordPress scanning tool that I have been utilizing abundantly over
+    the course of the year
+    and have had great success with. The command that we would use to scan for any vulnerable plugins detected on the site
+    would be
+    <code>wpscan --url nicks-demo-target.com -e vp --plugins-detected mixed --api-token [API-TOKEN] --random-user-agent</code>
+    where the
+    <code>--url nicks-demo-target.com</code> specifies the target site's URL, the
+    <code>-e vp</code> flag tells WPScan to enumerate only the plugins on the site that have known vulnerabilities, the
+    <code>--plugins-detected mixed</code> uses a compination of Passive and Agressive detection methods to find plugins, the
+    <code>--api-token [API-TOKEN]</code> uses a specified API token to connect to the WPVulnDB and properly cross-reference
+    the detected velnerabilities, and the
+    <code>--random-user-agent</code> flag randomizes the user agent for the scan to help obfuscate the scan and make it less
+    likely to be blocked by simple filters or WAFs.
+
+    After running this scan, we would have a list of detected vulnerable plugins on the site, for the purpose of this
+    "demo", lets move forward with the assumption that
+    the scan found the User Registration & Membership plugin installed on the site and is indeed running a vulnerable
+    version.
+    This completes the "reconnaissance phase" and we can now move onto the next phase which covers how we could
+    hypotetically exploit the bug.<br><br>
 
     <!-- Hypothetical Enumeration & Exploitation: -->
     <h4>Hypothetcial Enumeration & Exploitation:</h4><br>
-    Now onto how an attacker (or researcher) could hypothetically exploit this bug. To start, we would need to look for any exposed registration endpoints on the site. 
-    This can be done by using a tool like <a href="https://portswigger.net/burp/communitydownload" target="_blank">BurpSuite</a> to intercept the traffic between our browser and the target site to look for any registration endpoints. 
-    Alternatively, we could also use a tool like <a href="https://www.kali.org/tools/ffuf/" target="_blank">FFUF</a> to fuzz the site for 
-    common registration endpoints such as <code>/register/</code> or <code>/signup/</code> to see if we can find any paths that are utilized for 
-    user registration. For the purpose of this scenario, lets assume that we found a registration endpoint at <code>nicks-demo-target.com/register/</code>. 
+    Now onto how an attacker (or researcher) could hypothetically exploit this bug. To start, we would need to look for any
+    exposed registration endpoints on the site.
+    This can be done by using a tool like <a href="https://portswigger.net/burp/communitydownload"
+        target="_blank">BurpSuite</a> to intercept the traffic between our browser and the target site to look for any
+    registration endpoints.
+    Alternatively, we could also use a tool like <a href="https://www.kali.org/tools/ffuf/" target="_blank">FFUF</a> to fuzz
+    the site for
+    common registration endpoints such as <code>/register/</code> or <code>/signup/</code> to see if we can find any paths
+    that are utilized for
+    user registration. For the purpose of this scenario, lets assume that we found a registration endpoint at
+    <code>nicks-demo-target.com/register/</code>.
 
-    Once we identify the registration enpoint, our next hypothetical step would be to send a normal registration request to the endpoint and capture it via BurSuite. 
-    This allows us (as an attacker or researcher) to see how the registration process works and what the request looks like. 
+    Once we identify the registration enpoint, our next hypothetical step would be to send a normal registration request to
+    the endpoint and capture it via BurSuite.
+    This allows us (as an attacker or researcher) to see how the registration process works and what the request looks like.
     A normal registration request could look something like this:<br>
-    <pre>
-        <code>
-            POST /register/ HTTP/1.1
-            Host: nicks-demo-target.com
-            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36
-            Content-Type: application/x-www-form-urlencoded
-            Content-Length: 100
+    <code>
+        POST /register/ HTTP/1.1
+        Host: nicks-demo-target.com
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 100<br>
+        username=normaluser&
+        email=normaluser@normal.com&
+        role=subscriber&
+        password=basicPassword123!&
+        confirm_password=basicPassword123!&
+        form_id=4&
+        ur-frontend-form-id=4&
+        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
+    </code><br>
 
-            username=normaluser&
-            email=normaluser@normal.com&
-            password=basicPassword123!&
-            role=subscriber&
-            confirm_password=basicPassword123!&
-            form_id=4&
-            ur-frontend-form-id=4&
-            _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
-        </code>
-    </pre>
-    <br>
-    
+    After sending and intercepting this normal registration request, we can modify the request to specify an admin role
+    instead of that of a subscriber.
+    This is where the vulnerability comes into play, as the plugin fails to properly validate the role specified in the
+    registration request we as the attacker
+    can simply change the <code>role=subscriber</code> to <code>role=administrator</code> and send the request. The modified
+    request would look something like this:<br>
+    <code>
+        POST /register/ HTTP/1.1
+        Host: nicks-demo-target.com
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 100<br>
+        username=hackerman&
+        email=hackerman@hacktheplanet.ru&
+        role=administrator&
+        password=superSecretPassword666!!!&
+        confirm_password=superSecretPassword666!!!&
+        form_id=4&
+        ur-frontend-form-id=4&
+        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
+    </code><br>
+
 </p>
