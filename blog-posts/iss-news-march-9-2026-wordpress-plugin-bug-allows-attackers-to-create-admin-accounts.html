@@ -96,5 +96,32 @@
     <!-- Hypothetical Enumeration & Exploitation: -->
     <h4>Hypothetcial Enumeration & Exploitation:</h4><br>
     Now onto how an attacker (or researcher) could hypothetically exploit this bug. To start, we would need to look for any exposed registration endpoints on the site. 
+    This can be done by using a tool like <a href="https://portswigger.net/burp/communitydownload" target="_blank">BurpSuite</a> to intercept the traffic between our browser and the target site to look for any registration endpoints. 
+    Alternatively, we could also use a tool like <a href="https://www.kali.org/tools/ffuf/" target="_blank">FFUF</a> to fuzz the site for 
+    common registration endpoints such as <code>/register/</code> or <code>/signup/</code> to see if we can find any paths that are utilized for 
+    user registration. For the purpose of this scenario, lets assume that we found a registration endpoint at <code>nicks-demo-target.com/register/</code>. 
+
+    Once we identify the registration enpoint, our next hypothetical step would be to send a normal registration request to the endpoint and capture it via BurSuite. 
+    This allows us (as an attacker or researcher) to see how the registration process works and what the request looks like. 
+    A normal registration request could look something like this:<br>
+    <pre>
+        <code>
+            POST /register/ HTTP/1.1
+            Host: nicks-demo-target.com
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36
+            Content-Type: application/x-www-form-urlencoded
+            Content-Length: 100
+
+            username=normaluser&
+            email=normaluser@normal.com&
+            password=basicPassword123!&
+            role=subscriber&
+            confirm_password=basicPassword123!&
+            form_id=4&
+            ur-frontend-form-id=4&
+            _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890
+        </code>
+    </pre>
+    <br>
     
 </p>
