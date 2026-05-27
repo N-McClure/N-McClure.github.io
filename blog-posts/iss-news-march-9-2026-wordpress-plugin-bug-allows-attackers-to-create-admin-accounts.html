@@ -145,7 +145,7 @@
     <code>nicks-demo-target.com/register/</code>.
 
     Once we identify the registration enpoint, our next hypothetical step would be to send a normal registration request to
-    the endpoint and capture it via BurSuite.
+    the endpoint and capture it via BurpSuite.
     This allows us (as an attacker or researcher) to see how the registration process works and what the request looks like.
     A normal registration request could look something like this:<br>
     <code>
@@ -161,7 +161,7 @@
         confirm_password=basicPassword123!&<br>
         form_id=4&<br>
         ur-frontend-form-id=4&<br>
-        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890<br>
+        _wpnonce=abc123def456ghi789jkl012<br>
     </code><br>
 
     After sending and intercepting this normal registration request, we can modify the request to specify an admin role
@@ -183,7 +183,7 @@
         confirm_password=superSecretPassword666!!!&<br>
         form_id=4&<br>
         ur-frontend-form-id=4&<br>
-        _wpnonce=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890<br>
+        _wpnonce=abc123def456ghi789jkl012<br>
     </code><br>
     After sending the modified request, the plugin would process it and create a new user account with admin privileges without any 
     authentication, which would allow us as the "attacker" (or researcher) to head over to the admin login page that we identified earlier 
@@ -203,3 +203,18 @@
 
 <!-- Mitigation & Prevention: -->
 <h3>Mitigation & Prevention:</h3><br>
+<p>
+    To mitigate this bug, it is crucial for WordPress users who own or manage sites that use the User Registration & Membership 
+    plugin to immediately update their version of the plugin to the latest that contains the patch for this vulnerability. 
+    I would also reccomend for site owners to restrict admin creation to only trusted users, deploy a web application firewall (WAF) to help filter out malicious traffic, and to monitor their sites for any suspicious activity.
+    Additionally, I would reccomend that users who have accounts on sites that use this plugin to rotate their passwords for those accounts as a 
+    precautionary measure. 
+</p><br>
+
+<!-- Conclusion: -->
+<h3>Conclusion:</h3><br>
+<p>
+    In conclusion, this bug in the User Registration & Membership plugin is a critical vulnerability that can have severe consequences for WordPress users. 
+    It is important for site owners to take immediate action to update their plugins and secure their sites, and for regular users to be aware of the risks and take precautions to protect their accounts. 
+    By staying vigilant and proactive about WordPress security, we can help mitigate the risks associated with vulnerabilities like this one and keep our sites and data safe. In a future writeup or video I may 
+    over how to <strong>ACTUALLY</strong> exploit this vulnerability in a controlled lab environment with a clear step-by-step demonstration, so stay tuned for that potentially coming out in the future!
