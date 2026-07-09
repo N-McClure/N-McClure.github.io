@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Live CSV Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title-zone">
+            <h1>Inventory Dashboard</h1>
+        </div>
+        <div class="header-btn-zone">
+            <button class="btn btn-sec" onclick="exportToCSV()">Export CSV</button>
+            <button class="btn btn-primary" onclick="openModal()">+ Add New Row</button>
+        </div>
+    </header>
+
+    <div class="actions-bar">
+        <div class="actions-left">
+            <button class="btn btn-sec" onclick="loadGoogleSheetCSV()">Sync Sheets</button>
+            <button class="btn btn-danger" onclick="clearLocalData()">Reset Changes</button>
+        </div>
+        <div class="status-badge" id="statusText">Loading sheet...</div>
+    </div>
+
+    <!-- Main Output Views -->
+    <div class="card-table-wrapper" id="desktopViewContainer">
+        <table>
+            <thead>
+                <tr id="table-headers"></tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+    <div class="mobile-records" id="mobileViewContainer">
+        <!-- Injected Cards go here -->
+    </div>
+</div>
+
+<!-- Add/Edit Sheet Entry Drawer/Modal -->
+<div class="modal" id="entryModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-content">
+        <div class="modal-header" id="modalTitle">Add New Entry</div>
+        <form id="entryForm" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" id="editIndex">
+            <div id="formFields"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sec" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
