@@ -1,6 +1,7 @@
 const SHEET_ID = '1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to';
-const GID = '1812049056'; // Targets the specific tab with the data
-const GOOGLE_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
+const GID = '1812049056';
+// Using the visualization query endpoint bypasses strict CORS blocks on static hosts
+const GOOGLE_API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${GID}`;
 
 let dashboardData = [];
 let dataHeaders = [];
@@ -15,21 +16,26 @@ window.addEventListener('DOMContentLoaded', () => {
         updateStatus("Using cached data with local modifications.");
         renderViews();
     } else {
-        loadGoogleSheetCSV();
+        loadGoogleSheetData();
     }
 });
 
-async function loadGoogleSheetCSV() {
+async function loadGoogleSheetData() {
     updateStatus("Fetching latest spreadsheet data...");
     try {
-        const response = await fetch(GOOGLE_CSV_URL);
+        const response = await fetch(GOOGLE_API_URL);
         if (!response.ok) throw new Error('Network failure reading spreadsheet.');
-        const text = await response.text();
-        parseCSV(text);
+        
+        const rawText = await response.text();
+        // Google returns a Google Visualization API wrapper function; we strip it down to pure JSON
+        const jsonString = rawText.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1];
+        const data = JSON.parse(jsonString);
+        
+        parseGoogleJson(data);
         updateStatus("Synced with Google Sheets!");
     } catch (error) {
         console.error(error);
-        updateStatus("Sync error. Please confirm spreadsheet sharing access settings.");
+        updateStatus("Sync error. Please click 'Reset Changes' or verify sheet link access.");
         if (dashboardData.length === 0) {
             dataHeaders = ['ID', 'Item Name', 'Quantity', 'Status'];
             renderViews();
@@ -37,25 +43,23 @@ async function loadGoogleSheetCSV() {
     }
 }
 
-function parseCSV(text) {
-    const lines = text.split(/\r?\n/).map(line => line.trim()).filter(line => line);
-    if (lines.length === 0) return;
-
-    dataHeaders = lines[0].split(',').map(h => h.replace(/^"|"$/g, '').trim());
+function parseGoogleJson(googleData) {
+    const table = googleData.table;
+    
+    // Extract headers safely from column labels
+    dataHeaders = table.cols.map(col => col.label || 'Column');
     dashboardData = [];
 
-    for (let i = 1; i < lines.length; i++) {
-        const matches = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lines[i].split(',');
-        const values = matches.map(v => v.replace(/^"|"$/g, '').trim());
+    // Map the row data matching the cell arrays to headers
+    table.rows.forEach(row => {
+        let rowObject = {};
+        dataHeaders.forEach((header, index) => {
+            const cell = row.c[index];
+            rowObject[header] = cell ? (cell.v !== null ? String(cell.v) : '') : '';
+        });
+        dashboardData.push(rowObject);
+    });
 
-        if (values.length >= dataHeaders.length) {
-            let rowObject = {};
-            dataHeaders.forEach((header, index) => {
-                rowObject[header] = values[index] || '';
-            });
-            dashboardData.push(rowObject);
-        }
-    }
     saveToStorage();
     renderViews();
 }
@@ -74,13 +78,13 @@ function renderViews() {
         return;
     }
 
-    // Desktop
+    // Desktop View
     tableBody.innerHTML = dashboardData.map((row, index) => {
         const cells = dataHeaders.map(header => `<td>${escapeHtml(row[header] || '')}</td>`).join('');
         return `<tr>${cells}<td><div class="row-actions"><button class="btn btn-sec" onclick="openModal(${index})">Edit</button><button class="btn btn-danger" onclick="deleteEntry(${index})">Delete</button></div></td></tr>`;
     }).join('');
 
-    // Mobile
+    // Mobile View
     mobileContainer.innerHTML = dashboardData.map((row, index) => {
         const fieldRows = dataHeaders.map(header => `
             <div class="mobile-field">
@@ -139,7 +143,7 @@ function exportToCSV() {
     csvRows.push(dataHeaders.map(h => `"${h.replace(/"/g, '""')}"`).join(','));
 
     for (const row of dashboardData) {
-        const values = dataHeaders.map(header => `"${('' + (row[header] || '')).replace(/"/g, '""')}"`);
+        const values = dataHeaders.map(header => `"${(String(row[header] || '')).replace(/"/g, '""')}"`);
         csvRows.push(values.join(','));
     }
 
@@ -194,7 +198,7 @@ function clearLocalData() {
     if (confirm('Discard changes and rebuild cache directly from Google Sheets?')) {
         localStorage.removeItem('gs_crud_data');
         localStorage.removeItem('gs_crud_headers');
-        loadGoogleSheetCSV();
+        loadGoogleSheetData();
     }
 }
 
@@ -202,6 +206,8 @@ function updateStatus(msg) {
     document.getElementById('statusText').innerText = msg;
 }
 
+// Security: Escapes data to prevent HTML Injection
 function escapeHtml(str) {
+    if (!str) return '';
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
