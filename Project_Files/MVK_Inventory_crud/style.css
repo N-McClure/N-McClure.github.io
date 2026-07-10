@@ -24,9 +24,9 @@ body {
 }
 
 .container { 
-    max-width: 1200px; 
+    max-width: 100%; /* Spans the full width of the screen cleanly */
     margin: 0 auto; 
-    padding-bottom: 5rem; 
+    padding: 0 1rem 5rem 1rem; 
 }
 
 header { 
@@ -45,12 +45,14 @@ header {
     display: flex; 
     gap: 0.5rem; 
     width: 100%; 
+    flex-wrap: wrap;
 }
 
 .header-btn-zone .btn { 
     flex: 1; 
     text-align: center; 
     justify-content: center; 
+    min-width: 140px;
 }
 
 .btn { 
@@ -63,6 +65,7 @@ header {
     font-size: 0.9rem; 
     cursor: pointer; 
     transition: background 0.2s, transform 0.1s; 
+    white-space: nowrap;
 }
 
 .btn:active { 
@@ -130,12 +133,14 @@ header {
     word-break: break-word; 
 }
 
+/* Expanded Responsive Table Wrapper */
 .card-table-wrapper { 
     background: var(--card-bg); 
     border-radius: 10px; 
     border: 1px solid var(--border); 
-    overflow: hidden; 
+    overflow-x: auto; /* Adds a clean horizontal scroll bar if data overflows on narrow layouts */
     box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+    width: 100%;
 }
 
 /* Table Architecture (Desktop) */
@@ -144,23 +149,27 @@ table {
     border-collapse: collapse; 
     text-align: left; 
     display: none; 
+    table-layout: auto; /* Dynamic calculation prevents overlapping text columns */
 }
 
 th, td { 
-    padding: 1rem; 
+    padding: 1.25rem 1rem; 
     border-bottom: 1px solid var(--border); 
     font-size: 0.95rem; 
-    max-width: 250px; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+    line-height: 1.4;
+    vertical-align: middle;
 }
 
 th { 
     background-color: #f9fafb; 
     font-weight: 600; 
     color: #4b5563; 
+    white-space: nowrap; /* Keeps the dynamic header labels clean */
 }
+
+/* Specific column corrections for book structures */
+th:nth-child(1), td:nth-child(1) { width: 90px; text-align: center; } /* Compact width for '# Of Copies' */
+th:nth-child(2), td:nth-child(2) { min-width: 220px; font-weight: 500; } /* Extra room for 'Title' */
 
 tr:last-child td { 
     border-bottom: none; 
@@ -169,6 +178,7 @@ tr:last-child td {
 .row-actions { 
     display: flex; 
     gap: 0.5rem; 
+    white-space: nowrap;
 }
 
 /* Card Architecture (Mobile) */
@@ -230,7 +240,7 @@ tr:last-child td {
     font-size: 0.95rem; 
 }
 
-/* Modals & Responsive View Switching */
+/* Modals */
 .modal { 
     display: none; 
     position: fixed; 
@@ -311,14 +321,33 @@ tr:last-child td {
 }
 
 /* Layout Scale Shifts */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     body { padding: 2rem; }
-    header { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    
+    .container { 
+        max-width: 1400px; /* Gives the layout breathing room on larger monitor displays */
+    }
+    
+    header { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 2rem; 
+    }
+    
     .header-btn-zone { width: auto; }
     .header-btn-zone .btn { flex: none; }
-    .actions-bar { flex-direction: row; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+    
+    .actions-bar { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 1rem 1.5rem; 
+    }
+    
     .actions-left { width: auto; }
     .actions-left .btn { flex: none; padding: 0.5rem 1rem; }
+    
     .status-badge { text-align: right; }
     
     table { display: table; }
