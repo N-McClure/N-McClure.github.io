@@ -1,5 +1,5 @@
 const SHEET_ID = '1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to';
-const GOOGLE_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzq_x2YpSjYyDAa6Vh-cHuxgDHjtHU2uiMfe3lk3bjeCYD69olDN101yit78hABGZ0a/exec'; 
+const GOOGLE_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbySO8vP2smd46WWLyGa-X7arCRtxR41gvoxbRqGKAVLm-wUXr8YfbfJIImm-M6LYFw/exec'; 
 
 let currentGid = '1812049056'; // Default initial tab
 let dashboardData = [];
@@ -197,7 +197,7 @@ function exportToCSV() {
 }
 
 async function saveToGoogleSheets() {
-    if (!GOOGLE_WEB_APP_URL || GOOGLE_WEB_APP_URL.includes('https://script.google.com/macros/s/AKfycbzq_x2YpSjYyDAa6Vh-cHuxgDHjtHU2uiMfe3lk3bjeCYD69olDN101yit78hABGZ0a/exec')) {
+    if (!GOOGLE_WEB_APP_URL || GOOGLE_WEB_APP_URL.includes('YOUR_GOOGLE_WEB_APP_URL')) {
         alert("Please configure your GOOGLE_WEB_APP_URL at the top of app.js first.");
         return;
     }
