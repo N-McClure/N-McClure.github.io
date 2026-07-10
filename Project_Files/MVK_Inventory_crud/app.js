@@ -46,24 +46,35 @@ async function loadGoogleSheetData() {
 function parseGoogleJson(googleData) {
     const table = googleData.table;
     
-    // Extract headers safely from column labels
-    dataHeaders = table.cols.map(col => col.label || 'Column');
+    // Extract headers and filter out completely empty trailing columns
+    dataHeaders = table.cols
+        .map(col => col.label ? col.label.trim() : '')
+        .filter(label => label !== '' && label.toLowerCase() !== 'column');
+        
     dashboardData = [];
 
-    // Map the row data matching the cell arrays to headers
+    // Map row data only for the valid columns we kept
     table.rows.forEach(row => {
         let rowObject = {};
+        let hasData = false; // Track if the row actually contains any data
+
         dataHeaders.forEach((header, index) => {
             const cell = row.c[index];
-            rowObject[header] = cell ? (cell.v !== null ? String(cell.v) : '') : '';
+            const value = cell ? (cell.v !== null ? String(cell.v).trim() : '') : '';
+            rowObject[header] = value;
+            
+            if (value !== '') hasData = true;
         });
-        dashboardData.push(rowObject);
+
+        // Only add the row if it isn't completely empty
+        if (hasData) {
+            dashboardData.push(rowObject);
+        }
     });
 
     saveToStorage();
     renderViews();
 }
-
 function renderViews() {
     const headerRow = document.getElementById('table-headers');
     const tableBody = document.getElementById('table-body');
