@@ -3,6 +3,8 @@ const GID = '1812049056';
 // Using the visualization query endpoint bypasses strict CORS blocks on static hosts
 const GOOGLE_API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${GID}`;
 
+const GOOGLE_WEB_APP_URL = 'PASTE_YOUR_COPIED_WEB_APP_URL_HERE';
+
 let dashboardData = [];
 let dataHeaders = [];
 
@@ -215,6 +217,48 @@ function clearLocalData() {
 
 function updateStatus(msg) {
     document.getElementById('statusText').innerText = msg;
+}
+
+async function saveToGoogleSheets() {
+    if (!GOOGLE_WEB_APP_URL || GOOGLE_WEB_APP_URL.includes('PASTE_YOUR_COPIED_WEB_APP_URL_HERE')) {
+        alert("Please configure your GOOGLE_WEB_APP_URL at the top of app.js first.");
+        return;
+    }
+
+    if (!confirm("Are you sure you want to overwrite the live Google Sheet with your current local dashboard data?")) {
+        return;
+    }
+
+    updateStatus("Pushing modifications to live Google Sheet...");
+
+    const payload = {
+        headers: dataHeaders,
+        data: dashboardData
+    };
+
+    try {
+        const response = await fetch(GOOGLE_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'text/plain', // Using text/plain avoids CORS preflight blocks with Apps Script
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        
+        if (result.status === "success") {
+            updateStatus("Live Google Sheet updated successfully!");
+            alert("Changes successfully written to the live spreadsheet!");
+        } else {
+            throw new Error(result.message || "Unknown error occurred on Google Server.");
+        }
+    } catch (error) {
+        console.error("Failed to push updates:", error);
+        updateStatus("Failed to save to Google Sheets.");
+        alert("Error saving data: " + error.message);
+    }
 }
 
 // Security: Escapes data to prevent HTML Injection
