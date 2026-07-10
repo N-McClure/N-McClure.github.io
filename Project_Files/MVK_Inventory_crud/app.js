@@ -48,17 +48,15 @@ async function loadGoogleSheetData() {
 function parseGoogleJson(googleData) {
     const table = googleData.table;
     
-    // Extract headers and filter out completely empty trailing columns
-    dataHeaders = table.cols
-        .map(col => col.label ? col.label.trim() : '')
-        .filter(label => label !== '' && label.toLowerCase() !== 'column');
+    // Explicitly enforce the correct column header order to prevent shifting
+    dataHeaders = ["# Of Copies", "Title", "Author", "Cover", "Genre", "Series", "Location"];
         
     dashboardData = [];
 
-    // Map row data only for the valid columns we kept
+    // Map row data strictly by index position matching our hardcoded headers
     table.rows.forEach(row => {
         let rowObject = {};
-        let hasData = false; // Track if the row actually contains any data
+        let hasData = false;
 
         dataHeaders.forEach((header, index) => {
             const cell = row.c[index];
@@ -68,7 +66,6 @@ function parseGoogleJson(googleData) {
             if (value !== '') hasData = true;
         });
 
-        // Only add the row if it isn't completely empty
         if (hasData) {
             dashboardData.push(rowObject);
         }
