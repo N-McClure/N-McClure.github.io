@@ -1,5 +1,4 @@
-const SHEET_ID = '1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to';
-const GOOGLE_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
+const GOOGLE_CSV_URL = `https://docs.google.com/spreadsheets/d/1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to/export?format=csv`;
 
 let dashboardData = [];
 let dataHeaders = [];
