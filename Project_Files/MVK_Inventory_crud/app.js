@@ -1,4 +1,6 @@
-const GOOGLE_CSV_URL = `https://docs.google.com/spreadsheets/d/1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to/export?format=csv`;
+const SHEET_ID = '1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to';
+const GID = '1812049056'; // Targets the specific tab with the data
+const GOOGLE_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
 
 let dashboardData = [];
 let dataHeaders = [];
