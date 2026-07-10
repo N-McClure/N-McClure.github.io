@@ -359,3 +359,42 @@ tr:last-child td {
     .modal-footer { flex-direction: row; justify-content: flex-end; }
     .modal-footer .btn { width: auto; }
 }
+
+.selector-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.selector-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.selector-group select {
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+    padding-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .actions-left {
+        flex-direction: column;
+    }
+    .selector-group {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.625rem;
+    }
+}

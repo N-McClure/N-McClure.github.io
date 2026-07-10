@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Live CSV Dashboard</title>
+    <title>Dynamic Live CSV Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,7 +13,7 @@
     <div class="container">
         <header>
             <div class="header-title-zone">
-                <h1>Inventory Dashboard</h1>
+                <h1>Dynamic Inventory Dashboard</h1>
             </div>
             <div class="header-btn-zone">
                 <button class="btn btn-sec" onclick="exportToCSV()">Export CSV</button>
@@ -25,8 +25,17 @@
 
         <div class="actions-bar">
             <div class="actions-left">
-                <button class="btn btn-sec" onclick="loadGoogleSheetCSV()">Sync Sheets</button>
-                <button class="btn btn-danger" onclick="clearLocalData()">Reset Changes</button>
+                <!-- New Tab Selector Functionality -->
+                <div class="selector-group">
+                    <label for="tabSelector">Select Tab ID:</label>
+                    <select id="tabSelector" onchange="switchTab(this.value)">
+                        <option value="1812049056">Books (1812049056)</option>
+                        <option value="14141873">Music (14141873)</option>
+                        <option value="0">DVDs (0)</option>
+                    </select>
+                </div>
+                <button class="btn btn-sec" onclick="loadGoogleSheetData()">Sync Sheet</button>
+                <button class="btn btn-danger" onclick="clearLocalData()">Reset Tab Changes</button>
             </div>
             <div class="status-badge" id="statusText">Loading sheet...</div>
         </div>

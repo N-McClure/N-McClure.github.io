@@ -1,45 +1,61 @@
 const SHEET_ID = '1_n5CzwP8JCwvPjhzdJipJY9EdJGgMomN7mXKJYcD8to';
-const GID = '1812049056';
-// Using the visualization query endpoint bypasses strict CORS blocks on static hosts
-const GOOGLE_API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${GID}`;
+const GOOGLE_WEB_APP_URL = 'PASTE_YOUR_COPIED_WEB_APP_URL_HERE'; 
 
-const GOOGLE_WEB_APP_URL = 'PASTE_YOUR_COPIED_WEB_APP_URL_HERE';
-
+let currentGid = '1812049056'; // Default initial tab
 let dashboardData = [];
 let dataHeaders = [];
 
 window.addEventListener('DOMContentLoaded', () => {
-    const storedData = localStorage.getItem('gs_crud_data');
-    const storedHeaders = localStorage.getItem('gs_crud_headers');
+    // Check if the user had a previous tab selected
+    const savedGid = localStorage.getItem('current_gid');
+    if (savedGid) {
+        currentGid = savedGid;
+        document.getElementById('tabSelector').value = currentGid;
+    }
+    initializeDashboard();
+});
+
+function initializeDashboard() {
+    const storedData = localStorage.getItem(`gs_crud_data_${currentGid}`);
+    const storedHeaders = localStorage.getItem(`gs_crud_headers_${currentGid}`);
 
     if (storedData && storedHeaders) {
         dashboardData = JSON.parse(storedData);
         dataHeaders = JSON.parse(storedHeaders);
-        updateStatus("Using cached data with local modifications.");
+        updateStatus(`Using cached local changes for tab ${currentGid}.`);
         renderViews();
     } else {
         loadGoogleSheetData();
     }
-});
+}
+
+// Switches tab profiles smoothly
+function switchTab(newGid) {
+    currentGid = newGid;
+    localStorage.setItem('current_gid', currentGid);
+    initializeDashboard();
+}
 
 async function loadGoogleSheetData() {
-    updateStatus("Fetching latest spreadsheet data...");
+    updateStatus(`Fetching tab ${currentGid} data...`);
+    const googleApiUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${currentGid}`;
+    
     try {
-        const response = await fetch(GOOGLE_API_URL);
+        const response = await fetch(googleApiUrl);
         if (!response.ok) throw new Error('Network failure reading spreadsheet.');
         
         const rawText = await response.text();
-        // Google returns a Google Visualization API wrapper function; we strip it down to pure JSON
         const jsonString = rawText.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1];
         const data = JSON.parse(jsonString);
         
         parseGoogleJson(data);
-        updateStatus("Synced with Google Sheets!");
+        updateStatus("Synced cleanly with Google Sheets!");
     } catch (error) {
         console.error(error);
-        updateStatus("Sync error. Please click 'Reset Changes' or verify sheet link access.");
+        updateStatus("Sync error. Verify permission accesses or reset modifications.");
+        // Fallback default placeholder headers if everything is blank
         if (dashboardData.length === 0) {
-            dataHeaders = ['ID', 'Item Name', 'Quantity', 'Status'];
+            dataHeaders = ['Column 1', 'Column 2', 'Column 3'];
             renderViews();
         }
     }
@@ -48,12 +64,18 @@ async function loadGoogleSheetData() {
 function parseGoogleJson(googleData) {
     const table = googleData.table;
     
-    // Explicitly enforce the correct column header order to prevent shifting
-    dataHeaders = ["# Of Copies", "Title", "Author", "Cover", "Genre", "Series", "Location"];
+    // Dynamically grab columns. If Google returns an unnamed label, check the first row values.
+    dataHeaders = table.cols.map((col, index) => {
+        if (col.label && col.label.trim() !== "") {
+            return col.label.trim();
+        }
+        // Fallback catch: If Google's API header extraction leaves a column blank, repair the alignment
+        if (index === 0 && currentGid === '1812049056') return '# Of Copies';
+        return col.id || `Column ${index + 1}`;
+    }).filter(label => label.toLowerCase() !== 'column');
         
     dashboardData = [];
 
-    // Map row data strictly by index position matching our hardcoded headers
     table.rows.forEach(row => {
         let rowObject = {};
         let hasData = false;
@@ -74,6 +96,7 @@ function parseGoogleJson(googleData) {
     saveToStorage();
     renderViews();
 }
+
 function renderViews() {
     const headerRow = document.getElementById('table-headers');
     const tableBody = document.getElementById('table-body');
@@ -82,19 +105,19 @@ function renderViews() {
     headerRow.innerHTML = dataHeaders.map(h => `<th>${escapeHtml(h)}</th>`).join('') + '<th>Actions</th>';
 
     if (dashboardData.length === 0) {
-        const noRecordsHtml = `<div class="no-records">No entries found. Adjust changes or resync parameters.</div>`;
+        const noRecordsHtml = `<div class="no-records">No entries found. Adjust settings or resync parameters.</div>`;
         tableBody.innerHTML = `<tr><td colspan="${dataHeaders.length + 1}" style="text-align:center;">No entries found.</td></tr>`;
         mobileContainer.innerHTML = noRecordsHtml;
         return;
     }
 
-    // Desktop View
+    // Desktop
     tableBody.innerHTML = dashboardData.map((row, index) => {
         const cells = dataHeaders.map(header => `<td>${escapeHtml(row[header] || '')}</td>`).join('');
         return `<tr>${cells}<td><div class="row-actions"><button class="btn btn-sec" onclick="openModal(${index})">Edit</button><button class="btn btn-danger" onclick="deleteEntry(${index})">Delete</button></div></td></tr>`;
     }).join('');
 
-    // Mobile View
+    // Mobile
     mobileContainer.innerHTML = dashboardData.map((row, index) => {
         const fieldRows = dataHeaders.map(header => `
             <div class="mobile-field">
@@ -126,10 +149,8 @@ function handleFormSubmit(event) {
 
     if (index === '') {
         dashboardData.push(targetRow);
-        updateStatus("Added entry locally.");
     } else {
         dashboardData[parseInt(index)] = targetRow;
-        updateStatus("Modified entry locally.");
     }
 
     saveToStorage();
@@ -140,7 +161,6 @@ function handleFormSubmit(event) {
 function deleteEntry(index) {
     if (confirm('Drop this record from local storage?')) {
         dashboardData.splice(index, 1);
-        updateStatus("Removed record locally.");
         saveToStorage();
         renderViews();
     }
@@ -148,7 +168,6 @@ function deleteEntry(index) {
 
 function exportToCSV() {
     if (dashboardData.length === 0) return alert('No compilation values found to export.');
-    
     const csvRows = [];
     csvRows.push(dataHeaders.map(h => `"${h.replace(/"/g, '""')}"`).join(','));
 
@@ -161,8 +180,44 @@ function exportToCSV() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.setAttribute('href', url);
-    a.setAttribute('download', 'dashboard_export.csv');
+    a.setAttribute('download', `dashboard_tab_${currentGid}.csv`);
     a.click();
+}
+
+async function saveToGoogleSheets() {
+    if (!GOOGLE_WEB_APP_URL || GOOGLE_WEB_APP_URL.includes('PASTE_YOUR_COPIED_WEB_APP_URL_HERE')) {
+        alert("Please configure your GOOGLE_WEB_APP_URL at the top of app.js first.");
+        return;
+    }
+    if (!confirm(`Overwrite live Google Sheet tab (ID: ${currentGid}) with your current dashboard alterations?`)) return;
+
+    updateStatus("Pushing modifications to live Google Sheet...");
+    const payload = {
+        gid: currentGid,
+        headers: dataHeaders,
+        data: dashboardData
+    };
+
+    try {
+        const response = await fetch(GOOGLE_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (result.status === "success") {
+            updateStatus("Live Sheet updated successfully!");
+            alert("Changes successfully written to the online spreadsheet!");
+        } else {
+            throw new Error(result.message);
+        }
+    } catch (error) {
+        console.error(error);
+        updateStatus("Failed to save to Google Sheets.");
+        alert("Error saving data: " + error.message);
+    }
 }
 
 function openModal(index = null) {
@@ -200,14 +255,14 @@ function closeModal() {
 }
 
 function saveToStorage() {
-    localStorage.setItem('gs_crud_data', JSON.stringify(dashboardData));
-    localStorage.setItem('gs_crud_headers', JSON.stringify(dataHeaders));
+    localStorage.setItem(`gs_crud_data_${currentGid}`, JSON.stringify(dashboardData));
+    localStorage.setItem(`gs_crud_headers_${currentGid}`, JSON.stringify(dataHeaders));
 }
 
 function clearLocalData() {
-    if (confirm('Discard changes and rebuild cache directly from Google Sheets?')) {
-        localStorage.removeItem('gs_crud_data');
-        localStorage.removeItem('gs_crud_headers');
+    if (confirm(`Discard modifications and pull fresh values for tab ${currentGid}?`)) {
+        localStorage.removeItem(`gs_crud_data_${currentGid}`);
+        localStorage.removeItem(`gs_crud_headers_${currentGid}`);
         loadGoogleSheetData();
     }
 }
@@ -216,49 +271,6 @@ function updateStatus(msg) {
     document.getElementById('statusText').innerText = msg;
 }
 
-async function saveToGoogleSheets() {
-    if (!GOOGLE_WEB_APP_URL || GOOGLE_WEB_APP_URL.includes('PASTE_YOUR_COPIED_WEB_APP_URL_HERE')) {
-        alert("Please configure your GOOGLE_WEB_APP_URL at the top of app.js first.");
-        return;
-    }
-
-    if (!confirm("Are you sure you want to overwrite the live Google Sheet with your current local dashboard data?")) {
-        return;
-    }
-
-    updateStatus("Pushing modifications to live Google Sheet...");
-
-    const payload = {
-        headers: dataHeaders,
-        data: dashboardData
-    };
-
-    try {
-        const response = await fetch(GOOGLE_WEB_APP_URL, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'text/plain', // Using text/plain avoids CORS preflight blocks with Apps Script
-            },
-            body: JSON.stringify(payload)
-        });
-
-        const result = await response.json();
-        
-        if (result.status === "success") {
-            updateStatus("Live Google Sheet updated successfully!");
-            alert("Changes successfully written to the live spreadsheet!");
-        } else {
-            throw new Error(result.message || "Unknown error occurred on Google Server.");
-        }
-    } catch (error) {
-        console.error("Failed to push updates:", error);
-        updateStatus("Failed to save to Google Sheets.");
-        alert("Error saving data: " + error.message);
-    }
-}
-
-// Security: Escapes data to prevent HTML Injection
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
