@@ -6,7 +6,6 @@ let dashboardData = [];
 let dataHeaders = [];
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Check if the user had a previous tab selected
     const savedGid = localStorage.getItem('current_gid');
     if (savedGid) {
         currentGid = savedGid;
@@ -29,7 +28,6 @@ function initializeDashboard() {
     }
 }
 
-// Switches tab profiles smoothly
 function switchTab(newGid) {
     currentGid = newGid;
     localStorage.setItem('current_gid', currentGid);
@@ -53,7 +51,6 @@ async function loadGoogleSheetData() {
     } catch (error) {
         console.error(error);
         updateStatus("Sync error. Verify permission accesses or reset modifications.");
-        // Fallback default placeholder headers if everything is blank
         if (dashboardData.length === 0) {
             dataHeaders = ['Column 1', 'Column 2', 'Column 3'];
             renderViews();
@@ -64,15 +61,21 @@ async function loadGoogleSheetData() {
 function parseGoogleJson(googleData) {
     const table = googleData.table;
     
-    // Dynamically grab columns. If Google returns an unnamed label, check the first row values.
+    // 1. Filter out empty, explicit "column", single-letter placeholder, and calculations columns
     dataHeaders = table.cols.map((col, index) => {
         if (col.label && col.label.trim() !== "") {
             return col.label.trim();
         }
-        // Fallback catch: If Google's API header extraction leaves a column blank, repair the alignment
         if (index === 0 && currentGid === '1812049056') return '# Of Copies';
-        return col.id || `Column ${index + 1}`;
-    }).filter(label => label.toLowerCase() !== 'column');
+        return col.id || '';
+    }).filter(label => {
+        const cleanLabel = label.toLowerCase().trim();
+        // Discard labels that match blank fields, auto-generated letters (A-Z), or structural summaries
+        if (cleanLabel === '' || cleanLabel === 'column') return false;
+        if (/^[a-z]$/.test(cleanLabel)) return false; 
+        if (cleanLabel === 'total' || cleanLabel === 'amount' || cleanLabel === 'count') return false;
+        return true;
+    });
         
     dashboardData = [];
 
@@ -82,14 +85,23 @@ function parseGoogleJson(googleData) {
 
         dataHeaders.forEach((header, index) => {
             const cell = row.c[index];
-            const value = cell ? (cell.v !== null ? String(cell.v).trim() : '') : '';
-            rowObject[header] = value;
+            let value = cell ? (cell.v !== null ? String(cell.v).trim() : '') : '';
             
+            // Clean out stray 'Total' or summary calculation text appearing within primary lines
+            if (value.toLowerCase() === 'total' || value === '457') {
+                value = '';
+            }
+
+            rowObject[header] = value;
             if (value !== '') hasData = true;
         });
 
+        // Ensure row data lines are valid records, skipping summaries
         if (hasData) {
-            dashboardData.push(rowObject);
+            const rowValues = Object.values(rowObject).map(v => v.toLowerCase());
+            if (!rowValues.includes('total')) {
+                dashboardData.push(rowObject);
+            }
         }
     });
 
