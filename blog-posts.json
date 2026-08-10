@@ -84,6 +84,22 @@
     "content": "blog-posts/iss-news-january-26-2026-multi-stage-phishing-campaign-targets-russia.html"
   },
   {
+    "slug": "getting-my-hands-dirty-breaking-down-a-sextortion-scam",
+    "title": "Getting My Hands Dirty Breaking Down A Sextortion Scam Email",
+    "date": "January 19th, 2026",
+    "image": "blog-posts/media/code.jpg",
+    "preview": "A story about how I ran a full forensic investigation on a sextortion scam email a peer of mine received...from 'themself'.",
+    "tags": [
+      "Digital Forensics",
+      "Analysis",
+      "Sextortion Scam",
+      "Phishing",
+      "Learning By Doing"
+    ],
+    "author": "Nick McClure",
+    "content": "blog-posts/getting-my-hands-dirty-breaking-down-a-sextortion-scam.html"
+  },
+  {
     "slug": "iss-news-december-4-2025-shadypanda-malware-campaign",
     "title": "ISS News - December 4, 2025 - ShadyPanda Malware Campaign",
     "date": "December 4, 2025",
@@ -139,7 +155,8 @@
     "tags": [
       "Security",
       "Vulnerability",
-      "WordPress"
+      "WordPress",
+      "Learning By Doing"
     ],
     "author": "Nick McClure",
     "content": "blog-posts/my-first-reported-vuln-fake-wp-plugin.html"

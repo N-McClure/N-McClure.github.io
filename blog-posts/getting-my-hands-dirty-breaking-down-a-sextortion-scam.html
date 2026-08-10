@@ -1,0 +1,283 @@
+<!--
+
+    === Article Plan / Outline ===
+    Title: How I Traced a Russian Scammer from a Phishing Email To Their Real Identity
+    Date: January 14, 2026
+    Cover Image: /blog-posts/media/code.jpg
+
+    Opening Paragraph: Introduction
+    -------------------------------
+    - Content Warning, mentioning that this article mentions "Sextortion".
+    - Talk about how due to the sensitive nature of the case I will be omitting the victim's name out of respect for their privacy.
+    - Briefly talk about how phishing emails are a common tactic by cybercriminals but are always evolving and becoming more sophisticated.
+    - Introduce the main topic and mention my weariness of initially writing this article but how I decided to share the experience (with consent from the "client" of course).
+
+    Paragraph One (1): Initial Contact and Asking for Help
+    ------------------------------------------------------
+    - Describe how I was initially contacted by a friend who had received a phishing email.
+    - Explain how the email contained a bunch of "Sextortion" claims and threats that had NO basis of truth whatsoever.
+    - Talk about how she was confused because the "sender" claimed to have been her email address and asked me to look and help her see if her account was compromised.
+    - Mention how I reassured her that I would help her investigate the matter.
+
+    Paragraph Two (2): Asking Questions and Gathering Information
+    -------------------------------------------------------------
+    - Talk about how I started my investigation by asking her a series of questions.
+    - The Questions included:
+        - Did the claims in the email have any basis of truth (Judgement Free)?
+        - Had she visited any suspicious websites or links recently?
+        - Did she notice any unusual or new logins to her email account?
+        - Did she have any emails in her sent folder that she did not send?
+    
+    Paragraph Three(3): Looking for Breaches & Peeking Under the Hood of the Email
+    ------------------------------------------------------------------------------
+    - Explain how I used "haveibeenpwnd" to check to see if the email address had been found in any recent breaches.
+    - Breakdown of the email source code.
+    - Talk about how I found an IP address in the email source code.
+
+    Paragraph Four (4): Tracing the IP Address & Inital Info On Suspect
+    -------------------------------------------------------------------
+    - Explain how I ran the IP address through the usage of "whois" command.
+    - Explain how I uncovered a multitude of info from that command.
+
+    Paragraph Five (5): Digging Deeper Into The Suspect & Building A Profile
+    ------------------------------------------------------------------------
+    - Talk about how I used the username prefex of the email and the tool "sherlock" to find more accounts associated with that username.
+    - Explain how I found multiple social media accounts tied to the suspect.
+    - Mention how I pieced together a profile of the suspect based on the info I found.
+
+    Paragraph Six (6): Sending My Findings To The Victim
+    -----------------------------------------------------
+    - Talk about how I compiled all of my findings into a report.
+    - Explain how I sent the report to my friend and reassured her that her account was safe.
+    - Mention how I advised her on best practices to avoid falling victim to such scams in the future.
+
+    Paragraph Seven (7): Reflection and Conclusion
+    ----------------------------------------------
+    - Reflect on the experience and what I learned from it.
+    - Mention how this experience was the final push for me to start developing my project "PhishTrap".
+    - Emphasize the importance of being vigilant against phishing attempts.
+    - Encourage readers to educate themselves about cybersecurity and to seek help if they suspect they have been targeted by scammers.
+
+-->
+
+<!-- Opening Paragraph: Introduction -->
+<h3>Introduction</h3>
+<p>
+    <strong>CONTENT WARNING:</strong> This article discusses cyber extortion and "sextortion."
+    Due to the sensitive nature of this case, I have omitted the victim's name out of respect for their privacy.<br><br>
+
+    Phishing remains one of the most prevalent attack vectors used by cybercriminals to trick targets into divulging
+    credentials, clicking malicious links, or executing malware. As defensive controls improve, these social engineering
+    campaigns continuously evolve in sophistication—making them increasingly difficult for the average user to
+    spot.<br><br>
+
+    In this write-up, I walk through a real-world investigation that began when a peer asked me to analyze a suspicious
+    email they received. What started as a quick triage evolved into an OSINT dive that allowed me to trace a scammer's
+    infrastructure directly back to an individual in Russia. While I was initially hesitant to publish this, I received
+    explicit consent from my peer (referred to as "MT") to share our findings to help educate others on how these
+    extortion schemes operate.
+</p>
+
+<!-- Section 1: Initial Contact and Asking For Help -->
+<h3>1. Initial Contact and Triage</h3>
+<p>
+    On July 10, 2025, MT reached out regarding a alarming email sitting in their inbox. Knowing my background in digital
+    forensics and security research, they asked if I would be willing to analyze it.<br><br>
+
+    The message immediately raised red flags for MT because the <code>From</code> header displayed their own email
+    address, creating the illusion that the email had been sent directly from their compromised account.
+    <br><br><img src="blog-posts/media/mt_1.png" alt="Sextortion email screenshot"><br><br>
+
+    Fearing an account takeover, MT opened the message. The email contained a classic sextortion script: the sender
+    claimed to have compromised MT’s device, installed spyware, recorded explicit footage via webcam, and exfiltrated
+    their contact list. The attacker demanded a ransom paid in Bitcoin to prevent the public release of the
+    media.<br><br>
+
+    I reassured MT that these high-volume automated campaigns almost exclusively rely on fear and leaked password
+    databases rather than an actual endpoint compromise. I immediately initiated a formal forensic analysis.
+</p>
+
+<!-- Section 2: Gathering Context -->
+<h3>2. Context Gathering and Initial Scoping</h3>
+<p>
+    Before diving into raw email headers, I interviewed MT to establish a baseline, eliminate potential attack vectors,
+    and assess the true scope of the situation. I assured them that this was a non-judgmental space and that accurate
+    details were critical to the investigation.<br><br>
+
+    I focused on four key questions:
+<ul>
+    <li>Did any specific claims in the email contain granular, non-public truths?</li>
+    <li>Had they interacted with suspicious links, downloaded unexpected attachments, or visited untrusted domains
+        recently?</li>
+    <li>Were there any unusual login events or unknown active sessions in their account audit logs?</li>
+    <li>Were there any sent messages in their outbox that they did not author?</li>
+</ul><br>
+MT confirmed that all claims were entirely fabricated, no unexpected session logs were present, and no unauthorized
+outbound messages existed. This allowed me to pivot away from an active endpoint or session-hijacking incident response
+scenario and focus on analyzing the email's origin and header transport path.
+</p>
+
+<!-- Section 3: Exposure Verification and Header Analysis -->
+<h3>3. Data Breach Exposure & Header Analysis</h3>
+<p>
+    First, I checked whether MT's email address had been leaked in historical data breaches using <a
+        href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>.
+    <br><br><img src="blog-posts/media/mt_5.png" alt="HIBP breach search results"><br><br>
+
+    The address appeared in nineteen (19) distinct breach datasets spanning from December 2012 to recent months. MT
+    clarified that this address was their legacy "junk/subscriptions" inbox. This explained how the threat actor
+    obtained the target address—likely buying or scraping public breach dumps to feed automated mass-mailing
+    scripts.<br><br>
+
+    Next, I requested the raw RFC 822 email source code to analyze the email headers.
+    <br><br><img src="blog-posts/media/mt_2.png" alt="Raw email headers snippet 1"><br><br>
+
+    I inspected the hop-by-hop <code>Received</code> headers to trace the transport route from the originating Mail
+    Transfer Agent (MTA) to MT's inbox provider.
+
+<h4>Key Header Discoveries:</h4>
+<ul>
+    <li><strong>Inbound Gateway Node:</strong> <code>DU2PEPF00028D06.europrd03.prod.outlook.com</code> (Microsoft
+        Exchange Online Infrastructure)</li>
+    <li><strong>Connecting Domain:</strong> <code>willowstonecanyon.org</code></li>
+    <li><strong>Originating IPv4 Address:</strong> <code>46.232.41.252</code></li>
+</ul><br>
+
+<br><img src="blog-posts/media/mt_4.png" alt="Raw email headers snippet 2 showing SPF failure"><br><br>
+
+Examining the authentication results header revealed a critical finding:
+<code>received-spf: fail</code>. The SPF check failed because the originating IP (<code>46.232.41.252</code>) was not
+designated as an authorized sender in the SPF record for MT's domain or the claimed sending domain. The sender had
+simply spoofed the display name and <code>From</code> header field to trick the mail client into showing the recipient's
+own address.
+</p>
+
+<!-- Section 4: Infrastructure Enumeration & WHOIS Intelligence -->
+<h3>4. Infrastructure Enumeration & WHOIS Deep Dive</h3>
+<p>
+    With the originating IP address (<code>46.232.41.252</code>) isolated, I conducted active and passive network
+    reconnaissance.<br><br>
+
+    An initial TCP port scan and ICMP echo request against the target host timed out, suggesting the host was either
+    offline or dropping unsolicited traffic at the firewall level. I then turned to passive registration data using
+    <code>whois</code>.<br><br>
+
+    <strong>Execution:</strong> <code>whois 46.232.41.252</code><br><br>
+
+    <img src="blog-posts/media/whois_pc1.png" alt="WHOIS Output Part 1"><br><br>
+
+    The primary abuse contact listed was <code>pavel_chachin@keemail.me</code>. The use of <code>keemail.me</code>—a
+    privacy-focused, encrypted mail domain associated with Tuta (formerly Tutanota)—is atypical for a legitimate Local
+    Internet Registry (LIR) or enterprise network maintainer, often signaling an intentional effort to obscure
+    identity.<br><br>
+
+    <img src="blog-posts/media/whois_pc2.png" alt="WHOIS Output Part 2"><br><br>
+
+    Crucially, the record contained the status line: <code>remarks: Pending deregistration by the RIPE NCC</code>. The
+    <a href="https://www.ripe.net/" target="_blank" rel="noopener noreferrer">RIPE NCC</a> (the Regional Internet
+    Registry for Europe, the Middle East, and parts of Central Asia) was actively revoking this IP block due to policy
+    non-compliance, non-payment, or unverified organization details.<br><br>
+
+    The network allocation identifier (<code>netname: RU-DOMTEHNIKI-NET-20110209</code>) provided further metadata:
+<ul>
+    <li><strong>Country Code:</strong> <code>RU</code> (Russian Federation)</li>
+    <li><strong>Org Identifier:</strong> Associated with LIR entry "Dom Tehniki Ltd"</li>
+    <li><strong>Allocation Date:</strong> February 9, 2011</li>
+</ul><br>
+
+Checking the RIPE database routing maintainer objects revealed full administrative control delegated to a specific
+maintainer handle (<code>chachinmnt</code>):
+<ul>
+    <li><code>mnt-by</code>: <code>chachinmnt</code></li>
+    <li><code>mnt-lower</code>: <code>chachinmnt</code></li>
+    <li><code>mnt-routes</code>: <code>chachinmnt</code> / <code>mnt-md-alexhost-1</code></li>
+</ul><br>
+
+<em>Note: The inclusion of <code>mnt-md-alexhost-1</code> links the routing object to AlexHost, a Moldova-based offshore
+    hosting provider commonly associated with bulletproof hosting services.</em><br><br>
+
+<img src="blog-posts/media/whois_pc3.png" alt="WHOIS Output Part 3"><br><br>
+
+Cross-referencing the physical business address listed under the LIR record ("Dom Tehniki Ltd") against public records
+showed discrepancies with the actual commercial entity of the same name, indicating that an enterprise registration or
+stolen LIR object was likely being misused to anchor this IP space.<br><br>
+
+<img src="blog-posts/media/whois_pc4.png" alt="WHOIS Output Part 4"><br><br>
+
+Finally, the direct contact handle (<code>nic-hdl: TB4584-RIPE</code>) revealed explicit registrant details:
+<ul>
+    <li><strong>Person:</strong> Pavel Chachin</li>
+    <li><strong>Physical Address:</strong> Street Prigorodnaya, 10-38, Omsk, Russian Federation</li>
+    <li><strong>Phone Number:</strong> <code>+73833999950</code></li>
+</ul><br>
+
+I now had a solid set of identifiers linked to the infrastructure owner: an individual name, location, phone number,
+handle, and email address.
+</p>
+
+<!-- Section 5: OSINT Pivot & Profile Construction -->
+<h3>5. OSINT Pivoting & Threat Profiling</h3>
+<p>
+    Using the selector "Pavel Chachin" alongside the geographic anchor (Omsk, Russia), I initiated passive open-source
+    intelligence (OSINT) searches.<br><br>
+
+    The query surfaced indexed public assets matching the exact identity:
+<ul>
+    <li><strong>Facebook Profile:</strong> <a href="https://www.facebook.com/pavel.chachin.7/" target="_blank"
+            rel="noopener noreferrer">https://www.facebook.com/pavel.chachin.7/</a></li>
+    <li><strong>Prezi Presentation:</strong> <a href="https://prezi.com/rolmmyabdhim/11111/" target="_blank"
+            rel="noopener noreferrer">https://prezi.com/rolmmyabdhim/11111/</a></li>
+</ul><br>
+
+<img src="blog-posts/media/pc_facebook.png" alt="Pavel Chachin Facebook Profile"><br><br>
+
+To expand the target footprint, I extracted the handle candidate (<code>pavel.chachin.7</code>) and queried registered
+social platforms using <a href="https://github.com/sherlock-project/sherlock" target="_blank"
+    rel="noopener noreferrer">Sherlock</a>.<br><br>
+
+<strong>Execution:</strong> <code>python3 sherlock pavel.chachin.7 --print-found --disable-update-check</code><br><br>
+
+<img src="blog-posts/media/pc_sherlock.png" alt="Sherlock output showing social media handles"><br><br>
+
+The enumeration returned multiple matching accounts across Eastern European forums and global web services. After
+manually validating response codes to eliminate false positives, I compiled a dossier establishing a strong correlation
+between the individual in Omsk and the owner of the IP space hosting the scam infrastructure.
+</p>
+
+<!-- Section 6: Reporting and Incident Remediation -->
+<h3>6. Reporting & Victim Remediation</h3>
+<p>
+    I compiled the complete forensic analysis into a formal incident report for MT, accompanying it with an archive
+    containing raw email headers, WHOIS lookup logs, traceroutes, and verified OSINT findings.<br><br>
+
+    The report outlined the following conclusions:
+<ol>
+    <li><strong>No Account Takeover:</strong> The email was a display-name and header spoof originating from external
+        infrastructure (<code>46.232.41.252</code>); MT's credentials and endpoint remained secure.</li>
+    <li><strong>Automated Campaign:</strong> The attack leveraged leaked credentials from historic third-party data
+        breaches to target MT's secondary email.</li>
+    <li><strong>Attacker Profile:</strong> The infrastructure was tied to a flagged, deregistering IP block under the
+        administrative control of a known individual operating out of Russia.</li>
+</ol><br>
+
+I provided MT with actionable security recommendations, including enforcing strict Multi-Factor Authentication (MFA),
+monitoring secondary email accounts for unusual access, and disregarding future extortion claims.
+</p>
+
+<!-- Section 7: Reflection & Conclusion -->
+<h3>Conclusion & Key Takeaways</h3>
+<p>
+    Analyzing real-world attack infrastructure offers practical insights into social engineering tactics and
+    network-level indicators that synthetic lab environments rarely replicate. This case highlights how threat actors
+    abuse legacy LIR allocations, bulletproof hosting routes, and email header spoofing to execute mass extortion
+    campaigns.<br><br>
+
+    This investigation also directly inspired the development of my project, <strong>PhishTrap</strong> a browser
+    extension and defensive toolkit built to streamline email header analysis, extract connecting IPs automatically, and
+    educate end users against phishing vectors.<br><br>
+
+    <strong>Post-Investigation Update:</strong><br>
+    As of this writing, the infrastructure identified in this case—including the specific IP range, primary abuse
+    mailer, and associated cryptocurrency receiving wallet has been de-indexed, blocked across major threat feeds, and
+    deregistered by RIPE NCC.
+</p>
