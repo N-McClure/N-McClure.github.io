@@ -120,7 +120,7 @@
     "slug": "cybersci-ctf-2025-they-didnt-listen-warmup",
     "title": "CyberSci CTF 2025 - Warmup They Didn't Listen Writeup",
     "date": "November 24, 2025",
-    "image": "blog-posts/media/cybersci_thumbnail.jpg",
+    "image": "blog-posts/media/ctf_banner.png",
     "preview": "A writeup of the warmup challenge 'They Didn't Listen' from the CyberSci CTF 2025, detailing the approach and solution used to solve the challenge to retreive the flag.",
     "tags": [
       "CTF",
@@ -165,7 +165,7 @@
     "slug": "iss-ctf-2025-crypto-sos",
     "title": "ISS CTF 2025 - Crypto SOS Writeup",
     "date": "February 11, 2025",
-    "image": "blog-posts/media/sos1.png",
+    "image": "blog-posts/media/ctf_banner.png",
     "preview": "A detailed writeup of the Crypto SOS challenge from the ISS CTF 2025, covering the steps taken to decode the message and retrieve the flag.",
     "tags": [
       "CTF",
