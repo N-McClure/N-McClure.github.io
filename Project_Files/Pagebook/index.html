@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagebound — Social Book Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo"><span>●</span> Pagebound</a>
+      <button class="btn-log" id="openModalBtn">+ Search / Log Book</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Want To Read Grid (Watchlist) -->
+    <section>
+      <div class="section-title">
+        <span>Want To Read</span>
+        <span class="count" id="wantToReadCount">0</span>
+      </div>
+      <div class="book-grid" id="wantToReadGrid"></div>
+    </section>
+
+    <!-- Activity Stream (Reviews) -->
+    <section>
+      <div class="section-title">
+        <span>Your Reviews & Entries</span>
+        <span class="count" id="reviewsCount">0</span>
+      </div>
+      <div class="feed" id="reviewFeed"></div>
+    </section>
+  </main>
+
+  <!-- Log/Edit Book Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Log a Book</h3>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+      <form id="logForm">
+        
+        <!-- Live API Search Bar -->
+        <div class="form-group" id="searchGroup">
+          <label for="searchInput">Search Open Library API</label>
+          <input type="text" id="searchInput" placeholder="Type title or author..." autocomplete="off">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <!-- Selected Book Preview Box -->
+        <div id="selectedPreview" style="display: none;"></div>
+
+        <div class="form-group">
+          <label>Rating</label>
+          <div class="star-rating-input" id="starInput">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewText">Review / Thoughts</label>
+          <textarea id="reviewText" placeholder="Add a review..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-log" id="submitBtn" style="width: 100%; padding: 0.8rem;">Save Review</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
