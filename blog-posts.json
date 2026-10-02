@@ -1,21 +1,19 @@
 [
   {
-    "slug": "iss-news-march-23-2026-darksword-ios-exploit-kit",
-    "title": "ISS News - March 23, 2026 - DarkSword IOS Exploit Kit",
-    "date": "March 23rd, 2026",
-    "image": "blog-posts/media/issessions_cover.png",
-    "preview": "An overview of the DarkSword IOS exploit kit news story that I covered at ISS this week during the News Segment portion of the meeting.",
+    "slug": "flare-darkroom-ctf-the-drive-by",
+    "title": "Flare : Darkroom CTF Writeup - The Drive By",
+    "date": "October 2, 2026",
+    "image": "blog-posts/media/ctf_banner.png",
+    "preview": "A detailed writeup of 'The Drive By' at Flare's Darkroom CTF.",
     "tags": [
-      "Security",
-      "Apple",
-      "IOS",
-      "News",
-      "DarkSword",
-      "ISS",
-      "ISSessions"
+      "Flare",
+      "CTF",
+      "Packet Analysis",
+      "Threat Intelligence",
+      "Writeup"
     ],
     "author": "Nick McClure",
-    "content": "blog-posts/iss-news-march-23-2026-darksword-ios-exploit-kit.html"
+    "content": "blog-posts/flare-darkroom-ctf-the-drive-by.html"
   },
   {
     "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
