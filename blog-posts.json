@@ -1,10 +1,10 @@
 [
   {
     "slug": "flare-darkroom-ctf-the-drive-by",
-    "title": "Flare : Darkroom CTF Writeup - The Drive By",
+    "title": "Flare : Operation SkullProxy CTF Writeup - The Drive By",
     "date": "October 2, 2026",
     "image": "blog-posts/media/ctf_banner.png",
-    "preview": "A detailed writeup of 'The Drive By' at Flare's Darkroom CTF.",
+    "preview": "A detailed writeup of 'The Drive By' at Flare's 'Operation SkullProxy' CTF.",
     "tags": [
       "Flare",
       "CTF",
@@ -13,7 +13,7 @@
       "Writeup"
     ],
     "author": "Nick McClure",
-    "content": "blog-posts/flare-darkroom-ctf-the-drive-by.html"
+    "content": "blog-posts/flare-darkroom-skullproxy-ctf-the-drive-by.html"
   },
   {
     "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
