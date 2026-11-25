@@ -1,0 +1,193 @@
+<h3>Challenge Description:</h3>
+<p>
+    The challenge, <strong>Not Under the Mat</strong>, was a 200-point reverse-engineering challenge.
+    The prompt explained that the McCallisters' spare key was no longer hidden under the doormat.
+    Instead, the key had been replaced by an executable file that was taken along with the rest of the
+    information collected by a stealer. The goal was to locate the program and work out how it opens
+    the McCallisters' door.<br><br>
+    The challenge also gave an important hint: there was no infrastructure or external service to
+    investigate. Everything needed for the challenge was contained in the stealer-log ZIP attached
+    to <em>Gold Star Student</em>.
+</p>
+
+<img src="blog-posts/media/not-under-the-mat-challenge.png" alt="Not Under the Mat challenge prompt"><br><br>
+
+<h3>My Actions / Solution:</h3>
+<p>
+    I started by locating the executable provided for the challenge, <code>unlock-door.exe</code>.
+    Since this was an unknown Windows executable, I did not immediately run it. I wanted to inspect
+    its contents first and see whether it contained useful strings, configuration values, or other
+    information that could explain what the program did.<br><br>
+
+    <strong>File Analyzed:</strong> <code>unlock-door.exe</code><br>
+    <strong>File Size:</strong> 1,340,928 bytes
+</p>
+
+<h4>1. Converting the executable into a Hexdump with CyberChef</h4>
+<p>
+    I opened <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener">CyberChef</a>
+    and loaded <code>unlock-door.exe</code> into the Input pane. Since an executable is binary data,
+    viewing it directly as text would not be very useful. I searched the Operations list for
+    <strong>To Hexdump</strong> and added that operation to the Recipe pane.<br><br>
+    CyberChef converted the executable into a hexadecimal dump. The dump displays the file offset,
+    the bytes in hexadecimal, and an ASCII representation of printable characters. That ASCII column
+    is especially useful because it can expose readable strings that are embedded in the executable.<br><br>
+    I copied/exported the resulting dump and saved it as <code>exe_hex.txt</code> so I could search
+    through it without having to repeatedly load the original executable.
+</p>
+
+<img src="blog-posts/media/not-under-the-mat-hexdump.png" alt="Hexdump excerpts from the executable"><br><br>
+
+<h4>2. Identifying the executable</h4>
+<p>
+    Before looking for the challenge-specific information, I checked the beginning of the dump.
+    The first two bytes were <code>4D 5A</code>, which translate to the ASCII characters
+    <code>MZ</code>. This is the standard DOS header signature found at the beginning of a Windows
+    Portable Executable (PE) file. The PE signature itself is <code>50 45 00 00</code>
+    (<code>PE\0\0</code>).<br><br>
+    I also checked the file metadata from the terminal:
+</p>
+<p><strong>Command Ran:</strong> <code>file unlock-door.exe</code></p>
+<pre><code>PE32+ executable for MS Windows 6.01 (console), x86-64, 8 sections</code></pre>
+<p>
+    This confirmed that the file was a 64-bit Windows console executable. I then checked its Go
+    build metadata:
+</p>
+<p><strong>Command Ran:</strong> <code>go version -m unlock-door.exe</code></p>
+<pre><code>go1.22.3
+GOOS=windows
+GOARCH=amd64
+CGO_ENABLED=0</code></pre>
+<p>
+    This showed that the executable had been built with Go 1.22.3 for Windows on the AMD64
+    architecture. Knowing that it was a Go binary helped explain why the dump contained a large
+    amount of runtime and standard-library text mixed in with the program's own strings.
+</p>
+
+<img src="blog-posts/media/not-under-the-mat-binary-info.png" alt="Executable file and Go build metadata"><br><br>
+
+<h4>3. Searching the Hexdump for useful strings</h4>
+<p>
+    With the hexdump available, I started looking through the ASCII column for terms related to the
+    challenge, including <code>door</code>, <code>unlock</code>, <code>code</code>,
+    <code>service</code>, and <code>McCallister</code>. This helped separate the application's
+    information from the large amount of unrelated Go runtime strings.
+</p>
+<p>
+    One of the first useful strings identified the program:
+</p>
+<pre><code>LockMaster SL-500 Service Utility v2.4.1
+Site: McCallister residence, Winnetka IL</code></pre>
+<p>
+    This tied the executable directly to the McCallister residence mentioned in the challenge.
+    The dump also contained a usage message:
+</p>
+<pre><code>usage: unlock-door.exe --code &lt;service code&gt;</code></pre>
+<p>
+    This revealed that the program expects a service code supplied through the
+    <code>--code</code> command-line argument. I also found messages indicating what happens when
+    the code is accepted or rejected:
+</p>
+<pre><code>[+] service code accepted
+[-] service code rejected, lock stays engaged
+[+] front door: UNLOCKED</code></pre>
+<p>
+    These strings describe the application's success and failure paths. They indicate that the
+    program checks a supplied service code and has a success path that reports the front door as
+    unlocked.
+</p>
+
+<h4>4. Finding the service-code clue</h4>
+<p>
+    While searching through the dump, I also came across the string
+    <code>KEVIN-PIN-IS-1337</code>. This stood out because the program's usage message showed that
+    it required a service code. The value is embedded in the executable's string data, making it a
+    strong candidate for the code expected by the utility.<br><br>
+    The relevant value appears in the surrounding text as part of a Go runtime <code>GODEBUG</code>
+    string. Based on the challenge context and the executable's command-line usage, I treated it as
+    a service-code clue rather than assuming it was independently verified. The likely test command
+    would be:
+</p>
+<pre><code>unlock-door.exe --code KEVIN-PIN-IS-1337</code></pre>
+<p>
+    I did not rely on executing the binary to recover the flag. The static evidence was enough to
+    identify the encoded flag in the next step.
+</p>
+
+<h4>5. Locating the encoded flag</h4>
+<p>
+    Continuing through the hexdump, I found a long string that did not look like ordinary text:
+</p>
+<pre><code>ZmxhcmV7dGgzX2JhbmQxdHNfdW5sMGNrM2RfdGgzX2QwMHJ9</code></pre>
+<p>
+    This string uses the Base64 character set and was a good candidate for an encoded value.
+    Its location in the dump was around offset <code>0xAE37D</code>. Rather than trying to interpret
+    it manually, I copied the complete value so it could be decoded.
+</p>
+
+<h4>6. Decoding the Base64 value in CyberChef</h4>
+<p>
+    I returned to CyberChef and pasted the encoded string into the Input pane. I then searched for
+    the <strong>From Base64</strong> operation and added it to the Recipe pane. CyberChef decoded
+    the input and displayed the resulting text in the Output pane.
+</p>
+
+<img src="blog-posts/media/not-under-the-mat-base64.png" alt="Base64 value and decoded flag"><br><br>
+
+<p>
+    The decoded output was:
+</p>
+<pre><code>flare{th3_band1ts_unl0ck3d_th3_d00r}</code></pre>
+<p>
+    This matched the flag format supplied in the challenge description, confirming that the
+    encoded string contained the flag.
+</p>
+
+<h4>7. Verifying the flag</h4>
+<p>
+    To make sure that the value had been decoded correctly, I encoded the recovered flag back into
+    Base64 using Python:
+</p>
+<pre><code>import base64
+
+flag = "flare{th3_band1ts_unl0ck3d_th3_d00r}"
+
+encoded = base64.b64encode(flag.encode()).decode()
+
+print(encoded)</code></pre>
+<p>
+    The output was the exact same Base64 string that I had found in the executable:
+</p>
+<pre><code>ZmxhcmV7dGgzX2JhbmQxdHNfdW5sMGNrM2RfdGgzX2QwMHJ9</code></pre>
+<p>
+    Matching the original value confirmed that the decoding process was correct and that the flag
+    had not been changed during extraction.
+</p>
+
+<h4>8. Final file verification</h4>
+<p>
+    As a final forensic check, I calculated the SHA-256 hash of the executable so that the exact
+    file used during the analysis could be identified:
+</p>
+<p><strong>Command Ran:</strong> <code>sha256sum unlock-door.exe</code></p>
+<pre><code>90ddd81ac86701faa26f9c240bf0bbbf1e0cb515af7e43687cd795a543496a0b</code></pre>
+
+<h3>Found Flag:</h3>
+<p><strong><code>flare{th3_band1ts_unl0ck3d_th3_d00r}</code></strong></p>
+
+<h3>Conclusion:</h3>
+<p>
+    This challenge was solved by statically analyzing the supplied Windows executable rather than
+    running an unknown program. I first converted <code>unlock-door.exe</code> into a hexdump using
+    CyberChef's <strong>To Hexdump</strong> operation and saved the result as
+    <code>exe_hex.txt</code>. I then searched the readable ASCII portion of the dump for strings
+    that related to the challenge, which revealed the LockMaster utility, its expected
+    <code>--code</code> argument, and its door-unlocking messages.<br><br>
+    The most important discovery was a Base64-encoded string embedded in the executable. Using
+    CyberChef's <strong>From Base64</strong> operation, I decoded the value and recovered the flag.
+    I then re-encoded the flag with Python to verify that it matched the original string found in
+    the dump.<br><br>
+    This challenge was a good example of how useful a hexdump can be when investigating an unknown
+    executable. Even without source code, the combination of file identification, readable-string
+    analysis, and decoding helped reveal both the program's intended purpose and the flag.
+</p>

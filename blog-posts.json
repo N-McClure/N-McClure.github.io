@@ -1,19 +1,18 @@
 [
   {
-    "slug": "flare-darkroom-ctf-the-drive-by",
-    "title": "Flare : Operation SkullProxy CTF Writeup - The Drive By",
-    "date": "October 2, 2026",
+    "slug": "flare-ctf-week-1-not-under-the-mat",
+    "title": "Flare Holiday CTF 2026 - Week 1 : Not Under The Mat",
+    "date": "November 24, 2026",
     "image": "blog-posts/media/ctf_banner.png",
-    "preview": "A detailed writeup of 'The Drive By' at Flare's 'Operation SkullProxy' CTF.",
+    "preview": "A Reverse-Engineering writeup showing how I inspected a Windows executable, converted it into a Hexdump using CyberChef, searched it's embedded strings, and decoded the Base64 flag.",
     "tags": [
       "Flare",
       "CTF",
-      "Packet Analysis",
-      "Threat Intelligence",
+      "Reverse Engineering",
       "Writeup"
     ],
     "author": "Nick McClure",
-    "content": "blog-posts/flare-darkroom-skullproxy-ctf-the-drive-by.html"
+    "content": ""
   },
   {
     "slug": "iss-news-march-9-2026-wordpress-plugin-bug-allows-attackers-to-create-admin-accounts",
